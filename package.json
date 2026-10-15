@@ -1,0 +1,50 @@
+{
+  "name": "dahl-bulk-apikey",
+  "version": "1.0.0",
+  "description": "Bulk API keys for Dahl Inference (dahl.global) — free tier: 100M tokens per account, 3 models (MiniMax M2.7, DeepSeek-V4-Flash, GLM-5.3-Flash). One account per key.",
+  "license": "MIT",
+  "type": "commonjs",
+  "bin": {
+    "dahl-bulk-apikey": "cli.js",
+    "dahl-bulk-apikey-launcher": "launcher.js"
+  },
+  "main": "cli.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node launcher.js",
+    "mint": "node cli.js"
+  },
+  "keywords": [
+    "api-key",
+    "bulk",
+    "register",
+    "launcher",
+    "dahl",
+    "bulk",
+    "apikey"
+  ],
+  "files": [
+    "cli.js",
+    "client.js",
+    "finish-pending.js",
+    "flow.js",
+    "get.js",
+    "guard.js",
+    "launcher.js",
+    "lib.js",
+    "live-from-log.js",
+    "make-keys-table.js",
+    "measure-chat-limit.js",
+    "mint.js",
+    "probe-limits.js",
+    "proxy.js",
+    "recover.js",
+    "screen.js",
+    "text.js",
+    "verify.js",
+    "README.md",
+    "LICENSE"
+  ]
+}
