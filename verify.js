@@ -1,1 +1,149 @@
-const a0_0xb6a888=a0_0xdd36;(function(_0x318f7f,_0x432f76){const _0x4c5fd5=a0_0xdd36,_0x2b28a1=_0x318f7f();while(!![]){try{const _0x13b898=parseInt(_0x4c5fd5(0x10d))/0x1+parseInt(_0x4c5fd5(0x11b))/0x2+parseInt(_0x4c5fd5(0x139))/0x3+-parseInt(_0x4c5fd5(0x137))/0x4*(parseInt(_0x4c5fd5(0x141))/0x5)+parseInt(_0x4c5fd5(0x146))/0x6+-parseInt(_0x4c5fd5(0x144))/0x7+-parseInt(_0x4c5fd5(0x107))/0x8;if(_0x13b898===_0x432f76)break;else _0x2b28a1['push'](_0x2b28a1['shift']());}catch(_0x16326e){_0x2b28a1['push'](_0x2b28a1['shift']());}}}(a0_0x268c,0x77b1a));const a0_0x2ba895=(function(){let _0x541b9c=!![];return function(_0xb8f396,_0x176364){const _0x27bc69=_0x541b9c?function(){if(_0x176364){const _0x72aa33=_0x176364['apply'](_0xb8f396,arguments);return _0x176364=null,_0x72aa33;}}:function(){};return _0x541b9c=![],_0x27bc69;};}()),a0_0x1f8fe5=a0_0x2ba895(this,function(){const _0x4d23d2=a0_0xdd36;if(a0_0x1f8fe5[_0x4d23d2(0x131)]()[_0x4d23d2(0x149)]()['indexOf']('\x0a')!==-0x1)return;return a0_0x1f8fe5['toString']()['search'](_0x4d23d2(0x127))[_0x4d23d2(0x149)]()[_0x4d23d2(0x120)](a0_0x1f8fe5)[_0x4d23d2(0xfe)](_0x4d23d2(0x127));});a0_0x1f8fe5();'use strict';const fs=require('fs'),path=require(a0_0xb6a888(0xff));require('./guard')[a0_0xb6a888(0x109)](a0_0xb6a888(0x12e));function a0_0xdd36(_0x4a74f1,_0x231fd3){_0x4a74f1=_0x4a74f1-0xfe;const _0x24dd4b=a0_0x268c();let _0x1f8fe5=_0x24dd4b[_0x4a74f1];if(a0_0xdd36['bgaEnx']===undefined){var _0x2ba895=function(_0x11063f){const _0x35d899='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x3d4ece='',_0x438e45='',_0x2589bf=_0x3d4ece+_0x2ba895,_0x2759b1=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x541b9c=0x0,_0xb8f396,_0x176364,_0x27bc69=0x0;_0x176364=_0x11063f['charAt'](_0x27bc69++);~_0x176364&&(_0xb8f396=_0x541b9c%0x4?_0xb8f396*0x40+_0x176364:_0x176364,_0x541b9c++%0x4)?_0x3d4ece+=_0x2759b1||_0x2589bf['charCodeAt'](_0x27bc69+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0xb8f396>>(-0x2*_0x541b9c&0x6)):_0x541b9c:0x0){_0x176364=_0x35d899['indexOf'](_0x176364);}for(let _0x72aa33=0x0,_0x3d0d78=_0x3d4ece['length'];_0x72aa33<_0x3d0d78;_0x72aa33++){_0x438e45+='%'+('00'+_0x3d4ece['charCodeAt'](_0x72aa33)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x438e45);};a0_0xdd36['RcbQqU']=_0x2ba895,a0_0xdd36['ytUASn']={},a0_0xdd36['bgaEnx']=!![];}const _0x268cf3=_0x24dd4b[0x0];a0_0xdd36['Dyffll']!==_0x268cf3&&(a0_0xdd36['ytUASn']={},a0_0xdd36['Dyffll']=_0x268cf3);const _0xdd36af=a0_0xdd36['ytUASn'][_0x4a74f1];if(_0xdd36af===undefined){const _0x42a375=function(_0x189fb8){this['ClZvGz']=_0x189fb8,this['zueiBF']=[0x1,0x0,0x0],this['fiVwvM']=function(){return'newState';},this['RopTjz']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['wSeVyA']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x42a375['prototype']['ydSvJH']=function(){const _0x3759c7=new RegExp(this['RopTjz']+this['wSeVyA']),_0x10415f=_0x3759c7['test'](this['fiVwvM']['toString']())?--this['zueiBF'][0x1]:--this['zueiBF'][0x0];return this['lLElgN'](_0x10415f);},_0x42a375['prototype']['lLElgN']=function(_0xdd78ef){if(!Boolean(~_0xdd78ef))return _0xdd78ef;return this['NbcsTE'](this['ClZvGz']);},_0x42a375['prototype']['NbcsTE']=function(_0x108cd8){for(let _0xe1d411=0x0,_0x592d30=this['zueiBF']['length'];_0xe1d411<_0x592d30;_0xe1d411++){this['zueiBF']['push'](Math['round'](Math['random']())),_0x592d30=this['zueiBF']['length'];}return _0x108cd8(this['zueiBF'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x42a375(a0_0xdd36)['ydSvJH'](),_0x1f8fe5=a0_0xdd36['RcbQqU'](_0x1f8fe5),a0_0xdd36['ytUASn'][_0x4a74f1]=_0x1f8fe5;}else _0x1f8fe5=_0xdd36af;return _0x1f8fe5;}const {OUT,ROOT,proxyLib,pool,loadPool,arg}=require(a0_0xb6a888(0x104)),{Dahl}=require(a0_0xb6a888(0x147)),{verifyChat}=require(a0_0xb6a888(0x124)),CONC=parseInt(arg(a0_0xb6a888(0x101),'6'),0xa),MODEL=arg(a0_0xb6a888(0x12a),a0_0xb6a888(0x11e)),KEYS_FILE=path[a0_0xb6a888(0x13e)](ROOT,arg('keys','keys.txt')),LIMIT=parseInt(arg(a0_0xb6a888(0x114),'0'),0xa);function a0_0x268c(){const _0x14525e=['CMfUzg9T','CgfYC2u','Bw9KzwW','DhjPBq','zMLSDgvY','zxHPC3rZu3LUyW','DMvYAwz5','AM9PBG','y2HHDfn0yxr1CW','yMLUza','zxHPDa','z2v0','C3rKB3v0','yxjNDG','zgfOBc1Zy3jLzw4TBgL2zs50Ehq','nJG5nJrIt3vSB1e','zgfOBc1SAxzLlNr4Da','mJy0nJmYn1jdtMvUBq','A2v5','Dg9Rzw5Z','BM8GzxHPDhmGyxzHAwXHyMXL','EMfPlw9YzY9hte0Tns4ZluzSyxnO','CMvZB2X2zq','BgvUz3rO','DxrMoa','ntver2vrsLy','Ag9ZDa','AgfZ','ntu0odK5mxbvz2LkCq','ChjVDg9JB2W','ntC3mdm5mNres2vrsG','lI9JBgLLBNq','yMfSyw5Jzq','Dg9tDhjPBMC','oYbJDw11Bgf0AxzLigXPDMuG','w3zLCMLMEv0GA2v5CZ0','zgf0yq','C2vHCMnO','Cgf0Aa','yxr0zw1WDhm','y29UyW','BgfIzwW','D3jPDgvgAwXLu3LUyW','lI9SAwi','Bg9N','Aw5JBhvKzxm','ota4mJKXmK1HEuPQsq','C2XPy2u','z3vHCMq','Bg9HzfbVB2XgAwXL','ChvZAa','DMfSDwvZ','mJq2nZfer1H0uuO','C3rYAw5NAwz5','y29UDgvUDa','BwfW','CMvHzezPBgvtEw5J','Cg9YDa','D3jPDgu','BgLTAxq','igv4AxrZpq','C3bSAxq','zMXVB3i','Bw9KzwXZ','oI8V','ls1VBMX5lw1PC3nPBMC','mtq3odK2ngX2vvLfAW','zxjYB3i','A2v5qMfSyw5Jzq','twLUAu1HEefjl01PBMLnyxGTttiUnW','igLKCYKGDMLHia','y29UC3rYDwn0B3i','BwvZC2fNzq','C2v0','B2jQzwn0','lI9MBg93','BwLU','C3rHDhvZ','kcGOlISPkYKRksSK'];a0_0x268c=function(){return _0x14525e;};return a0_0x268c();}function exits(){const _0x5cc11c=a0_0xb6a888,_0x3d0d78=[path[_0x5cc11c(0x12f)](OUT,'dahl-point-of-use-live.txt'),path['join'](OUT,_0x5cc11c(0x136)),path[_0x5cc11c(0x12f)](OUT,_0x5cc11c(0x138))],_0x42a375=new Set(),_0x189fb8=[];for(const _0x3759c7 of _0x3d0d78){if(!fs[_0x5cc11c(0x12d)](_0x3759c7))continue;for(const _0x10415f of proxyLib[_0x5cc11c(0x10a)](_0x3759c7)){const _0xdd78ef=_0x10415f[_0x5cc11c(0x145)]+_0x5cc11c(0x119)+_0x10415f[_0x5cc11c(0x142)]+':'+_0x10415f[_0x5cc11c(0x112)];if(_0x42a375[_0x5cc11c(0x143)](_0xdd78ef))continue;_0x42a375['add'](_0xdd78ef),_0x189fb8[_0x5cc11c(0x10b)](_0x10415f);}}for(let _0x108cd8=_0x189fb8[_0x5cc11c(0x13f)]-0x1;_0x108cd8>0x0;_0x108cd8--){const _0xe1d411=Math[_0x5cc11c(0x117)](Math['random']()*(_0x108cd8+0x1));[_0x189fb8[_0x108cd8],_0x189fb8[_0xe1d411]]=[_0x189fb8[_0xe1d411],_0x189fb8[_0x108cd8]];}for(const _0x592d30 of loadPool()){const _0x525f79=_0x592d30['protocol']+_0x5cc11c(0x119)+_0x592d30[_0x5cc11c(0x142)]+':'+_0x592d30[_0x5cc11c(0x112)];if(_0x42a375['has'](_0x525f79))continue;_0x42a375['add'](_0x525f79),_0x189fb8[_0x5cc11c(0x10b)](_0x592d30);}return _0x189fb8;}((async()=>{const _0x399b6f=a0_0xb6a888;let _0x573ca0=fs[_0x399b6f(0x111)](KEYS_FILE,'utf8')[_0x399b6f(0x116)](/\r?\n/)[_0x399b6f(0x110)](_0x422e6c=>_0x422e6c[_0x399b6f(0x12b)]())[_0x399b6f(0x12c)](Boolean)[_0x399b6f(0x108)](0x0,LIMIT||undefined);if(process[_0x399b6f(0x135)][_0x399b6f(0x106)](_0x399b6f(0x11a))){const _0x418eed=path[_0x399b6f(0x12f)](OUT,'verify-report.json');if(fs[_0x399b6f(0x12d)](_0x418eed)){const _0x9c1c65=JSON[_0x399b6f(0x129)](fs[_0x399b6f(0x111)](_0x418eed,'utf8')),_0x51b634=new Set(_0x9c1c65[_0x399b6f(0x12c)](_0x880541=>!_0x880541['ok'])['map'](_0x28c037=>_0x28c037[_0x399b6f(0x13a)])),_0x35cbd2=_0x17302a=>_0x17302a[_0x399b6f(0x108)](0x0,0x8)+'…'+_0x17302a[_0x399b6f(0x108)](-0x4);_0x573ca0=_0x573ca0[_0x399b6f(0x12c)](_0x79d083=>_0x51b634[_0x399b6f(0x143)](_0x35cbd2(_0x79d083))),console['log']('[verify]\x20only-missing:\x20'+_0x573ca0[_0x399b6f(0x13f)]+'\x20keys');}}const _0x4aa7ac=exits();if(!_0x4aa7ac[_0x399b6f(0x13f)])throw new Error(_0x399b6f(0x13c));console[_0x399b6f(0x105)](_0x399b6f(0x14b)+_0x573ca0[_0x399b6f(0x13f)]+_0x399b6f(0x115)+_0x4aa7ac[_0x399b6f(0x13f)]+'\x20model='+MODEL);let _0x5f0881=null;for(let _0x1a9a54=0x0;_0x1a9a54<Math[_0x399b6f(0x125)](_0x4aa7ac['length'],0xa);_0x1a9a54++){try{const _0x59f8ab=new Dahl(_0x4aa7ac[_0x1a9a54]),_0x36368f=await _0x59f8ab[_0x399b6f(0x118)]();if(_0x36368f[_0x399b6f(0x126)]===0xc8){_0x5f0881=_0x36368f['data'],fs[_0x399b6f(0x103)](path[_0x399b6f(0x12f)](ROOT,'models.json'),JSON[_0x399b6f(0x10e)](_0x36368f[_0x399b6f(0x14c)],null,0x2)),console['log']('[verify]\x20models.json\x20written\x20('+(_0x36368f[_0x399b6f(0x14c)][_0x399b6f(0x14c)]||[])[_0x399b6f(0x13f)]+_0x399b6f(0x11f)+_0x59f8ab[_0x399b6f(0x102)]());break;}}catch{}}let _0x4c4c08=0x0,_0x3c35bb=0x0;const _0x1bb1ae=[],_0x7a4e93=[];await pool(_0x573ca0,CONC,async(_0x172d05,_0xbf14f8)=>{const _0x5e4c70=_0x399b6f,_0x1892b0=_0x172d05['slice'](0x0,0x8)+'…'+_0x172d05[_0x5e4c70(0x108)](-0x4),_0x319cc5={'idx':_0xbf14f8,'key':_0x1892b0};for(let _0x27cbd6=0x0;_0x27cbd6<0x18;_0x27cbd6++){const _0x157f91=new Dahl(_0x4aa7ac[Math['floor'](Math[_0x5e4c70(0x128)]()*_0x4aa7ac[_0x5e4c70(0x13f)])]);_0x319cc5[_0x5e4c70(0x132)]=_0x157f91[_0x5e4c70(0x102)](),_0x319cc5[_0x5e4c70(0x100)]=_0x27cbd6+0x1;try{const _0x56b68a=await _0x157f91[_0x5e4c70(0x11d)](_0x172d05);_0x319cc5['balanceStatus']=_0x56b68a[_0x5e4c70(0x126)],_0x319cc5[_0x5e4c70(0x148)]=_0x56b68a[_0x5e4c70(0x14c)]&&typeof _0x56b68a[_0x5e4c70(0x14c)]===_0x5e4c70(0x123)?_0x56b68a[_0x5e4c70(0x14c)]['available_tokens']??_0x56b68a[_0x5e4c70(0x14c)][_0x5e4c70(0x13b)]??_0x56b68a['data'][_0x5e4c70(0x148)]:_0x56b68a[_0x5e4c70(0x14c)];const _0x206491=await verifyChat(_0x157f91,_0x172d05,{'models':[MODEL,'deepseek-ai/DeepSeek-V4-Flash-0731',_0x5e4c70(0x13d)]});_0x319cc5['model']=_0x206491[_0x5e4c70(0x12a)],_0x319cc5['chatStatus']=_0x206491[_0x5e4c70(0x130)],_0x319cc5[_0x5e4c70(0x10f)]=_0x206491['content'],_0x319cc5['usage']=_0x206491['usage'],_0x319cc5['ok']=_0x56b68a[_0x5e4c70(0x126)]===0xc8&&_0x206491[_0x5e4c70(0x130)]===0xc8&&!!_0x319cc5['content'];if(_0x319cc5['ok'])_0x3c35bb++;break;}catch(_0x248eea){_0x319cc5[_0x5e4c70(0x11c)]=_0x248eea[_0x5e4c70(0x121)];}}return _0x1bb1ae[_0x5e4c70(0x10b)](_0x319cc5),process[_0x5e4c70(0x134)][_0x5e4c70(0x113)](_0x319cc5['ok']?'+':_0x319cc5['chatStatus']||'x'),_0x319cc5;}),console[_0x399b6f(0x105)]('');const _0x2b924a=path[_0x399b6f(0x12f)](OUT,'verify-report.json'),_0x3e79b1=fs[_0x399b6f(0x12d)](_0x2b924a)?JSON[_0x399b6f(0x129)](fs[_0x399b6f(0x111)](_0x2b924a,_0x399b6f(0x140))):[],_0x2314d1=new Map(_0x3e79b1[_0x399b6f(0x110)](_0xc2ab55=>[_0xc2ab55[_0x399b6f(0x13a)],_0xc2ab55]));for(const _0x391842 of _0x1bb1ae){const _0x52db02=_0x2314d1[_0x399b6f(0x133)](_0x391842[_0x399b6f(0x13a)]);if(!_0x52db02||!_0x52db02['ok']||_0x391842['ok'])_0x2314d1[_0x399b6f(0x122)](_0x391842[_0x399b6f(0x13a)],_0x391842);}const _0x12b1ec=[..._0x2314d1[_0x399b6f(0x10c)]()];fs[_0x399b6f(0x103)](_0x2b924a,JSON[_0x399b6f(0x10e)](_0x12b1ec,null,0x2));const _0x140de5=fs['readFileSync'](KEYS_FILE,_0x399b6f(0x140))[_0x399b6f(0x116)](/\r?\n/)['map'](_0x236302=>_0x236302[_0x399b6f(0x12b)]())[_0x399b6f(0x12c)](Boolean),_0x5a68a8=_0x44ac6f=>_0x44ac6f[_0x399b6f(0x108)](0x0,0x8)+'…'+_0x44ac6f[_0x399b6f(0x108)](-0x4),_0x14bee0=new Set(_0x12b1ec[_0x399b6f(0x12c)](_0x1e8ece=>_0x1e8ece['ok'])[_0x399b6f(0x110)](_0x476be8=>_0x476be8[_0x399b6f(0x13a)])),_0x1b0fed=_0x140de5['filter'](_0x39226f=>_0x14bee0[_0x399b6f(0x143)](_0x5a68a8(_0x39226f)));fs[_0x399b6f(0x103)](path[_0x399b6f(0x12f)](OUT,'verify-live-keys.txt'),_0x1b0fed[_0x399b6f(0x12f)]('\x0a')+(_0x1b0fed[_0x399b6f(0x13f)]?'\x0a':'')),console['log']('[verify]\x20this\x20pass\x20'+_0x3c35bb+'/'+_0x573ca0[_0x399b6f(0x13f)]+_0x399b6f(0x14a)+_0x1b0fed[_0x399b6f(0x13f)]+'/'+_0x140de5[_0x399b6f(0x13f)]+';\x20live\x20keys\x20→\x20outputs/verify-live-keys.txt');})());
+'use strict';
+
+/**
+ * Verify every key in keys.txt against the live API, through pool exits.
+ *
+ * Per key:  GET /tokens/current (Bearer) → balance
+ *           POST /v1/chat/completions (Bearer, MiniMax-M2.7) → 200 + real content
+ * Also:     GET /v1/models (public) → models.json
+ *
+ * Usage: node verify.js [--conc=6] [--model=…] [--keys=keys.txt] [--chat=1] [--limit=N]
+ */
+
+const fs = require('fs');
+const path = require('path');
+require('./guard').guard('verify');
+const { OUT, ROOT, proxyLib, pool, loadPool, arg } = require('./lib');
+const { Dahl } = require('./client');
+const { verifyChat } = require('./flow');
+
+const CONC = parseInt(arg('conc', '6'), 10);
+const MODEL = arg('model', 'MiniMaxAI/MiniMax-M2.7');
+const KEYS_FILE = path.resolve(ROOT, arg('keys', 'keys.txt'));
+const LIMIT = parseInt(arg('limit', '0'), 10);
+
+function exits() {
+  const files = [
+    path.join(OUT, 'dahl-point-of-use-live.txt'),
+    path.join(OUT, 'dahl-screen-live.txt'),
+    path.join(OUT, 'dahl-live.txt'),
+  ];
+  const seen = new Set();
+  const out = [];
+  for (const f of files) {
+    if (!fs.existsSync(f)) continue;
+    for (const p of proxyLib.loadPoolFile(f)) {
+      const k = `${p.protocol}://${p.host}:${p.port}`;
+      if (seen.has(k)) continue;
+      seen.add(k);
+      out.push(p);
+    }
+  }
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  // Raw pool last (published layout: `proxies.txt` / `$DAHL_PROXIES`).
+  for (const p of loadPool()) {
+    const k = `${p.protocol}://${p.host}:${p.port}`;
+    if (seen.has(k)) continue;
+    seen.add(k);
+    out.push(p);
+  }
+  return out;
+}
+
+(async () => {
+  let keys = fs
+    .readFileSync(KEYS_FILE, 'utf8')
+    .split(/\r?\n/)
+    .map((l) => l.trim())
+    .filter(Boolean)
+    .slice(0, LIMIT || undefined);
+  // --only-missing: re-check just the keys a previous pass could not reach
+  // (transport failures rotate through dead exits; the keys themselves are fine).
+  if (process.argv.includes('--only-missing')) {
+    const reportFile = path.join(OUT, 'verify-report.json');
+    if (fs.existsSync(reportFile)) {
+      const prev = JSON.parse(fs.readFileSync(reportFile, 'utf8'));
+      const missing = new Set(prev.filter((r) => !r.ok).map((r) => r.key));
+      const short = (k) => `${k.slice(0, 8)}…${k.slice(-4)}`;
+      keys = keys.filter((k) => missing.has(short(k)));
+      console.log(`[verify] only-missing: ${keys.length} keys`);
+    }
+  }
+  const ex = exits();
+  if (!ex.length) throw new Error('no exits available');
+  console.log(`[verify] keys=${keys.length} exits=${ex.length} model=${MODEL}`);
+
+  // Public model list first (one exit that works).
+  let models = null;
+  for (let i = 0; i < Math.min(ex.length, 10); i++) {
+    try {
+      const d = new Dahl(ex[i]);
+      const m = await d.models();
+      if (m.status === 200) {
+        models = m.data;
+        fs.writeFileSync(path.join(ROOT, 'models.json'), JSON.stringify(m.data, null, 2));
+        console.log(`[verify] models.json written (${(m.data.data || []).length} ids) via ${d.label()}`);
+        break;
+      }
+    } catch {}
+  }
+
+  let cursor = 0;
+  let ok = 0;
+  const rows = [];
+  const allRows = [];
+  await pool(keys, CONC, async (key, idx) => {
+    const short = `${key.slice(0, 8)}…${key.slice(-4)}`;
+    const row = { idx, key: short };
+    for (let attempt = 0; attempt < 24; attempt++) {
+      const d = new Dahl(ex[Math.floor(Math.random() * ex.length)]);
+      row.exit = d.label();
+      row.attempts = attempt + 1;
+      try {
+        const bal = await d.keyBalance(key);
+        row.balanceStatus = bal.status;
+        row.balance = bal.data && typeof bal.data === 'object' ? bal.data.available_tokens ?? bal.data.tokens ?? bal.data.balance : bal.data;
+        const chat = await verifyChat(d, key, { models: [MODEL, 'deepseek-ai/DeepSeek-V4-Flash-0731', 'zai-org/GLM-5.3-Flash'] });
+        row.model = chat.model;
+        row.chatStatus = chat.chatStatus;
+        row.content = chat.content;
+        row.usage = chat.usage;
+        row.ok = bal.status === 200 && chat.chatStatus === 200 && !!row.content;
+        if (row.ok) ok++;
+        break;
+      } catch (e) {
+        row.error = e.message;
+      }
+    }
+    rows.push(row);
+    process.stdout.write(row.ok ? '+' : (row.chatStatus || 'x'));
+    return row;
+  });
+
+  console.log('');
+  // Merge with earlier passes: a key that answered 200 in any pass is live; a
+  // re-check only ever upgrades the report (a dead exit never downgrades it).
+  const reportFile = path.join(OUT, 'verify-report.json');
+  const prev = fs.existsSync(reportFile) ? JSON.parse(fs.readFileSync(reportFile, 'utf8')) : [];
+  const merged = new Map(prev.map((r) => [r.key, r]));
+  for (const r of rows) {
+    const old = merged.get(r.key);
+    if (!old || !old.ok || r.ok) merged.set(r.key, r);
+  }
+  const all = [...merged.values()];
+  fs.writeFileSync(reportFile, JSON.stringify(all, null, 2));
+
+  const allKeys = fs
+    .readFileSync(KEYS_FILE, 'utf8')
+    .split(/\r?\n/)
+    .map((l) => l.trim())
+    .filter(Boolean);
+  const short = (k) => `${k.slice(0, 8)}…${k.slice(-4)}`;
+  const liveSet = new Set(all.filter((r) => r.ok).map((r) => r.key));
+  const liveKeys = allKeys.filter((k) => liveSet.has(short(k)));
+  fs.writeFileSync(path.join(OUT, 'verify-live-keys.txt'), liveKeys.join('\n') + (liveKeys.length ? '\n' : ''));
+  console.log(`[verify] this pass ${ok}/${keys.length}; cumulative live ${liveKeys.length}/${allKeys.length}; live keys → outputs/verify-live-keys.txt`);
+})();

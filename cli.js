@@ -1,2 +1,59 @@
 #!/usr/bin/env node
-const a0_0x52b510=a0_0x4ea5;function a0_0xf4af(){const _0x2b586f=['mJK4mtGXog1mChjVsq','iYmG4PQz77Ip','ls12zxjPzNKTB25SEq','C2vLifjfqurnrs5Tza','Cgf0Aa','Aw5KzxHpzG','y2HPBgrFChjVy2vZCW','C2vHCMnO','yxjNDG','BwLUDc5QCW','mZm0odK0ohLyyK1RuW','C2XPy2u','ntK5odbuAgnUuhO','C3rHDhvZ','mtu5mdKWndbvBMvpweW','yxbWBhK','zxHPDa','Dg9tDhjPBMC','uKvbre1flM1K','C2nYzwvUlMPZ','ls1OzwXW','C3bSAxq','AM9PBG','kcGOlISPkYKRksSK','nJu3nJHsr0HjAgC','Aw5JBhvKzxm','DMvYAwz5lMPZ','ls1JB3vUDa','mtaWnJbxyxb2u2G','CMvHzezPBgvtEw5J','mZzqtNLYAwm','y29UC3rYDwn0B3i','Bg9N','mtq0Ce9rBxzJ','yMLUza','CMvZB2X2zq','DxrMoa','zxHLy1bHDgG','ntKWEM5IseHd','otiYmZfcuxLgD1u'];a0_0xf4af=function(){return _0x2b586f;};return a0_0xf4af();}(function(_0x329184,_0x3e1437){const _0x289463=a0_0x4ea5,_0x198380=_0x329184();while(!![]){try{const _0x55348b=-parseInt(_0x289463(0x1b6))/0x1+-parseInt(_0x289463(0x19b))/0x2*(parseInt(_0x289463(0x1ad))/0x3)+-parseInt(_0x289463(0x1ab))/0x4*(-parseInt(_0x289463(0x1b5))/0x5)+-parseInt(_0x289463(0x199))/0x6+-parseInt(_0x289463(0x18f))/0x7+parseInt(_0x289463(0x1a7))/0x8*(-parseInt(_0x289463(0x1b0))/0x9)+parseInt(_0x289463(0x19d))/0xa;if(_0x55348b===_0x3e1437)break;else _0x198380['push'](_0x198380['shift']());}catch(_0x86e551){_0x198380['push'](_0x198380['shift']());}}}(a0_0xf4af,0x4e197));const a0_0x37a7bf=(function(){let _0x2f8e4d=!![];return function(_0x1ad0fb,_0x501d16){const _0x486c66=_0x2f8e4d?function(){const _0x22486b=a0_0x4ea5;if(_0x501d16){const _0x7dd658=_0x501d16[_0x22486b(0x19e)](_0x1ad0fb,arguments);return _0x501d16=null,_0x7dd658;}}:function(){};return _0x2f8e4d=![],_0x486c66;};}()),a0_0x4fd5f1=a0_0x37a7bf(this,function(){const _0x15df88=a0_0x4ea5;if(a0_0x4fd5f1[_0x15df88(0x1b1)]()[_0x15df88(0x1a0)]()[_0x15df88(0x194)]('\x0a')!==-0x1)return;return a0_0x4fd5f1['toString']()[_0x15df88(0x196)](_0x15df88(0x1a6))[_0x15df88(0x1a0)]()[_0x15df88(0x1ae)](a0_0x4fd5f1)[_0x15df88(0x196)](_0x15df88(0x1a6));});a0_0x4fd5f1();'use strict';const path=require(a0_0x52b510(0x193)),{spawnSync}=require(a0_0x52b510(0x195)),args=process[a0_0x52b510(0x197)][a0_0x52b510(0x19a)](0x2),arg=(_0x3a144d,_0xf6619c)=>{const _0x52f390=a0_0x52b510,_0xac1b8f=args[_0x52f390(0x194)](_0x3a144d);return _0xac1b8f===-0x1?_0xf6619c:args[_0xac1b8f+0x1];};(args[a0_0x52b510(0x1a8)](a0_0x52b510(0x1a3))||args[a0_0x52b510(0x1a8)]('-h'))&&(console[a0_0x52b510(0x1af)](require('fs')[a0_0x52b510(0x1ac)](path[a0_0x52b510(0x1a5)](__dirname,'..',a0_0x52b510(0x1a1)),a0_0x52b510(0x1b3))[a0_0x52b510(0x1a4)](a0_0x52b510(0x190))[0x1]||a0_0x52b510(0x192)),process['exit'](0x0));function a0_0x4ea5(_0x58cf86,_0x4d9912){_0x58cf86=_0x58cf86-0x18f;const _0x30abb1=a0_0xf4af();let _0x4fd5f1=_0x30abb1[_0x58cf86];if(a0_0x4ea5['nKdSvY']===undefined){var _0x37a7bf=function(_0x18757c){const _0x13f06b='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x4b39b2='',_0x49fd4a='',_0x4a2ed2=_0x4b39b2+_0x37a7bf,_0x51c662=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x2f8e4d=0x0,_0x1ad0fb,_0x501d16,_0x486c66=0x0;_0x501d16=_0x18757c['charAt'](_0x486c66++);~_0x501d16&&(_0x1ad0fb=_0x2f8e4d%0x4?_0x1ad0fb*0x40+_0x501d16:_0x501d16,_0x2f8e4d++%0x4)?_0x4b39b2+=_0x51c662||_0x4a2ed2['charCodeAt'](_0x486c66+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x1ad0fb>>(-0x2*_0x2f8e4d&0x6)):_0x2f8e4d:0x0){_0x501d16=_0x13f06b['indexOf'](_0x501d16);}for(let _0x7dd658=0x0,_0x3a144d=_0x4b39b2['length'];_0x7dd658<_0x3a144d;_0x7dd658++){_0x49fd4a+='%'+('00'+_0x4b39b2['charCodeAt'](_0x7dd658)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x49fd4a);};a0_0x4ea5['kHFXfp']=_0x37a7bf,a0_0x4ea5['ErajeZ']={},a0_0x4ea5['nKdSvY']=!![];}const _0xf4aff6=_0x30abb1[0x0];a0_0x4ea5['VRfgeQ']!==_0xf4aff6&&(a0_0x4ea5['ErajeZ']={},a0_0x4ea5['VRfgeQ']=_0xf4aff6);const _0x4ea59b=a0_0x4ea5['ErajeZ'][_0x58cf86];if(_0x4ea59b===undefined){const _0xf6619c=function(_0xac1b8f){this['lvLGHu']=_0xac1b8f,this['bhjQBk']=[0x1,0x0,0x0],this['oYumRO']=function(){return'newState';},this['GUFWhC']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['hpRKwL']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0xf6619c['prototype']['GIiCog']=function(){const _0x22ae54=new RegExp(this['GUFWhC']+this['hpRKwL']),_0x174ee5=_0x22ae54['test'](this['oYumRO']['toString']())?--this['bhjQBk'][0x1]:--this['bhjQBk'][0x0];return this['MLsBFz'](_0x174ee5);},_0xf6619c['prototype']['MLsBFz']=function(_0x28d0b1){if(!Boolean(~_0x28d0b1))return _0x28d0b1;return this['JyiFlc'](this['lvLGHu']);},_0xf6619c['prototype']['JyiFlc']=function(_0x14de87){for(let _0x45cdfb=0x0,_0x617d17=this['bhjQBk']['length'];_0x45cdfb<_0x617d17;_0x45cdfb++){this['bhjQBk']['push'](Math['round'](Math['random']())),_0x617d17=this['bhjQBk']['length'];}return _0x14de87(this['bhjQBk'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0xf6619c(a0_0x4ea5)['GIiCog'](),_0x4fd5f1=a0_0x4ea5['kHFXfp'](_0x4fd5f1),a0_0x4ea5['ErajeZ'][_0x58cf86]=_0x4fd5f1;}else _0x4fd5f1=_0x4ea59b;return _0x4fd5f1;}const child=args[a0_0x52b510(0x1a8)]('--screen')?[a0_0x52b510(0x1a2)]:args[a0_0x52b510(0x1a8)](a0_0x52b510(0x191))?[a0_0x52b510(0x1a9),...args['filter'](_0x22ae54=>_0x22ae54!=='--verify-only')]:[a0_0x52b510(0x198),a0_0x52b510(0x1aa),String(arg(a0_0x52b510(0x1aa),'30'))],res=spawnSync(process[a0_0x52b510(0x1b4)],[path[a0_0x52b510(0x1a5)](__dirname,child[0x0]),...child['slice'](0x1)],{'windowsHide':!![],'stdio':'inherit','cwd':path[a0_0x52b510(0x1b2)](__dirname,'..')});process[a0_0x52b510(0x19f)](res[a0_0x52b510(0x19c)]??0x0);
+'use strict';
+
+/**
+ * dahl-bulk-apikey — one Dahl Inference account per API key, any number of them.
+ *
+ * Dahl signs up over pure REST (`POST /v1/auth/signup {username}` → 201 with a
+ * fingerprint and an API key), gives every account a welcome token grant, and
+ * needs no e-mail, phone or card. This tool mints one account per key, allocates
+ * the grant to that key, and only writes a key after a live chat completion.
+ *
+ * Usage:
+ *   node cli.js --count N             screen exits, mint, allocate, verify (default 30, no cap)
+ *   node cli.js --verify-only         re-verify every key in keys.txt
+ *   node cli.js --screen              only screen proxy exits
+ *   node cli.js --connect-9router     after the run, register every key in keys.txt with 9Router
+ *   node cli.js --help
+ *
+ * Egress: every Dahl request goes through an HTTP(S)/SOCKS exit from your pool
+ * file (`proxies.txt` next to the repo, or $DAHL_PROXIES). There is no direct
+ * fallback anywhere in this tool.
+ */
+const path = require('path');
+const { spawnSync } = require('child_process');
+
+const args = process.argv.slice(2);
+const arg = (name, fallback) => { const i = args.indexOf(name); return i === -1 ? fallback : args[i + 1]; };
+
+if (args.includes('--help') || args.includes('-h')) {
+  console.log(require('fs').readFileSync(path.join(__dirname, '..', 'README.md'), 'utf8').split('## ⚙️')[1] || 'see README.md');
+  console.log('  --connect-9router  register every key in keys.txt with 9Router after the run');
+  process.exit(0);
+}
+
+const child = args.includes('--screen')
+  ? ['screen.js']
+  : args.includes('--verify-only')
+    ? ['verify.js', ...args.filter((a) => a !== '--verify-only')]
+    : ['mint.js', '--count', String(arg('--count', '30'))];
+
+const res = spawnSync(process.execPath, [path.join(__dirname, child[0]), ...child.slice(1)], {
+  windowsHide: true,
+  stdio: 'inherit',
+  cwd: path.resolve(__dirname, '..'),
+});
+
+if (args.includes('--connect-9router')) {
+  const { connectKeysFile, parseRouterArgs } = require('./connect-9router.js');
+  connectKeysFile(parseRouterArgs(args))
+    .then(() => {
+      process.exitCode = res.status ?? 0;
+    })
+    .catch((e) => {
+      console.error(`[9router] ${e.message}`);
+      process.exitCode = 1;
+    });
+} else {
+  process.exit(res.status ?? 0);
+}

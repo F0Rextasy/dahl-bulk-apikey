@@ -1,1 +1,213 @@
-const a0_0x157261=a0_0x259f;(function(_0x334a93,_0x1ceaa3){const _0x4573e8=a0_0x259f,_0x361f84=_0x334a93();while(!![]){try{const _0x5c8f35=parseInt(_0x4573e8(0x235))/0x1+parseInt(_0x4573e8(0x1b6))/0x2*(parseInt(_0x4573e8(0x1b8))/0x3)+-parseInt(_0x4573e8(0x1ef))/0x4*(parseInt(_0x4573e8(0x1f9))/0x5)+-parseInt(_0x4573e8(0x1bc))/0x6+parseInt(_0x4573e8(0x1bb))/0x7*(parseInt(_0x4573e8(0x1b7))/0x8)+parseInt(_0x4573e8(0x22c))/0x9+-parseInt(_0x4573e8(0x1d7))/0xa*(parseInt(_0x4573e8(0x1da))/0xb);if(_0x5c8f35===_0x1ceaa3)break;else _0x361f84['push'](_0x361f84['shift']());}catch(_0x319f85){_0x361f84['push'](_0x361f84['shift']());}}}(a0_0x4bac,0xda2af));const a0_0x2fe8ed=(function(){let _0x5ce66d=!![];return function(_0x5b43fe,_0x2d2b98){const _0x3e7801=_0x5ce66d?function(){const _0x52d362=a0_0x259f;if(_0x2d2b98){const _0xfe0602=_0x2d2b98[_0x52d362(0x227)](_0x5b43fe,arguments);return _0x2d2b98=null,_0xfe0602;}}:function(){};return _0x5ce66d=![],_0x3e7801;};}()),a0_0x2fa99b=a0_0x2fe8ed(this,function(){const _0xc1bb9d=a0_0x259f;if(a0_0x2fa99b[_0xc1bb9d(0x1ee)]()[_0xc1bb9d(0x233)]()[_0xc1bb9d(0x221)]('\x0a')!==-0x1)return;return a0_0x2fa99b[_0xc1bb9d(0x233)]()[_0xc1bb9d(0x22f)](_0xc1bb9d(0x213))[_0xc1bb9d(0x233)]()[_0xc1bb9d(0x1d1)](a0_0x2fa99b)[_0xc1bb9d(0x22f)](_0xc1bb9d(0x213));});function a0_0x4bac(){const _0x40c625=['DxnLCL9Pza','y2HHDa','BM9IBgu','ywnJB3vUDefMDgvYu2LNBNvW','zg92zq','AM9SBhK','DxnLCG','Aw5KzxHpzG','D2HHBgu','yxzHAwXHyMXL','y2fSBq','C2LNBMLUia','twLUAu1HEefjl01PBMLnyxGTttiUnW','yxbWBhK','yNjPz2H0','AM9PBG','Dg9Rzw5FyMfSyw5Jzq','C2LNBMLU','otC1oda3AwzfwfHQ','C2XPy2u','BhvJA3K','C2vHCMnO','D3jLBG','yMfSyw5Jzq','C2LNBMvKlxvW','Dg9tDhjPBMC','BwfWBgu','mtiWntu0m1r3CK95CG','C3DPzNq','y3jPBxnVBG','yNjHDMu','DMvYAwzPzwq','BM8GA2v5ig9IAMvJDcbHDMfPBgfIBgu','zw1Izxi','BwLU','CMfUzg9T','BNvTyMvY','yxbPx2TLEq','CMf2zw4','B3r0zxi','A2v5vg9Rzw4','C2LNBMfS','Cgf0Aa','mMfqA05SEq','nJC5mJa4A25RtezX','mJe4mJyXn1fqBLPRza','DxnHz2u','y2HHDfn0yxr1CW','mtq3DNDzqM9P','mte3ndmYnNvHrxPtDG','Dg9Rzw5Zx29Ux2TLExm','EMfPlw9YzY9hte0Tns4ZluzSyxnO','ywXSB2nHDguG','BwvZC2fNzq','Dg9ju09tDhjPBMC','y29Kzq','y2vKyxi','A2LUza','zgfYAw5N','C3rHDhvZ','yMfSyw5JzujLzM9YzufSBg9JyxrL','Bw9VC2u','C3rVCMS','Dw52zxjPzMLLza','y296Eq','A2v5igfSCMvHzhKGzNvUzgvK','Cg9VBejHBgfUy2u','C2vHBa','y2HVAwnLCW','A2v5CW','y29UC3rYDwn0B3i','BwLUAW','CNvZDhK','lI9SAwi','yxzHAwXHyMXLx3rVA2vUCW','B3DS','mJqWvwvJrgPw','DgLNzxi','ndi5ig9UihnPz251Ca','ndC5nJy2v3rjyxDu','l2HLywX0Aa','yM9Sza','zMfSy29U','y3jHBMu','y2XVDwq','zgf0yq','CgvUzgLUzY1Hy2nVDw50CY5QC29UBa','CxvPzxq','y29Uy2f0','z29SzgvU','CgfUzge','C2LNBNvWia','z2vUDgXL','y29Tzxq','BMvIDwXH','BMLTyMXL','BgvUz3rO','BhLUEa','zMLLCMnL','yMLUza','nJC1nde4neTitMzitq','zMLUz2vYChjPBNq','AgvHBhrOia','A2v5qMfSyw5Jzq','yw1Izxi','zgvLChnLzwSTywKVrgvLCfnLzwSTvJqTrMXHC2GTmdCZmq','y29UDgvUDa','AgvYB24','Cg9Syxi','zMXVB3i','nwneru95DW','BwvSBg93','C3bYDwnL','A2vLBG','CgvIyMXL','zxHWB3j0CW','ndi5ig9UihnPz25PBG','uMvWBhKGD2L0AcbLEgfJDgX5oIbKywHSlw9R','y2XLDMvY','DML2Awq','BgLZDeTLExm','A2v5','lI9JBgLLBNq','B2jQzwn0','CM9IAw4','zMLUAxnOrxHPDa','ChjVDwq','y2HLy2TvC2vYBMfTzq','Dg9Rzw4','yMfKz2vY','ywXSB2nHDgu','C3rYAw5NAwz5','y29ZBwLJ','DgLKEq','Dg9Rzw5Z','y29YywW','kcGOlISPkYKRksSK','z2f0zq','z2v0qwnJB3vUDa','C2TPChbLza','BwLZDhK','BgfIzwW','ndi5ig9UignOzwnRlxvZzxjUyw1L'];a0_0x4bac=function(){return _0x40c625;};return a0_0x4bac();}a0_0x2fa99b();'use strict';const fs=require('fs'),path=require(a0_0x157261(0x1b5)),{OUT,sleep}=require(a0_0x157261(0x1d4)),{Dahl}=require(a0_0x157261(0x205)),ADJ=[a0_0x157261(0x1a7),a0_0x157261(0x1e2),a0_0x157261(0x1a9),a0_0x157261(0x22e),a0_0x157261(0x20f),'rapid',a0_0x157261(0x201),a0_0x157261(0x1fa),a0_0x157261(0x1a8),a0_0x157261(0x1e4),a0_0x157261(0x1f3),a0_0x157261(0x228),a0_0x157261(0x224),a0_0x157261(0x212),a0_0x157261(0x1c5),'eager',a0_0x157261(0x1ed),a0_0x157261(0x1e7),'icy',a0_0x157261(0x21f),a0_0x157261(0x1c4),'lunar',a0_0x157261(0x217),a0_0x157261(0x21c),a0_0x157261(0x1f7),a0_0x157261(0x209),a0_0x157261(0x1d3),'silver','solar',a0_0x157261(0x210),a0_0x157261(0x202),'wild',a0_0x157261(0x1dc),a0_0x157261(0x1cb),a0_0x157261(0x1fc),a0_0x157261(0x1ea)],NOUN=['eagle',a0_0x157261(0x1b2),a0_0x157261(0x1dd),a0_0x157261(0x1e5),a0_0x157261(0x1e8),a0_0x157261(0x1b4),a0_0x157261(0x1b1),a0_0x157261(0x1d8),a0_0x157261(0x1e9),a0_0x157261(0x1ec),a0_0x157261(0x20c),'birch','bison',a0_0x157261(0x1c3),a0_0x157261(0x1df),a0_0x157261(0x1de),a0_0x157261(0x21e),a0_0x157261(0x1ac),'fern','finch','fox',a0_0x157261(0x1f6),a0_0x157261(0x234),a0_0x157261(0x1d2),a0_0x157261(0x1c8),'orca',a0_0x157261(0x1d6),a0_0x157261(0x1fd),'pine',a0_0x157261(0x207),a0_0x157261(0x1ce),a0_0x157261(0x1fb),a0_0x157261(0x1c9),a0_0x157261(0x222),a0_0x157261(0x230),'brook'],genUser=()=>ADJ[Math['floor'](Math['random']()*ADJ[a0_0x157261(0x1eb)])]+'_'+NOUN[Math['floor'](Math['random']()*NOUN[a0_0x157261(0x1eb)])]+'_'+Math[a0_0x157261(0x1f8)](0x64+Math[a0_0x157261(0x1ae)]()*0x384),PENDING=path[a0_0x157261(0x229)](OUT,a0_0x157261(0x1e1));function persistPending(_0x12ce94){const _0x2ea957=a0_0x157261;fs['appendFileSync'](PENDING,JSON[_0x2ea957(0x20e)]({'ts':new Date()[_0x2ea957(0x1c1)](),..._0x12ce94})+'\x0a');}async function retry(_0x3669e0,{attempts:attempts=0x2,delayMs:delayMs=0x4b0}={}){let _0x21e7e7;for(let _0x55dd1c=0x0;_0x55dd1c<attempts;_0x55dd1c++){try{return await _0x3669e0();}catch(_0x4878c2){_0x21e7e7=_0x4878c2;if(_0x55dd1c<attempts-0x1)await sleep(delayMs);}}throw _0x21e7e7;}async function signupOn(_0x1cbb29,{maxNameTries:maxNameTries=0x6}={}){const _0x162340=a0_0x157261,_0x20b5b2=new Dahl(_0x1cbb29,{'connectTimeoutMs':0x1f40,'timeoutMs':0x7530}),_0x1850e7=await retry(()=>_0x20b5b2['call'](_0x162340(0x1db),{'raw':!![]}),{'attempts':0x2});if(_0x1850e7[_0x162340(0x1c6)]!==0xc8)throw new Error('health\x20'+_0x1850e7[_0x162340(0x1c6)]);let _0x21b006=null,_0xd652e3=null;for(let _0x266dd7=0x0;_0x266dd7<maxNameTries;_0x266dd7++){_0x21b006=genUser();const _0x58afb3=await _0x20b5b2[_0x162340(0x20a)](_0x21b006);_0xd652e3=_0x58afb3['data'];if(_0x58afb3[_0x162340(0x1c6)]===0x1ad){const _0x17e464=new Error(_0x162340(0x219));_0x17e464[_0x162340(0x1c2)]=0x1ad;throw _0x17e464;}if(_0x58afb3['status']===0xc8&&_0x58afb3[_0x162340(0x1e0)]&&_0x58afb3[_0x162340(0x1e0)][_0x162340(0x223)])break;_0x21b006=null,await sleep(0xfa);}if(!_0x21b006)throw new Error('no\x20available\x20username\x20(last\x20check:\x20'+JSON[_0x162340(0x20e)](_0xd652e3)+')');const _0x43fb9a=await _0x20b5b2['signup'](_0x21b006);if(_0x43fb9a['status']===0x1ad){const _0x35e7b4=new Error(_0x162340(0x1d9));_0x35e7b4[_0x162340(0x1c2)]=0x1ad;throw _0x35e7b4;}if(_0x43fb9a[_0x162340(0x1c6)]!==0xc8&&_0x43fb9a[_0x162340(0x1c6)]!==0xc9){const _0x5583c6=new Error(_0x162340(0x1e6)+_0x43fb9a[_0x162340(0x1c6)]+':\x20'+JSON['stringify'](_0x43fb9a['data'])['slice'](0x0,0xdc));_0x5583c6[_0x162340(0x214)]=!![];throw _0x5583c6;}const _0xf85058=_0x43fb9a[_0x162340(0x1e0)]&&typeof _0x43fb9a['data']===_0x162340(0x206)?_0x43fb9a[_0x162340(0x1e0)]:{},_0x55bab1={'username':_0x21b006,'fingerprint':_0xf85058[_0x162340(0x1f0)]||null,'userId':_0xf85058['user']&&_0xf85058[_0x162340(0x220)][_0x162340(0x21a)]||null,'keyId':_0xf85058[_0x162340(0x1b0)]&&_0xf85058['api_key']['id']||null,'keyToken':_0xf85058[_0x162340(0x1b0)]&&_0xf85058[_0x162340(0x1b0)]['token']||null,'keyAvailableTokensAtSignup':(_0xf85058[_0x162340(0x1b0)]&&_0xf85058[_0x162340(0x1b0)][_0x162340(0x1d5)])??null,'createdAt':_0xf85058['user']&&_0xf85058['user']['created_at']||null,'signupExit':_0x20b5b2[_0x162340(0x218)](),'status':_0x162340(0x232)};return persistPending(_0x55bab1),{'d':_0x20b5b2,'rec':_0x55bab1,'data':_0xf85058};}async function verifyChat(_0x73b3ea,_0x3dfd17,{models:_0x1cd722,attempts:attempts=0x4,gapMs:gapMs=0x9c4}={}){const _0x1ea6c2=a0_0x157261,_0x3cbf8f=_0x1cd722&&_0x1cd722['length']?_0x1cd722:[_0x1ea6c2(0x226),_0x1ea6c2(0x1f4),_0x1ea6c2(0x1be)];let _0x36a99a=null;for(let _0x41098f=0x0;_0x41098f<attempts;_0x41098f++){const _0x2eb511=_0x3cbf8f[_0x41098f%_0x3cbf8f[_0x1ea6c2(0x1eb)]],_0x2c6012=await _0x73b3ea[_0x1ea6c2(0x21b)](_0x3dfd17,{'model':_0x2eb511,'messages':[{'role':_0x1ea6c2(0x220),'content':_0x1ea6c2(0x200)}],'max_tokens':0x18}),_0x52220c=_0x2c6012[_0x1ea6c2(0x1e0)]&&typeof _0x2c6012[_0x1ea6c2(0x1e0)]===_0x1ea6c2(0x206)?_0x2c6012[_0x1ea6c2(0x1e0)]:{},_0x332cef=_0x52220c[_0x1ea6c2(0x1cf)]&&_0x52220c[_0x1ea6c2(0x1cf)][0x0]&&_0x52220c['choices'][0x0][_0x1ea6c2(0x1c0)]&&_0x52220c['choices'][0x0][_0x1ea6c2(0x1c0)][_0x1ea6c2(0x1f5)]||null;_0x36a99a={'model':_0x2eb511,'chatStatus':_0x2c6012['status'],'content':_0x332cef,'usage':_0x52220c[_0x1ea6c2(0x1b9)]||null,'error':_0x2c6012['status']===0xc8?null:JSON['stringify'](_0x52220c)['slice'](0x0,0xdc)};if(_0x2c6012[_0x1ea6c2(0x1c6)]===0xc8&&_0x332cef)return _0x36a99a;if(_0x2c6012[_0x1ea6c2(0x1c6)]!==0x1ad)return _0x36a99a;if(_0x41098f<attempts-0x1)await sleep(gapMs+Math['random']()*0x5dc);}return _0x36a99a;}function a0_0x259f(_0x173836,_0x394f2){_0x173836=_0x173836-0x1a7;const _0x4881a2=a0_0x4bac();let _0x2fa99b=_0x4881a2[_0x173836];if(a0_0x259f['QeNpbW']===undefined){var _0x2fe8ed=function(_0x2967c1){const _0x335060='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x29f5e0='',_0x5cab8b='',_0x5d57fe=_0x29f5e0+_0x2fe8ed,_0x2641f5=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x5ce66d=0x0,_0x5b43fe,_0x2d2b98,_0x3e7801=0x0;_0x2d2b98=_0x2967c1['charAt'](_0x3e7801++);~_0x2d2b98&&(_0x5b43fe=_0x5ce66d%0x4?_0x5b43fe*0x40+_0x2d2b98:_0x2d2b98,_0x5ce66d++%0x4)?_0x29f5e0+=_0x2641f5||_0x5d57fe['charCodeAt'](_0x3e7801+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x5b43fe>>(-0x2*_0x5ce66d&0x6)):_0x5ce66d:0x0){_0x2d2b98=_0x335060['indexOf'](_0x2d2b98);}for(let _0xfe0602=0x0,_0x12ce94=_0x29f5e0['length'];_0xfe0602<_0x12ce94;_0xfe0602++){_0x5cab8b+='%'+('00'+_0x29f5e0['charCodeAt'](_0xfe0602)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x5cab8b);};a0_0x259f['colwwK']=_0x2fe8ed,a0_0x259f['Ewzqna']={},a0_0x259f['QeNpbW']=!![];}const _0x4bac83=_0x4881a2[0x0];a0_0x259f['HpgUYJ']!==_0x4bac83&&(a0_0x259f['Ewzqna']={},a0_0x259f['HpgUYJ']=_0x4bac83);const _0x259fe6=a0_0x259f['Ewzqna'][_0x173836];if(_0x259fe6===undefined){const _0x3669e0=function(_0x21e7e7){this['IZjRuS']=_0x21e7e7,this['RYhSRB']=[0x1,0x0,0x0],this['TVNgis']=function(){return'newState';},this['ApTBDw']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['srjNUW']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x3669e0['prototype']['svlxBG']=function(){const _0x55dd1c=new RegExp(this['ApTBDw']+this['srjNUW']),_0x4878c2=_0x55dd1c['test'](this['TVNgis']['toString']())?--this['RYhSRB'][0x1]:--this['RYhSRB'][0x0];return this['LkNhfs'](_0x4878c2);},_0x3669e0['prototype']['LkNhfs']=function(_0x1cbb29){if(!Boolean(~_0x1cbb29))return _0x1cbb29;return this['XByiNN'](this['IZjRuS']);},_0x3669e0['prototype']['XByiNN']=function(_0x20b5b2){for(let _0x1850e7=0x0,_0x21b006=this['RYhSRB']['length'];_0x1850e7<_0x21b006;_0x1850e7++){this['RYhSRB']['push'](Math['round'](Math['random']())),_0x21b006=this['RYhSRB']['length'];}return _0x20b5b2(this['RYhSRB'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x3669e0(a0_0x259f)['svlxBG'](),_0x2fa99b=a0_0x259f['colwwK'](_0x2fa99b),a0_0x259f['Ewzqna'][_0x173836]=_0x2fa99b;}else _0x2fa99b=_0x259fe6;return _0x2fa99b;}async function finish(_0x37ee15,_0x24d73e,{amount:amount=0x5f5e100,model:model=a0_0x157261(0x226)}={}){const _0x46299b=a0_0x157261,_0x19a075=await _0x37ee15[_0x46299b(0x1f2)](_0x24d73e[_0x46299b(0x1b3)]),_0x5efefb=_0x19a075[_0x46299b(0x1e0)]&&typeof _0x19a075['data']===_0x46299b(0x206)?_0x19a075['data']:{},_0x328032=_0x5efefb[_0x46299b(0x211)]??_0x5efefb['available_tokens']??_0x5efefb['balance']??_0x5efefb[_0x46299b(0x22a)]??(typeof _0x5efefb===_0x46299b(0x1af)?_0x5efefb:0x0);_0x24d73e[_0x46299b(0x1c7)]={'status':_0x19a075[_0x46299b(0x1c6)],'tokens':_0x328032,'raw':_0x5efefb};let _0x4c3d0c=_0x24d73e['keyId'],_0x52557d=Math['max'](0x0,amount-(Number(_0x328032)||0x0));if(_0x52557d>0x0){const _0x4887fc=await _0x37ee15[_0x46299b(0x215)](),_0x5f2cde=_0x4887fc[_0x46299b(0x1e0)]&&typeof _0x4887fc['data']===_0x46299b(0x206)?_0x4887fc[_0x46299b(0x1e0)]:{};_0x24d73e[_0x46299b(0x21d)]=_0x5f2cde;const _0x175295=Number(_0x5f2cde['token_balance']??_0x5f2cde[_0x46299b(0x1bd)]??0x0);_0x24d73e[_0x46299b(0x1cd)]=_0x175295;if(!_0x4c3d0c){const _0x50f7e0=await _0x37ee15[_0x46299b(0x203)](),_0x2a5dea=_0x50f7e0['data']&&_0x50f7e0[_0x46299b(0x1e0)][_0x46299b(0x1d0)]||[],_0x446953=_0x2a5dea[0x0]||null;if(_0x446953)_0x4c3d0c=_0x446953['id'],_0x24d73e[_0x46299b(0x1b3)]=_0x446953[_0x46299b(0x20b)]||_0x24d73e[_0x46299b(0x1b3)];else{const _0x478e2c=await _0x37ee15['createKey']('k1'),_0x45cc16=_0x478e2c[_0x46299b(0x1e0)]&&(_0x478e2c[_0x46299b(0x1e0)][_0x46299b(0x204)]||_0x478e2c[_0x46299b(0x1e0)])||null;if(!_0x45cc16)throw new Error(_0x46299b(0x1ab));_0x4c3d0c=_0x45cc16['id'],_0x24d73e[_0x46299b(0x1b3)]=_0x45cc16[_0x46299b(0x20b)]||_0x24d73e[_0x46299b(0x1b3)];}_0x24d73e['keyId']=_0x4c3d0c;}const _0x378e66=Math[_0x46299b(0x1ad)](_0x52557d,_0x175295);if(_0x378e66>0x0){const _0x3b04e2=await _0x37ee15[_0x46299b(0x20d)](_0x4c3d0c,_0x378e66);_0x24d73e['allocate']={'status':_0x3b04e2['status'],'data':_0x3b04e2[_0x46299b(0x1e0)],'requested':_0x378e66,'poolBefore':_0x175295};if(_0x3b04e2[_0x46299b(0x1c6)]!==0xc8&&_0x3b04e2[_0x46299b(0x1c6)]!==0xc9){const _0xe3d913=new Error(_0x46299b(0x1bf)+_0x3b04e2[_0x46299b(0x1c6)]+':\x20'+JSON[_0x46299b(0x20e)](_0x3b04e2['data'])[_0x46299b(0x22d)](0x0,0xc8));_0xe3d913[_0x46299b(0x214)]=!![];throw _0xe3d913;}}else _0x24d73e[_0x46299b(0x20d)]={'status':_0x46299b(0x216),'requested':0x0,'poolBefore':_0x175295,'note':'pool\x20empty'};}else _0x24d73e[_0x46299b(0x20d)]={'status':'skipped','requested':0x0,'note':_0x46299b(0x1cc),'current':_0x328032};const _0x141886=await _0x37ee15[_0x46299b(0x1f2)](_0x24d73e[_0x46299b(0x1b3)]),_0x1cb04e=_0x141886[_0x46299b(0x1e0)]&&typeof _0x141886[_0x46299b(0x1e0)]===_0x46299b(0x206)?_0x141886[_0x46299b(0x1e0)]:{};_0x24d73e[_0x46299b(0x231)]={'status':_0x141886[_0x46299b(0x1c6)],'tokens':_0x1cb04e[_0x46299b(0x211)]??_0x1cb04e[_0x46299b(0x1d5)]??_0x1cb04e[_0x46299b(0x231)]??_0x1cb04e[_0x46299b(0x22a)]??null,'raw':_0x1cb04e};const _0x338f11=await verifyChat(_0x37ee15,_0x24d73e[_0x46299b(0x1b3)],{'models':model?[][_0x46299b(0x1e3)](model):undefined});return _0x24d73e['verify']=_0x338f11,_0x24d73e['ok']=_0x141886['status']===0xc8&&_0x338f11[_0x46299b(0x1ba)]===0xc8&&!!_0x338f11[_0x46299b(0x1f5)],_0x24d73e['status']=_0x24d73e['ok']?_0x46299b(0x1aa):_0x46299b(0x1ca),_0x24d73e[_0x46299b(0x208)]=_0x37ee15[_0x46299b(0x218)](),_0x24d73e;}async function signInOn(_0x54c003,_0x4f600f){const _0x2b0417=a0_0x157261,_0x5d57a1=new Dahl(_0x54c003,{'connectTimeoutMs':0x1f40,'timeoutMs':0x7530}),_0x3e7f7b=await retry(()=>_0x5d57a1['call'](_0x2b0417(0x1db),{'raw':!![]}),{'attempts':0x2});if(_0x3e7f7b[_0x2b0417(0x1c6)]!==0xc8)throw new Error(_0x2b0417(0x1f1)+_0x3e7f7b[_0x2b0417(0x1c6)]);const _0x48f711=await _0x5d57a1[_0x2b0417(0x22b)](_0x4f600f);if(_0x48f711[_0x2b0417(0x1c6)]===0x1ad){const _0x270292=new Error(_0x2b0417(0x1ff));_0x270292['code']=0x1ad;throw _0x270292;}if(_0x48f711[_0x2b0417(0x1c6)]!==0xc8&&_0x48f711[_0x2b0417(0x1c6)]!==0xc9){const _0x318d43=new Error(_0x2b0417(0x225)+_0x48f711[_0x2b0417(0x1c6)]+':\x20'+JSON[_0x2b0417(0x20e)](_0x48f711[_0x2b0417(0x1e0)])[_0x2b0417(0x22d)](0x0,0xc8));_0x318d43[_0x2b0417(0x214)]=!![];throw _0x318d43;}return{'d':_0x5d57a1,'rec':{'signin':_0x48f711[_0x2b0417(0x1e0)]&&typeof _0x48f711[_0x2b0417(0x1e0)]==='object'?_0x48f711['data']:{}}};}module[a0_0x157261(0x1fe)]={'signupOn':signupOn,'finish':finish,'signInOn':signInOn,'verifyChat':verifyChat,'genUser':genUser,'persistPending':persistPending,'PENDING':PENDING};
+'use strict';
+
+/**
+ * Dahl account flow — split so a dead exit never loses an account.
+ *
+ * Phase 1 (signup)    : one exit: health → check-username → POST /v1/auth/signup
+ *                       → the whole response is persisted BEFORE anything else.
+ * Phase 2 (finish)    : same exit if alive, otherwise a fresh exit signs in with
+ *                       the fingerprint (`POST /v1/auth/signin {fingerprint}`),
+ *                       then allocate pool → key, read the balance, and run a
+ *                       real chat completion as the acceptance test.
+ *
+ * `POST /v1/auth/signup` returns `{user, fingerprint, api_key:{id, token}}` with
+ * the first key at 0 tokens; the 100M welcome grant sits in the account pool.
+ */
+
+const fs = require('fs');
+const path = require('path');
+const { OUT, sleep } = require('./lib');
+const { Dahl } = require('./client');
+
+const ADJ = ['swift', 'quiet', 'brave', 'lucky', 'cosmic', 'rapid', 'clever', 'mellow', 'crimson', 'golden', 'amber', 'bright', 'calm', 'coral', 'daring', 'eager', 'fierce', 'gentle', 'icy', 'jolly', 'kind', 'lunar', 'misty', 'noble', 'polar', 'proud', 'rusty', 'silver', 'solar', 'tidy', 'vivid', 'wild', 'bold', 'cozy', 'keen', 'nimble'];
+const NOUN = ['eagle', 'otter', 'falcon', 'panda', 'comet', 'signal', 'raven', 'tiger', 'nebula', 'lynx', 'badger', 'birch', 'bison', 'cedar', 'cloud', 'crane', 'dove', 'ember', 'fern', 'finch', 'fox', 'heron', 'maple', 'mink', 'moose', 'orca', 'owl', 'pebble', 'pine', 'robin', 'seal', 'spruce', 'stork', 'whale', 'wren', 'brook'];
+const genUser = () =>
+  `${ADJ[Math.floor(Math.random() * ADJ.length)]}_${NOUN[Math.floor(Math.random() * NOUN.length)]}_${Math.floor(100 + Math.random() * 900)}`;
+
+const PENDING = path.join(OUT, 'pending-accounts.jsonl');
+
+function persistPending(rec) {
+  fs.appendFileSync(PENDING, JSON.stringify({ ts: new Date().toISOString(), ...rec }) + '\n');
+}
+
+/** Retry a call a few times; throws the last error. */
+async function retry(fn, { attempts = 2, delayMs = 1200 } = {}) {
+  let lastErr;
+  for (let i = 0; i < attempts; i++) {
+    try {
+      return await fn();
+    } catch (e) {
+      lastErr = e;
+      if (i < attempts - 1) await sleep(delayMs);
+    }
+  }
+  throw lastErr;
+}
+
+/** Phase 1 — create the account on one exit. Throws on transport failure/gate. */
+async function signupOn(exit, { maxNameTries = 6 } = {}) {
+  const d = new Dahl(exit, { connectTimeoutMs: 8000, timeoutMs: 30000 });
+  const health = await retry(() => d.call('/health', { raw: true }), { attempts: 2 });
+  if (health.status !== 200) throw new Error(`health ${health.status}`);
+
+  let username = null;
+  let lastCheck = null;
+  for (let i = 0; i < maxNameTries; i++) {
+    username = genUser();
+    const cu = await d.checkUsername(username);
+    lastCheck = cu.data;
+    if (cu.status === 429) {
+      const err = new Error('429 on check-username');
+      err.code = 429;
+      throw err;
+    }
+    if (cu.status === 200 && cu.data && cu.data.available) break;
+    username = null;
+    await sleep(250);
+  }
+  if (!username) throw new Error(`no available username (last check: ${JSON.stringify(lastCheck)})`);
+
+  const su = await d.signup(username);
+  if (su.status === 429) {
+    const err = new Error('429 on signup');
+    err.code = 429;
+    throw err;
+  }
+  if (su.status !== 200 && su.status !== 201) {
+    const err = new Error(`signup ${su.status}: ${JSON.stringify(su.data).slice(0, 220)}`);
+    err.gate = true;
+    throw err;
+  }
+  const data = su.data && typeof su.data === 'object' ? su.data : {};
+  const rec = {
+    username,
+    fingerprint: data.fingerprint || null,
+    userId: (data.user && data.user.user_id) || null,
+    keyId: (data.api_key && data.api_key.id) || null,
+    keyToken: (data.api_key && data.api_key.token) || null,
+    keyAvailableTokensAtSignup: (data.api_key && data.api_key.available_tokens) ?? null,
+    createdAt: (data.user && data.user.created_at) || null,
+    signupExit: d.label(),
+    status: 'signed-up',
+  };
+  persistPending(rec);
+  return { d, rec, data };
+}
+
+/**
+ * Chat smoke test with free-tier capacity retries.
+ *
+ * `429 model_concurrency` ("This model is at concurrency capacity. Paid accounts
+ * are admitted first.") is a service-side capacity gate, not a key defect: a
+ * free account is only admitted when the model has room. Rotating over the three
+ * served models with a short backoff turns a transient refusal into a pass.
+ */
+async function verifyChat(client, keyToken, { models, attempts = 4, gapMs = 2500 } = {}) {
+  const list = models && models.length ? models : ['MiniMaxAI/MiniMax-M2.7', 'deepseek-ai/DeepSeek-V4-Flash-0731', 'zai-org/GLM-5.3-Flash'];
+  let last = null;
+  for (let i = 0; i < attempts; i++) {
+    const model = list[i % list.length];
+    const r = await client.chat(keyToken, { model, messages: [{ role: 'user', content: 'Reply with exactly: dahl-ok' }], max_tokens: 24 });
+    const data = r.data && typeof r.data === 'object' ? r.data : {};
+    const content = (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) || null;
+    last = { model, chatStatus: r.status, content, usage: data.usage || null, error: r.status === 200 ? null : JSON.stringify(data).slice(0, 220) };
+    if (r.status === 200 && content) return last;
+    if (r.status !== 429) return last; // a real gate (401/402/400) — no point retrying here
+    if (i < attempts - 1) await sleep(gapMs + Math.random() * 1500);
+  }
+  return last;
+}
+
+/**
+ * Phase 2 — allocate + verify, on the given client (same exit or a fresh one).
+ * `client` must be signed in (session cookie present).
+ *
+ * Resume-safe: the key's *current* balance is read first and only the shortfall
+ * is allocated, so re-running after a lost line never double-allocates and
+ * never trips the empty-pool path.
+ */
+async function finish(client, rec, { amount = 100000000, model = 'MiniMaxAI/MiniMax-M2.7' } = {}) {
+  const bal0 = await client.keyBalance(rec.keyToken);
+  const bal0Data = bal0.data && typeof bal0.data === 'object' ? bal0.data : {};
+  const current =
+    bal0Data.tokens ?? bal0Data.available_tokens ?? bal0Data.balance ?? bal0Data.token_balance ?? (typeof bal0Data === 'number' ? bal0Data : 0);
+  rec.balanceBeforeAllocate = { status: bal0.status, tokens: current, raw: bal0Data };
+
+  let keyId = rec.keyId;
+  let shortfall = Math.max(0, amount - (Number(current) || 0));
+  if (shortfall > 0) {
+    const acct = await client.getAccount();
+    const acctData = acct.data && typeof acct.data === 'object' ? acct.data : {};
+    rec.accountAfterSignup = acctData;
+    const pool = Number(acctData.token_balance ?? acctData.tokens_on_keys ?? 0);
+    rec.poolBalance = pool;
+
+    if (!keyId) {
+      const keys = await client.listKeys();
+      const list = (keys.data && keys.data.keys) || [];
+      const found = list[0] || null;
+      if (found) {
+        keyId = found.id;
+        rec.keyToken = found.token || rec.keyToken;
+      } else {
+        const created = await client.createKey('k1');
+        const keyObj = (created.data && (created.data.key || created.data)) || null;
+        if (!keyObj) throw new Error('no key object available');
+        keyId = keyObj.id;
+        rec.keyToken = keyObj.token || rec.keyToken;
+      }
+      rec.keyId = keyId;
+    }
+
+    const toAllocate = Math.min(shortfall, pool);
+    if (toAllocate > 0) {
+      const al = await client.allocate(keyId, toAllocate);
+      rec.allocate = { status: al.status, data: al.data, requested: toAllocate, poolBefore: pool };
+      if (al.status !== 200 && al.status !== 201) {
+        const err = new Error(`allocate ${al.status}: ${JSON.stringify(al.data).slice(0, 200)}`);
+        err.gate = true;
+        throw err;
+      }
+    } else {
+      rec.allocate = { status: 'skipped', requested: 0, poolBefore: pool, note: 'pool empty' };
+    }
+  } else {
+    rec.allocate = { status: 'skipped', requested: 0, note: 'key already funded', current };
+  }
+
+  const bal = await client.keyBalance(rec.keyToken);
+  const balData = bal.data && typeof bal.data === 'object' ? bal.data : {};
+  rec.balance = {
+    status: bal.status,
+    tokens: balData.tokens ?? balData.available_tokens ?? balData.balance ?? balData.token_balance ?? null,
+    raw: balData,
+  };
+
+  const chat = await verifyChat(client, rec.keyToken, { models: model ? [].concat(model) : undefined });
+  rec.verify = chat;
+  rec.ok = bal.status === 200 && chat.chatStatus === 200 && !!chat.content;
+  rec.status = rec.ok ? 'verified' : 'unverified';
+  rec.finishExit = client.label();
+  return rec;
+}
+
+/** Sign in from a fresh exit using only the fingerprint. */
+async function signInOn(exit, fingerprint) {
+  const d = new Dahl(exit, { connectTimeoutMs: 8000, timeoutMs: 30000 });
+  const health = await retry(() => d.call('/health', { raw: true }), { attempts: 2 });
+  if (health.status !== 200) throw new Error(`health ${health.status}`);
+  const si = await d.signin(fingerprint);
+  if (si.status === 429) {
+    const err = new Error('429 on signin');
+    err.code = 429;
+    throw err;
+  }
+  if (si.status !== 200 && si.status !== 201) {
+    const err = new Error(`signin ${si.status}: ${JSON.stringify(si.data).slice(0, 200)}`);
+    err.gate = true;
+    throw err;
+  }
+  return { d, rec: { signin: si.data && typeof si.data === 'object' ? si.data : {} } };
+}
+
+module.exports = { signupOn, finish, signInOn, verifyChat, genUser, persistPending, PENDING };

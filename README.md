@@ -11,15 +11,15 @@
 
 # dahl-bulk-apikey
 
-**One [Dahl Inference](https://inference.dahl.global) account per API key — 100,000,000 tokens each — minted over pure REST, verified live, any number.**
+**Bulk-create [Dahl Inference](https://inference.dahl.global) accounts with auto-generated API keys — OpenAI-compatible inference + 9Router connector.**
 
 [![Node](https://img.shields.io/badge/Node-%E2%89%A518-3DA639?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-blue?style=for-the-badge)](#)
 [![License](https://img.shields.io/badge/license-MIT-6ea8fe?style=for-the-badge)](LICENSE)
 [![Models](https://img.shields.io/badge/models-3%20served-412991?style=for-the-badge)](https://inference.dahl.global/docs)
-[![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
+[![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6?style=for-the-badge)](#-connect-to-9router)
 
-[🛠 Quick start](#-quick-start) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🤖 Models & free tier](#-models--free-tier) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Issues](#-issues)
+[🛠 Quick start](#-quick-start) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🤖 Models & free tier](#-models--free-tier) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🔌 9Router](#-connect-to-9router) · [🐞 Issues](#-issues)
 
 </div>
 
@@ -87,7 +87,7 @@ curl https://inference.dahl.global/v1/chat/completions \
 ## 🛠 Quick start
 
 ```bash
-git clone https://github.com/F0Rextasy/dahl-bulk-apikey.git
+# clone or fork this repository, then:
 cd dahl-bulk-apikey
 
 # 1) your proxy list, one per line (http://, socks5://, socks4:// or bare host:port)
@@ -116,13 +116,14 @@ key id so any account can be recovered later (`recover.js`).
 ║  dahl-bulk-apikey                                                             ║
 ║  one account per key — 100M tokens each                                       ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
-  github.com/F0Rextasy · x.com/bigbullapp
+  dahl-bulk-apikey contributors
 
   1) Mint keys      — sign up one account per key, allocate the grant, verify
   2) Verify keys    — re-check every key with a live chat completion
   3) Screen proxies — test your proxy list for exits that reach Dahl
   4) Settings       — show what this launcher remembers
   5) Help           — CLI options and notes
+  6) Connect to 9Router — register the keys in keys.txt with a local 9Router
   q) Quit
 ```
 
@@ -165,6 +166,7 @@ funded while the pool is empty, which is why this tool mints exactly **one key p
 node cli.js --count N        # screen exits, mint, allocate, verify (any N, default 30)
 node cli.js --verify-only    # re-verify every key in keys.txt
 node cli.js --screen         # only screen your proxy list
+node cli.js --connect-9router  # …and register every key in keys.txt into 9Router
 node cli.js --help
 ```
 
@@ -193,10 +195,39 @@ minting a large batch.
 | `proxies.txt` | your exits, one per line — git-ignored |
 | `outputs/` | run logs and state — git-ignored |
 
+## 🔌 Connect to 9Router
+
+[9Router](https://9router.com) is a self-hosted, OpenAI-compatible router. Dahl serves an
+OpenAI-compatible endpoint (`https://inference.dahl.global/v1`), so register it once and every key
+you minted becomes a connection under one provider-node — 9Router load-balances across them:
+
+```bash
+node connect-9router.js \
+  --base http://localhost:20128 --password 123456 \
+  --api-key dahl_xxxxxxxx
+```
+
+Run it without `--api-key` to register **every** key in `keys.txt`. Re-running is idempotent: the
+node is matched by `--prefix dahl`, each connection is matched by name (`dahl-001`, `dahl-002`, …),
+and an already-registered key is left alone. Defaults: `--base http://localhost:20128`,
+`--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`,
+`--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`.
+
+Inside 9Router the keys are served as:
+
+```
+dahl/MiniMaxAI/MiniMax-M2.7
+dahl/deepseek-ai/DeepSeek-V4-Flash-0731
+dahl/zai-org/GLM-5.3-Flash
+```
+
+`node cli.js --count 30 --connect-9router` mints and registers in one pass, and
+`node launcher.js` → *Connect to 9Router* asks for the base URL and password.
+
 ## 🐞 Issues
 
 If Dahl changes the signup shape, the allocate semantics or the rate limits, the tool stops at that
-step and says so. **[Open an issue](https://github.com/F0Rextasy/dahl-bulk-apikey/issues)** with the
+step and says so. **[Open an issue](../../issues)** with the
 command you ran and the exact output; PRs are welcome.
 
 ## 📄 License
@@ -205,6 +236,6 @@ MIT © 2026 — see [LICENSE](LICENSE).
 
 <div align="center">
 
-**[github.com/F0Rextasy](https://github.com/F0Rextasy)** · **[x.com/bigbullapp](https://x.com/bigbullapp)**
+**[MIT](LICENSE)** © 2026 dahl-bulk-apikey contributors
 
 </div>

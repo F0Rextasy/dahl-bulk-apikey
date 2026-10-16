@@ -1,1 +1,178 @@
-const a0_0x25d48b=a0_0x51a3;(function(_0x43b823,_0x51271d){const _0x5ea2eb=a0_0x51a3,_0x170ecb=_0x43b823();while(!![]){try{const _0x32321a=parseInt(_0x5ea2eb(0xed))/0x1*(parseInt(_0x5ea2eb(0x10b))/0x2)+-parseInt(_0x5ea2eb(0xc9))/0x3*(-parseInt(_0x5ea2eb(0xf8))/0x4)+parseInt(_0x5ea2eb(0xd8))/0x5+parseInt(_0x5ea2eb(0xe8))/0x6+parseInt(_0x5ea2eb(0xde))/0x7*(-parseInt(_0x5ea2eb(0xf7))/0x8)+parseInt(_0x5ea2eb(0xec))/0x9+parseInt(_0x5ea2eb(0x10c))/0xa*(-parseInt(_0x5ea2eb(0xea))/0xb);if(_0x32321a===_0x51271d)break;else _0x170ecb['push'](_0x170ecb['shift']());}catch(_0x44081a){_0x170ecb['push'](_0x170ecb['shift']());}}}(a0_0xbfbf,0x7a29a));const a0_0x2c3408=(function(){let _0x5bd881=!![];return function(_0x30d512,_0x5d1925){const _0x4e849c=_0x5bd881?function(){if(_0x5d1925){const _0x43f8ff=_0x5d1925['apply'](_0x30d512,arguments);return _0x5d1925=null,_0x43f8ff;}}:function(){};return _0x5bd881=![],_0x4e849c;};}()),a0_0x1a0350=a0_0x2c3408(this,function(){const _0x3a3291=a0_0x51a3;if(a0_0x1a0350[_0x3a3291(0xdb)]()['toString']()[_0x3a3291(0x100)]('\x0a')!==-0x1)return;return a0_0x1a0350[_0x3a3291(0xcc)]()[_0x3a3291(0xc4)](_0x3a3291(0xc8))[_0x3a3291(0xcc)]()[_0x3a3291(0x109)](a0_0x1a0350)[_0x3a3291(0xc4)](_0x3a3291(0xc8));});function a0_0x51a3(_0xd8fd3e,_0x10c27d){_0xd8fd3e=_0xd8fd3e-0xbf;const _0x4ca690=a0_0xbfbf();let _0x1a0350=_0x4ca690[_0xd8fd3e];if(a0_0x51a3['OzyKgw']===undefined){var _0x2c3408=function(_0x3aa354){const _0x1c93de='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x414666='',_0x2ef957='',_0x31449e=_0x414666+_0x2c3408,_0x1bb29a=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x5bd881=0x0,_0x30d512,_0x5d1925,_0x4e849c=0x0;_0x5d1925=_0x3aa354['charAt'](_0x4e849c++);~_0x5d1925&&(_0x30d512=_0x5bd881%0x4?_0x30d512*0x40+_0x5d1925:_0x5d1925,_0x5bd881++%0x4)?_0x414666+=_0x1bb29a||_0x31449e['charCodeAt'](_0x4e849c+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x30d512>>(-0x2*_0x5bd881&0x6)):_0x5bd881:0x0){_0x5d1925=_0x1c93de['indexOf'](_0x5d1925);}for(let _0x43f8ff=0x0,_0x4d7ce4=_0x414666['length'];_0x43f8ff<_0x4d7ce4;_0x43f8ff++){_0x2ef957+='%'+('00'+_0x414666['charCodeAt'](_0x43f8ff)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x2ef957);};a0_0x51a3['orFPEl']=_0x2c3408,a0_0x51a3['SDrXEl']={},a0_0x51a3['OzyKgw']=!![];}const _0xbfbf38=_0x4ca690[0x0];a0_0x51a3['fxhiCe']!==_0xbfbf38&&(a0_0x51a3['SDrXEl']={},a0_0x51a3['fxhiCe']=_0xbfbf38);const _0x51a366=a0_0x51a3['SDrXEl'][_0xd8fd3e];if(_0x51a366===undefined){const _0x20c002=function(_0x40d9d9){this['vZOcrA']=_0x40d9d9,this['oXKRwZ']=[0x1,0x0,0x0],this['gpCGye']=function(){return'newState';},this['oQooeG']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['zjnsZO']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x20c002['prototype']['ftQgMY']=function(){const _0x4685dd=new RegExp(this['oQooeG']+this['zjnsZO']),_0x5af425=_0x4685dd['test'](this['gpCGye']['toString']())?--this['oXKRwZ'][0x1]:--this['oXKRwZ'][0x0];return this['HybYdz'](_0x5af425);},_0x20c002['prototype']['HybYdz']=function(_0x4ae4d5){if(!Boolean(~_0x4ae4d5))return _0x4ae4d5;return this['qrXZqg'](this['vZOcrA']);},_0x20c002['prototype']['qrXZqg']=function(_0x36576f){for(let _0x36f8a0=0x0,_0xba7a21=this['oXKRwZ']['length'];_0x36f8a0<_0xba7a21;_0x36f8a0++){this['oXKRwZ']['push'](Math['round'](Math['random']())),_0xba7a21=this['oXKRwZ']['length'];}return _0x36576f(this['oXKRwZ'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x20c002(a0_0x51a3)['ftQgMY'](),_0x1a0350=a0_0x51a3['orFPEl'](_0x1a0350),a0_0x51a3['SDrXEl'][_0xd8fd3e]=_0x1a0350;}else _0x1a0350=_0x51a366;return _0x1a0350;}a0_0x1a0350();'use strict';function a0_0xbfbf(){const _0x55fccd=['otaYnZHuBxrRB3i','mtbky0LkCeG','CMvXDwvZDcb0Aw1LB3v0ia','BM9UluPtt04Gka','zgf0yq','zxHPC3rZu3LUyW','C3rHCNrZv2L0Aa','AgvHzgvYCW','C2vHCMnO','ChjVEhKTBgfI','Ahr0Chm','CMvZB2X2zq','kcGOlISPkYKRksSK','ntK1odLxvLfTBfi','C3rHDhvZ','C3bSAxq','Dg9tDhjPBMC','zw4TvvmSzw47Ct0WlJK','BwvZC2fNzq','AxncDwzMzxi','BgvUz3rO','BgfIzwW','AgfZ','Dg9mB3DLCKnHC2u','yxbWzw5KrMLSzvn5BMm','ChjVDg9JB2W','zw5K','r0vu','mZq4nJm2mg5eCNvICG','CgfYC2u','C3rHDhvZq29Kzq','yMLUza','zxjYB3i','yM9KEq','n0HVv1r2rG','B3v0Chv0CW','q29UDgvUDc1uExbL','ChvZAa','CMfUzg9T','Ahr0Chm6','C2XPy2u','C29Tzq','y29Uy2f0','ywXS','mtG1nJKYohjKyNrquW','lI9WCM94Eq','mtqYmJu3nJfUC0reuMu','A2v5CW','nZuWndGWm0Dds1jAsa','m2DAEhb5wq','Bg9HzfbVB2XgAwXL','ywrK','ywjJzgvMz2HPAMTSBw5VChfYC3r1DND4ExOWmtiZndu2nZG5','C2v0vgLTzw91Da','yxjNDG','Ahr0Ca','B3v0','AM9PBG','Cg9YDa','mZy4mZK3nNHWtwTPza','ntzOy1bJsvK','qwnJzxb0luXHBMD1ywDL','y29UDgvUDc10ExbL','tw96AwXSys81lJaGkfDPBMrVD3mGtLqGmtaUmdSGv2LUnJq7ihG2ncKGqxbWBgvxzwjlAxqVntm3lJm2icHlsfrntcWGBgLRzsbhzwnRBYKGq2HYB21LlZe1ns4WlJaUmcbtywzHCMKVntm3lJm2','zxHWB3j0CW','CMvXDwvZDa','Dw5PB24TBgL2zs50Ehq','oI8V','Aw5KzxHpzG','y3jLyxrLqwDLBNq','D3jPDgu','ktOG','zNjVBq','zMLSDgvY','Cgf0Ag5HBwu','y29UDgvUDc1Szw5NDgG','zMLUza','y29UC3rYDwn0B3i','q29UDgvUDc1mzw5NDgG'];a0_0xbfbf=function(){return _0x55fccd;};return a0_0xbfbf();}const fs=require('fs'),path=require('path'),https=require(a0_0x25d48b(0xc6)),http=require(a0_0x25d48b(0xf3)),{URL}=require('url'),proxyLib=require(a0_0x25d48b(0xe9)),ROOT=path['resolve'](__dirname,'..'),OUT=path[a0_0x25d48b(0xf5)](ROOT,a0_0x25d48b(0xdf)),UA=a0_0x25d48b(0xfb),POOL_FILES=[...String(process.env.DAHL_PROXIES||'')[a0_0x25d48b(0xcb)](/[;,]/)['map'](_0x4d7ce4=>_0x4d7ce4['trim']())[a0_0x25d48b(0x105)](Boolean),path[a0_0x25d48b(0xc7)](ROOT,'proxies.txt'),path[a0_0x25d48b(0xc7)](ROOT,'..','..',a0_0x25d48b(0xc5),a0_0x25d48b(0xf4),a0_0x25d48b(0xfe))][a0_0x25d48b(0x105)](Boolean);function loadPool(_0x20c002=POOL_FILES){const _0x39c79a=a0_0x25d48b,_0x40d9d9=[],_0x4685dd=new Set();for(const _0x5af425 of _0x20c002){if(!fs[_0x39c79a(0xc1)](_0x5af425))continue;for(const _0x4ae4d5 of proxyLib[_0x39c79a(0xee)](_0x5af425)){const _0x36576f=_0x4ae4d5[_0x39c79a(0xd5)]+_0x39c79a(0xff)+_0x4ae4d5['host']+':'+_0x4ae4d5[_0x39c79a(0xf6)];if(_0x4685dd[_0x39c79a(0xd2)](_0x36576f))continue;_0x4685dd[_0x39c79a(0xef)](_0x36576f),_0x40d9d9[_0x39c79a(0xe1)](_0x4ae4d5);}}return _0x40d9d9;}function tuned(_0x36f8a0,{connectTimeoutMs:connectTimeoutMs=0x1f40,timeoutMs:timeoutMs=0x7530,keepAlive:keepAlive=![]}={}){return{..._0x36f8a0,'connectTimeoutMs':connectTimeoutMs,'timeoutMs':timeoutMs,'keepAlive':keepAlive};}function request(_0xba7a21,_0x13e4b9,{method:method=a0_0x25d48b(0xd7),headers:headers={},body:_0x26542d,timeoutMs:timeoutMs=0x7530,connectTimeoutMs:connectTimeoutMs=0x1f40,agent:_0x2bf72f}={}){return new Promise((_0x512b9d,_0x45e345)=>{const _0x2cacbf=a0_0x51a3,_0x422214=new URL(_0x13e4b9),_0x90a615=_0x422214['protocol']===_0x2cacbf(0xe3)?https:http,_0x29711c=_0x26542d===undefined||_0x26542d===null?null:Buffer[_0x2cacbf(0xcf)](_0x26542d)?_0x26542d:Buffer[_0x2cacbf(0x104)](typeof _0x26542d==='string'?_0x26542d:JSON['stringify'](_0x26542d)),_0x127e25={'User-Agent':UA,'Accept':'*/*',...headers};if(_0x29711c&&!Object['keys'](_0x127e25)[_0x2cacbf(0xe5)](_0x233580=>_0x233580[_0x2cacbf(0xd3)]()===_0x2cacbf(0xfa)))_0x127e25[_0x2cacbf(0xe0)]='application/json';if(_0x29711c&&!Object[_0x2cacbf(0xeb)](_0x127e25)[_0x2cacbf(0xe5)](_0x12a8c1=>_0x12a8c1[_0x2cacbf(0xd3)]()===_0x2cacbf(0x107)))_0x127e25[_0x2cacbf(0x10a)]=_0x29711c[_0x2cacbf(0xd0)];_0x127e25[_0x2cacbf(0xf9)]=_0x127e25[_0x2cacbf(0xf9)]||_0x2cacbf(0xcd);const _0x1d7538=_0x90a615[_0x2cacbf(0xfd)]({'method':method,'host':_0x422214['hostname'],'port':_0x422214[_0x2cacbf(0xf6)]||(_0x422214[_0x2cacbf(0xd5)]===_0x2cacbf(0xe3)?0x1bb:0x50),'path':_0x422214[_0x2cacbf(0x106)]+_0x422214['search'],'agent':_0x2bf72f||(_0xba7a21?proxyLib[_0x2cacbf(0x101)](tuned(_0xba7a21,{'timeoutMs':timeoutMs,'connectTimeoutMs':connectTimeoutMs})):undefined),'headers':_0x127e25},_0x2cb288=>{const _0x264c22=_0x2cacbf,_0x14ba6a=[];_0x2cb288['on'](_0x264c22(0xc0),_0x382132=>_0x14ba6a[_0x264c22(0xe1)](_0x382132)),_0x2cb288['on'](_0x264c22(0xd6),()=>_0x512b9d({'ok':_0x2cb288[_0x264c22(0xda)]>=0xc8&&_0x2cb288[_0x264c22(0xda)]<0x190,'status':_0x2cb288['statusCode'],'headers':_0x2cb288[_0x264c22(0xc3)],'body':Buffer[_0x264c22(0xe6)](_0x14ba6a)[_0x264c22(0xcc)]('utf8'),'location':_0x2cb288[_0x264c22(0xc3)]['location']}));});_0x1d7538[_0x2cacbf(0xf1)](timeoutMs,()=>_0x1d7538['destroy'](new Error(_0x2cacbf(0x10d)+timeoutMs+'ms'))),_0x1d7538['on'](_0x2cacbf(0xdc),_0x45ce47=>_0x45e345(_0x45ce47));if(_0x29711c)_0x1d7538[_0x2cacbf(0x102)](_0x29711c);_0x1d7538[_0x2cacbf(0xd6)]();});}function parseJson(_0x187bf6){const _0x22b570=a0_0x25d48b;try{return JSON[_0x22b570(0xd9)](_0x187bf6[_0x22b570(0xdd)]);}catch{const _0x4bca84=new Error(_0x22b570(0xbf)+_0x187bf6['status']+_0x22b570(0x103)+_0x187bf6[_0x22b570(0xdd)]['slice'](0x0,0x12c));_0x4bca84['status']=_0x187bf6[_0x22b570(0xca)],_0x4bca84[_0x22b570(0xdd)]=_0x187bf6[_0x22b570(0xdd)];throw _0x4bca84;}}function sleep(_0x55f553){return new Promise(_0x5df940=>setTimeout(_0x5df940,_0x55f553));}function arg(_0x5c48db,_0xed4b69){const _0x3aa9db=a0_0x25d48b,_0x2ee23c=process[_0x3aa9db(0xf2)]['slice'](0x2),_0x24e7dd=_0x2ee23c[_0x3aa9db(0x108)](_0x4dc2f7=>_0x4dc2f7[_0x3aa9db(0xc2)]('--'+_0x5c48db+'='));if(_0x24e7dd)return _0x24e7dd[_0x3aa9db(0xe4)](_0x5c48db['length']+0x3);const _0x5110fa=_0x2ee23c[_0x3aa9db(0x100)]('--'+_0x5c48db);if(_0x5110fa>=0x0){const _0xe778e3=_0x2ee23c[_0x5110fa+0x1];if(_0xe778e3!==undefined&&!_0xe778e3[_0x3aa9db(0xc2)]('--'))return _0xe778e3;return!![];}return _0xed4b69;}function flag(_0x4d0db3){const _0x38fb70=a0_0x25d48b;return process[_0x38fb70(0xf2)][_0x38fb70(0xe4)](0x2)['some'](_0x3503ce=>_0x3503ce==='--'+_0x4d0db3||_0x3503ce[_0x38fb70(0xc2)]('--'+_0x4d0db3+'='));}async function pool(_0x4e2dc8,_0x149c0c,_0x435b49){const _0x5d016f=a0_0x25d48b,_0x281505=new Array(_0x4e2dc8['length']);let _0x1af7f4=0x0;const _0x1f7f15=Array[_0x5d016f(0x104)]({'length':Math['min'](_0x149c0c,_0x4e2dc8[_0x5d016f(0xd0)])},async()=>{const _0x368cc2=_0x5d016f;while(_0x1af7f4<_0x4e2dc8[_0x368cc2(0xd0)]){const _0x27b717=_0x1af7f4++;try{_0x281505[_0x27b717]={'ok':!![],'value':await _0x435b49(_0x4e2dc8[_0x27b717],_0x27b717)};}catch(_0x6c5695){_0x281505[_0x27b717]={'ok':![],'error':_0x6c5695[_0x368cc2(0xce)]||String(_0x6c5695)};}}});return await Promise[_0x5d016f(0xe7)](_0x1f7f15),_0x281505;}function appendJsonl(_0x41c9a1,_0x39898d){const _0x545b43=a0_0x25d48b;fs[_0x545b43(0xd4)](_0x41c9a1,JSON['stringify'](_0x39898d)+'\x0a');}function rand(_0x336bcb,_0x517371=a0_0x25d48b(0xf0)){const _0x2fc368=a0_0x25d48b;let _0x44cc3b='';for(let _0x34a31a=0x0;_0x34a31a<_0x336bcb;_0x34a31a++)_0x44cc3b+=_0x517371[Math['floor'](Math[_0x2fc368(0xe2)]()*_0x517371[_0x2fc368(0xd0)])];return _0x44cc3b;}module[a0_0x25d48b(0xfc)]={'UA':UA,'ROOT':ROOT,'OUT':OUT,'POOL_FILES':POOL_FILES,'loadPool':loadPool,'tuned':tuned,'request':request,'parseJson':parseJson,'sleep':sleep,'arg':arg,'flag':flag,'pool':pool,'appendJsonl':appendJsonl,'rand':rand,'proxyLib':proxyLib,'label':proxyLib[a0_0x25d48b(0xd1)]};
+'use strict';
+
+/**
+ * Dahl Inference — shared plumbing.
+ *
+ * Everything HTTP that talks to Dahl goes through a pool proxy via
+ * a standalone CONNECT/SOCKS tunnelling module. There is no
+ * direct-connection fallback anywhere in this provider: the whole point of the
+ * run is that no Dahl request leaves from our own line.
+ */
+
+const fs = require('fs');
+const path = require('path');
+const https = require('https');
+const http = require('http');
+const { URL } = require('url');
+const proxyLib = require('./proxy');
+
+const ROOT = path.resolve(__dirname, '..');
+const OUT = path.join(ROOT, 'outputs');
+
+const UA =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36';
+
+/** Pool files, freshest first.
+ *
+ * Order keeps the published layout (`proxies.txt` next to the tool, or
+ * `$DAHL_PROXIES` as a path list) and the workspace layout (`out`)
+ * both working; missing files are skipped, nothing falls back to a direct
+ * connection.
+ */
+const POOL_FILES = [
+  ...String(process.env.DAHL_PROXIES || '')
+    .split(/[;,]/)
+    .map((s) => s.trim())
+    .filter(Boolean),
+  path.resolve(ROOT, 'proxies.txt'),
+].filter(Boolean);
+
+function loadPool(files = POOL_FILES) {
+  const out = [];
+  const seen = new Set();
+  for (const f of files) {
+    if (!fs.existsSync(f)) continue;
+    for (const p of proxyLib.loadPoolFile(f)) {
+      const k = `${p.protocol}://${p.host}:${p.port}`;
+      if (seen.has(k)) continue;
+      seen.add(k);
+      out.push(p);
+    }
+  }
+  return out;
+}
+
+/** Per-attempt proxy config: short connect, generous TLS handshake budget. */
+function tuned(proxy, { connectTimeoutMs = 8000, timeoutMs = 30000, keepAlive = false } = {}) {
+  return { ...proxy, connectTimeoutMs, timeoutMs, keepAlive };
+}
+
+/**
+ * One HTTPS request through `proxy` (null = direct, which this provider never
+ * uses for Dahl hosts). Resolves with `{ ok, status, headers, body, location }`
+ * or rejects on transport failure.
+ */
+function request(proxy, url, { method = 'GET', headers = {}, body, timeoutMs = 30000, connectTimeoutMs = 8000, agent } = {}) {
+  return new Promise((resolve, reject) => {
+    const u = new URL(url);
+    const lib = u.protocol === 'https:' ? https : http;
+    const payload =
+      body === undefined || body === null
+        ? null
+        : Buffer.isBuffer(body)
+          ? body
+          : Buffer.from(typeof body === 'string' ? body : JSON.stringify(body));
+    const h = { 'User-Agent': UA, Accept: '*/*', ...headers };
+    if (payload && !Object.keys(h).some((k) => k.toLowerCase() === 'content-type')) h['Content-Type'] = 'application/json';
+    if (payload && !Object.keys(h).some((k) => k.toLowerCase() === 'content-length')) h['Content-Length'] = payload.length;
+    h['Accept-Language'] = h['Accept-Language'] || 'en-US,en;q=0.9';
+
+    const req = lib.request(
+      {
+        method,
+        host: u.hostname,
+        port: u.port || (u.protocol === 'https:' ? 443 : 80),
+        path: u.pathname + u.search,
+        agent: agent || (proxy ? proxyLib.createAgent(tuned(proxy, { timeoutMs, connectTimeoutMs })) : undefined),
+        headers: h,
+      },
+      (res) => {
+        const chunks = [];
+        res.on('data', (c) => chunks.push(c));
+        res.on('end', () =>
+          resolve({
+            ok: res.statusCode >= 200 && res.statusCode < 400,
+            status: res.statusCode,
+            headers: res.headers,
+            body: Buffer.concat(chunks).toString('utf8'),
+            location: res.headers.location,
+          })
+        );
+      }
+    );
+    req.setTimeout(timeoutMs, () => req.destroy(new Error(`request timeout ${timeoutMs}ms`)));
+    req.on('error', (e) => reject(e));
+    if (payload) req.write(payload);
+    req.end();
+  });
+}
+
+/** Parses a JSON response body; throws with the raw body on failure. */
+function parseJson(res) {
+  try {
+    return JSON.parse(res.body);
+  } catch {
+    const err = new Error(`non-JSON (${res.status}): ${res.body.slice(0, 300)}`);
+    err.status = res.status;
+    err.body = res.body;
+    throw err;
+  }
+}
+
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+/**
+ * CLI argument reader that accepts both spellings — `--name=value` and
+ * `--name value` — because the packaged entry point (`cli.js`) spawns the tools
+ * with the space-separated form. A `--name` with no following value (or a
+ * following token that starts with `--`) counts as a boolean flag.
+ */
+function arg(name, dflt) {
+  const argv = process.argv.slice(2);
+  const eq = argv.find((a) => a.startsWith(`--${name}=`));
+  if (eq) return eq.slice(name.length + 3);
+  const i = argv.indexOf(`--${name}`);
+  if (i >= 0) {
+    const next = argv[i + 1];
+    if (next !== undefined && !next.startsWith('--')) return next;
+    return true;
+  }
+  return dflt;
+}
+
+/** Boolean flag: `--name` present → true. */
+function flag(name) {
+  return process.argv.slice(2).some((a) => a === `--${name}` || a.startsWith(`--${name}=`));
+}
+
+/** Bounded-concurrency map with per-item error capture. */
+async function pool(items, concurrency, fn) {
+  const results = new Array(items.length);
+  let i = 0;
+  const workers = Array.from({ length: Math.min(concurrency, items.length) }, async () => {
+    while (i < items.length) {
+      const idx = i++;
+      try {
+        results[idx] = { ok: true, value: await fn(items[idx], idx) };
+      } catch (e) {
+        results[idx] = { ok: false, error: e.message || String(e) };
+      }
+    }
+  });
+  await Promise.all(workers);
+  return results;
+}
+
+function appendJsonl(file, obj) {
+  fs.appendFileSync(file, JSON.stringify(obj) + '\n');
+}
+
+function rand(n, chars = 'abcdefghijklmnopqrstuvwxyz0123456789') {
+  let s = '';
+  for (let i = 0; i < n; i++) s += chars[Math.floor(Math.random() * chars.length)];
+  return s;
+}
+
+module.exports = { UA, ROOT, OUT, POOL_FILES, loadPool, tuned, request, parseJson, sleep, arg, flag, pool, appendJsonl, rand, proxyLib, label: proxyLib.label };

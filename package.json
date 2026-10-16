@@ -1,7 +1,7 @@
 {
   "name": "dahl-bulk-apikey",
   "version": "1.0.0",
-  "description": "Bulk API keys for Dahl Inference (dahl.global) — free tier: 100M tokens per account, 3 models (MiniMax M2.7, DeepSeek-V4-Flash, GLM-5.3-Flash). One account per key.",
+  "description": "Bulk-create Dahl Inference accounts with auto-generated API keys — OpenAI-compatible inference + 9Router connector.",
   "license": "MIT",
   "type": "commonjs",
   "bin": {
@@ -22,8 +22,9 @@
     "register",
     "launcher",
     "dahl",
-    "bulk",
-    "apikey"
+    "apikey",
+    "9router",
+    "openai-compatible"
   ],
   "files": [
     "cli.js",
@@ -44,6 +45,7 @@
     "screen.js",
     "text.js",
     "verify.js",
+    "connect-9router.js",
     "README.md",
     "LICENSE"
   ]

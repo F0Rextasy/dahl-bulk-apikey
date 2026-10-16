@@ -1,1 +1,211 @@
-function a0_0x5144(_0x2a65a3,_0x108f3b){_0x2a65a3=_0x2a65a3-0x1ba;const _0x59fa97=a0_0x470b();let _0x4de8c5=_0x59fa97[_0x2a65a3];if(a0_0x5144['LSUCcH']===undefined){var _0x275df9=function(_0x455ce6){const _0x276f8e='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x4d1620='',_0x54d4ff='',_0x3c85e7=_0x4d1620+_0x275df9,_0x4562f2=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x46bc7e=0x0,_0x2e64d4,_0x2218cc,_0x192f4e=0x0;_0x2218cc=_0x455ce6['charAt'](_0x192f4e++);~_0x2218cc&&(_0x2e64d4=_0x46bc7e%0x4?_0x2e64d4*0x40+_0x2218cc:_0x2218cc,_0x46bc7e++%0x4)?_0x4d1620+=_0x4562f2||_0x3c85e7['charCodeAt'](_0x192f4e+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x2e64d4>>(-0x2*_0x46bc7e&0x6)):_0x46bc7e:0x0){_0x2218cc=_0x276f8e['indexOf'](_0x2218cc);}for(let _0x75be1=0x0,_0x3f5326=_0x4d1620['length'];_0x75be1<_0x3f5326;_0x75be1++){_0x54d4ff+='%'+('00'+_0x4d1620['charCodeAt'](_0x75be1)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x54d4ff);};a0_0x5144['ecPLHA']=_0x275df9,a0_0x5144['QXiUGn']={},a0_0x5144['LSUCcH']=!![];}const _0x470b02=_0x59fa97[0x0];a0_0x5144['JMbbJR']!==_0x470b02&&(a0_0x5144['QXiUGn']={},a0_0x5144['JMbbJR']=_0x470b02);const _0x514441=a0_0x5144['QXiUGn'][_0x2a65a3];if(_0x514441===undefined){const _0x554bb0=function(_0x288cd4){this['RBQwON']=_0x288cd4,this['nzbHmt']=[0x1,0x0,0x0],this['NFBTdY']=function(){return'newState';},this['uQNbUD']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['sWziSj']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x554bb0['prototype']['bKQrug']=function(){const _0x5d0d29=new RegExp(this['uQNbUD']+this['sWziSj']),_0x5718a2=_0x5d0d29['test'](this['NFBTdY']['toString']())?--this['nzbHmt'][0x1]:--this['nzbHmt'][0x0];return this['VquBVW'](_0x5718a2);},_0x554bb0['prototype']['VquBVW']=function(_0x240d9e){if(!Boolean(~_0x240d9e))return _0x240d9e;return this['sjQQKv'](this['RBQwON']);},_0x554bb0['prototype']['sjQQKv']=function(_0x3accf2){for(let _0x534151=0x0,_0x471a83=this['nzbHmt']['length'];_0x534151<_0x471a83;_0x534151++){this['nzbHmt']['push'](Math['round'](Math['random']())),_0x471a83=this['nzbHmt']['length'];}return _0x3accf2(this['nzbHmt'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x554bb0(a0_0x5144)['bKQrug'](),_0x4de8c5=a0_0x5144['ecPLHA'](_0x4de8c5),a0_0x5144['QXiUGn'][_0x2a65a3]=_0x4de8c5;}else _0x4de8c5=_0x514441;return _0x4de8c5;}const a0_0x1a53bd=a0_0x5144;function a0_0x470b(){const _0x53c9bc=['ywXSB2nHDgu','yMfSyw5Jzq','Bg9N','yxbWzw5KrMLSzvn5BMm','A2v5vg9Rzw4','DMvYAwzPy2f0Aw9UigzHAwXLza','zgfOBc1Zy3jLzw4TBgL2zs1TAw5LlNr4Da','BwLUDc1ZDgf0zs5QC29U','zMLUz2vYChjPBNq','ignVBMm9','BwTKAxjtEw5J','zxHPDhm','ihbVB2W9','BM93','Cg9YDa','BwfW','Dg9ju09tDhjPBMC','Dg9Rzw5Z','w21PBNrDigzHDgfS','ChjVDg9JB2W','y29Kzq','zxHPDfrYyw5ZCg9YDezHAwX1CMvZ','Bg9HzfbVB2XgAwXL','CM91BMq','zMXVB3i','ignOyxq9','mJqWnty5A3j0Du1w','mZi2otC5nwTjDhbQvq','C2XPy2u','BwvZC2fNzq','C2vHCMnO','igfTB3vUDd0','A2v5CY50Ehq','mtiXz0DfCxPN','kcGOlISPkYKRksSK','CMfUzg9T','lI9SAwi','DxrMoa','ywrK','BwLUDc1SB2CUANnVBMW','zxHPC3rZu3LUyW','Aw5KzxHpzG','yw1VDw50','A2v5CW','mJi4nJKWy0HvEKXK','DMvYAwz5','C3rYAw5NAwz5','zNjVBq','zgfOBc1WB2LUDc1VzI11C2uTBgL2zs50Ehq','w21PBNrDignVDw50pq','y2f0y2G','y29UyW','Bw9KzwW','lI9MBg93','y291BNq','mJe2EKrwvfzS','C2LNBMLUuMvJB3zLCMLLCW','D3jPDgvgAwXLu3LUyW','lI9NDwfYza','yMLUza','y29UC3rYDwn0B3i','ywnJB3vUDhmUANnVBG','zxHOyxvZDgvKigv4AxrZ','DMvYAwz5lwzHAwXLza','igv4Axq9','zxjYB3jZ','m092z1jXsq','zxHPDhnuCMLLza','AM9PBG','Ag9ZDa','zgfOBc1RzxLZlNr4Da','mti4nZGWu0vqv29l','Dg9tDhjPBMC','Cgf0Aa','w21PBNrDigrVBMu6ia','nKTgAM9jtq','lcbZAwDUAw4GCMvJB3zLCMLLCYa','C2LNBNvWndi5','Cg9VBejLzM9Yzq','zgfOBc1SAxzLlNr4Da','AMLNz2XL','CMvXDwvZDgvK','lca0mJLZia','zg9Uzq','zxHPDcbXDwv1zsbLBxb0Eq','C2vJB25KCW','twLUAu1HEefjl01PBMLnyxGTttiUnW','BgvUz3rO','AgfZ','DxnLCM5HBwu','zxHPDa','zgfOBc1Zy3jLzw4TBgL2zs50Ehq','BwLUDa','z3vHCMq','igfSBg9Jpq','zMLUAxnOzwrbDa','mtKZodrjDwz4q08','BgfIzwW','w21PBNrDia','ChvZAa','z2f0zq','C2LNBNvWrxHPDa','mZG4mZGZofLxsfrlua','y2HHDfn0yxr1CW','ndm0nZy2zMP4zfLp'];a0_0x470b=function(){return _0x53c9bc;};return a0_0x470b();}(function(_0x34ab2e,_0x470b1d){const _0x17f6ce=a0_0x5144,_0x655fb6=_0x34ab2e();while(!![]){try{const _0x1518fc=parseInt(_0x17f6ce(0x214))/0x1+-parseInt(_0x17f6ce(0x1f9))/0x2*(-parseInt(_0x17f6ce(0x1d3))/0x3)+-parseInt(_0x17f6ce(0x1d8))/0x4+parseInt(_0x17f6ce(0x215))/0x5*(parseInt(_0x17f6ce(0x1dc))/0x6)+-parseInt(_0x17f6ce(0x1f7))/0x7+-parseInt(_0x17f6ce(0x1f1))/0x8*(-parseInt(_0x17f6ce(0x1c8))/0x9)+parseInt(_0x17f6ce(0x1bd))/0xa*(-parseInt(_0x17f6ce(0x21b))/0xb);if(_0x1518fc===_0x470b1d)break;else _0x655fb6['push'](_0x655fb6['shift']());}catch(_0x2ad630){_0x655fb6['push'](_0x655fb6['shift']());}}}(a0_0x470b,0x50ed3));const a0_0x275df9=(function(){let _0x46bc7e=!![];return function(_0x2e64d4,_0x2218cc){const _0x192f4e=_0x46bc7e?function(){if(_0x2218cc){const _0x75be1=_0x2218cc['apply'](_0x2e64d4,arguments);return _0x2218cc=null,_0x75be1;}}:function(){};return _0x46bc7e=![],_0x192f4e;};}()),a0_0x4de8c5=a0_0x275df9(this,function(){const _0x203f44=a0_0x5144;if(a0_0x4de8c5[_0x203f44(0x1cc)]()[_0x203f44(0x1d9)]()[_0x203f44(0x1ba)]('\x0a')!==-0x1)return;return a0_0x4de8c5[_0x203f44(0x1d9)]()[_0x203f44(0x218)](_0x203f44(0x21c))[_0x203f44(0x1d9)]()[_0x203f44(0x1cd)](a0_0x4de8c5)['search'](_0x203f44(0x21c));});a0_0x4de8c5();'use strict';const fs=require('fs'),path=require(a0_0x1a53bd(0x1da));require(a0_0x1a53bd(0x1cb))[a0_0x1a53bd(0x1ee)](a0_0x1a53bd(0x1ed));const {OUT,ROOT,proxyLib,pool,sleep,loadPool,arg}=require(a0_0x1a53bd(0x21e)),{signupOn,finish,signInOn}=require(a0_0x1a53bd(0x1c6)),COUNT=parseInt(arg(a0_0x1a53bd(0x1c7),'30'),0xa),CONC=parseInt(arg(a0_0x1a53bd(0x1c4),'4'),0xa),AMOUNT=parseInt(arg(a0_0x1a53bd(0x1bb),'100000000'),0xa),MODEL=arg(a0_0x1a53bd(0x1c5),a0_0x1a53bd(0x1e7)),MAX_EXITS=parseInt(arg(a0_0x1a53bd(0x205),'10'),0xa),JIGGLE=parseInt(arg(a0_0x1a53bd(0x1e1),'0'),0xa),KEYS_FILE=path['join'](ROOT,a0_0x1a53bd(0x21a)),ACCOUNTS_FILE=path[a0_0x1a53bd(0x1d5)](ROOT,a0_0x1a53bd(0x1ce)),LOG_FILE=path[a0_0x1a53bd(0x1d5)](OUT,a0_0x1a53bd(0x221)),STATE_FILE=path[a0_0x1a53bd(0x1d5)](OUT,a0_0x1a53bd(0x201)),POINT_FILE=path[a0_0x1a53bd(0x1d5)](OUT,a0_0x1a53bd(0x1c1)),state={'startedAt':new Date()[a0_0x1a53bd(0x20a)](),'count':COUNT,'amount':AMOUNT,'model':MODEL,'accounts':0x0,'keys':0x0,'exitsTried':0x0,'exitTransportFailures':0x0,'exitGrants':0x0,'signup429':0x0,'signinRecoveries':0x0,'errors':[],'done':![]},saveState=()=>fs[a0_0x1a53bd(0x1ca)](STATE_FILE,JSON[a0_0x1a53bd(0x1bf)](state,null,0x2)),logRow=_0x3f5326=>fs[a0_0x1a53bd(0x1fd)](LOG_FILE,JSON[a0_0x1a53bd(0x1bf)]({'ts':new Date()[a0_0x1a53bd(0x20a)](),..._0x3f5326})+'\x0a');function appendKey(_0x554bb0){const _0x372e48=a0_0x1a53bd;fs[_0x372e48(0x1fd)](KEYS_FILE,_0x554bb0+'\x0a');try{fs[_0x372e48(0x1fd)](path[_0x372e48(0x1d5)](process.env.USERPROFILE||process.env.HOME||'.',_0x372e48(0x1d7)),_0x554bb0+'\x0a');}catch{}}const loadAccounts=()=>{const _0x2cf7e1=a0_0x1a53bd;try{return JSON['parse'](fs['readFileSync'](ACCOUNTS_FILE,_0x2cf7e1(0x21f)));}catch{return[];}},saveAccounts=_0x288cd4=>fs['writeFileSync'](ACCOUNTS_FILE,JSON[a0_0x1a53bd(0x1bf)](_0x288cd4,null,0x2));function exits(){const _0x59103f=a0_0x1a53bd,_0x5d0d29=[POINT_FILE,path[_0x59103f(0x1d5)](OUT,_0x59103f(0x1ec)),path[_0x59103f(0x1d5)](OUT,_0x59103f(0x200)),path['join'](OUT,'..','..','proxy-lab','out','router-dahl-live.txt'),path['join'](OUT,_0x59103f(0x1e0))],_0x5718a2=new Set(),_0x240d9e=[];for(const _0x3accf2 of _0x5d0d29){if(!fs[_0x59103f(0x222)](_0x3accf2))continue;for(const _0x534151 of proxyLib[_0x59103f(0x210)](_0x3accf2)){const _0x471a83=_0x534151[_0x59103f(0x20d)]+'://'+_0x534151[_0x59103f(0x1d6)]+':'+_0x534151[_0x59103f(0x208)];if(_0x5718a2[_0x59103f(0x1e9)](_0x471a83))continue;_0x5718a2[_0x59103f(0x220)](_0x471a83),_0x240d9e['push'](_0x534151);}}for(let _0x3152bc=_0x240d9e['length']-0x1;_0x3152bc>0x0;_0x3152bc--){const _0x5e4fcf=Math[_0x59103f(0x212)](Math['random']()*(_0x3152bc+0x1));[_0x240d9e[_0x3152bc],_0x240d9e[_0x5e4fcf]]=[_0x240d9e[_0x5e4fcf],_0x240d9e[_0x3152bc]];}for(const _0x3d91c7 of loadPool()){const _0x3b52da=_0x3d91c7[_0x59103f(0x20d)]+'://'+_0x3d91c7[_0x59103f(0x1d6)]+':'+_0x3d91c7['port'];if(_0x5718a2[_0x59103f(0x1e9)](_0x3b52da))continue;_0x5718a2['add'](_0x3b52da),_0x240d9e['push'](_0x3d91c7);}return _0x240d9e;}async function main(){const _0x4d9018=a0_0x1a53bd;fs[_0x4d9018(0x204)](OUT,{'recursive':!![]});if(!fs[_0x4d9018(0x222)](KEYS_FILE))fs[_0x4d9018(0x1ca)](KEYS_FILE,'');if(!fs[_0x4d9018(0x222)](ACCOUNTS_FILE))saveAccounts([]);const _0x37cab1=exits();console[_0x4d9018(0x1fc)](_0x4d9018(0x1c2)+COUNT+_0x4d9018(0x203)+CONC+_0x4d9018(0x219)+AMOUNT+'\x20model='+MODEL+'\x20exits='+_0x37cab1[_0x4d9018(0x1e8)]);if(!_0x37cab1[_0x4d9018(0x1e8)])throw new Error(_0x4d9018(0x1e5));let _0x5b8b2f=0x0;const _0x339d52=()=>_0x37cab1[_0x5b8b2f++%_0x37cab1[_0x4d9018(0x1e8)]],_0xdda264=loadAccounts(),_0x2cf727=new Set(_0xdda264[_0x4d9018(0x209)](_0x446082=>_0x446082['username']));let _0x5eae9a=0x0;const _0x5831c1=Date[_0x4d9018(0x207)]();saveState();const _0x32b585=setInterval(()=>{const _0x355372=_0x4d9018;state[_0x355372(0x1e6)]=Math[_0x355372(0x211)]((Date[_0x355372(0x207)]()-_0x5831c1)/0x3e8),saveState();},0x4e20);await pool(Array[_0x4d9018(0x1c0)]({'length':COUNT},(_0x109812,_0x2d6988)=>_0x2d6988),CONC,async _0x213b96=>{const _0xb2a91f=_0x4d9018;if(JIGGLE)await sleep(Math[_0xb2a91f(0x21d)]()*JIGGLE);let _0x9bb55b=null,_0x2e71f4=null,_0x20dd39=0x0;for(let _0x16adb1=0x0;_0x16adb1<MAX_EXITS*0x3&&_0x20dd39<MAX_EXITS;_0x16adb1++){const _0x264feb=_0x339d52();state['exitsTried']++;try{if(!_0x9bb55b){const _0x6eb933=await signupOn(_0x264feb);_0x9bb55b=_0x6eb933['rec'],_0x2e71f4=_0x6eb933['d'];}else{const _0x14f45e=await signInOn(_0x264feb,_0x9bb55b[_0xb2a91f(0x202)]);_0x2e71f4=_0x14f45e['d'],state[_0xb2a91f(0x1c9)]++;}const _0x4515c2=await finish(_0x2e71f4,_0x9bb55b,{'amount':AMOUNT,'model':MODEL});_0x9bb55b=_0x4515c2;if(!_0x9bb55b['ok']){logRow({'idx':_0x213b96,'stage':_0xb2a91f(0x1d0),..._0x9bb55b}),state[_0xb2a91f(0x1d2)][_0xb2a91f(0x1f4)]({'idx':_0x213b96,'username':_0x9bb55b[_0xb2a91f(0x1ea)],'note':_0xb2a91f(0x1ff),'verify':_0x9bb55b[_0xb2a91f(0x1be)]}),saveState();return;}state['exitGrants']++,state['accounts']++,state[_0xb2a91f(0x1bc)]++,appendKey(_0x9bb55b[_0xb2a91f(0x1fe)]),_0xdda264[_0xb2a91f(0x1f4)](_0x9bb55b),saveAccounts(_0xdda264),_0x2cf727[_0xb2a91f(0x220)](_0x9bb55b['username']),logRow({'idx':_0x213b96,'stage':'minted',..._0x9bb55b}),fs['appendFileSync'](POINT_FILE,(_0x9bb55b[_0xb2a91f(0x1f6)]+'\x0a'+(_0x9bb55b[_0xb2a91f(0x1eb)]||'')+'\x0a')['replace'](/\n\n/g,'\x0a')),_0x5eae9a++,console[_0xb2a91f(0x1fc)](_0xb2a91f(0x1f3)+_0x5eae9a+'/'+COUNT+'\x20'+_0x9bb55b['username']+'\x20key='+_0x9bb55b['keyToken'][_0xb2a91f(0x216)](0x0,0x9)+'…'+_0x9bb55b[_0xb2a91f(0x1fe)][_0xb2a91f(0x216)](-0x4)+_0xb2a91f(0x206)+_0x9bb55b[_0xb2a91f(0x1fa)][_0xb2a91f(0x1df)]+_0xb2a91f(0x1ef)+_0x9bb55b[_0xb2a91f(0x1fa)][_0xb2a91f(0x1e2)]+'\x20bal='+_0x9bb55b[_0xb2a91f(0x1fb)][_0xb2a91f(0x20b)]+_0xb2a91f(0x213)+_0x9bb55b['verify'][_0xb2a91f(0x1f8)]+_0xb2a91f(0x1d1)+_0x9bb55b[_0xb2a91f(0x1f6)]),saveState();return;}catch(_0x130324){const _0x4a5805=_0x130324[_0xb2a91f(0x20e)]===0x1ad;_0x4a5805?(state[_0xb2a91f(0x1de)]++,await sleep(0x5dc+Math[_0xb2a91f(0x21d)]()*0x7d0)):(state[_0xb2a91f(0x20f)]++,_0x20dd39++);logRow({'idx':_0x213b96,'stage':_0x9bb55b?'finish-failed':'signup-failed','exit':proxyLib['label'](_0x264feb),'error':_0x130324[_0xb2a91f(0x217)],'code':_0x130324['code']||null,'gate':!!_0x130324[_0xb2a91f(0x1f5)],'transportAttempts':_0x20dd39});if(_0x130324[_0xb2a91f(0x1f5)]){state['errors']['push']({'idx':_0x213b96,'username':_0x9bb55b&&_0x9bb55b[_0xb2a91f(0x1ea)],'exit':proxyLib[_0xb2a91f(0x1f2)](_0x264feb),'error':_0x130324[_0xb2a91f(0x217)],'gate':!![]}),saveState();return;}}}state['errors'][_0xb2a91f(0x1f4)]({'idx':_0x213b96,'username':_0x9bb55b&&_0x9bb55b[_0xb2a91f(0x1ea)],'note':_0xb2a91f(0x1cf)}),saveState();}),state[_0x4d9018(0x1e4)]=!![],state[_0x4d9018(0x1f0)]=new Date()[_0x4d9018(0x20a)](),state[_0x4d9018(0x1e6)]=Math[_0x4d9018(0x211)]((Date[_0x4d9018(0x207)]()-_0x5831c1)/0x3e8),clearInterval(_0x32b585),saveState(),console[_0x4d9018(0x1fc)](_0x4d9018(0x1db)+state[_0x4d9018(0x1bc)]+'/'+COUNT+'\x20keys;\x20exits\x20tried\x20'+state[_0x4d9018(0x1d4)]+',\x20transport\x20failures\x20'+state[_0x4d9018(0x20f)]+_0x4d9018(0x1e3)+state[_0x4d9018(0x1de)]+_0x4d9018(0x1dd)+state[_0x4d9018(0x1c9)]+',\x20'+state[_0x4d9018(0x1e6)]+'s');}main()[a0_0x1a53bd(0x1c3)](_0x30a8ff=>{const _0x5bdfa4=a0_0x1a53bd;console['error'](_0x5bdfa4(0x20c),_0x30a8ff),process['exit'](0x1);});
+'use strict';
+
+/**
+ * Dahl Inference batch mint: N accounts × 1 key, each with the welcome grant
+ * allocated to its key and a live chat completion as the acceptance test.
+ *
+ * Exit discipline: one fresh pool exit per attempt; a dead exit fails the
+ * attempt, never a fallback to our own line. Because `signup` is the expensive
+ * step, its result is persisted to `outputs/pending-accounts.jsonl` before
+ * anything else — a line dying right after signup costs an exit, not an
+ * account: the fingerprint signs the account back in from a new exit.
+ *
+ * Artifacts: keys.txt (one verified key per line), accounts.json,
+ * outputs/mint-log.jsonl, outputs/mint-state.json.
+ *
+ * Usage: node mint.js --count=30 [--conc=4] [--amount=100000000] [--resume]
+ */
+
+const fs = require('fs');
+const path = require('path');
+require('./guard').guard('mint');
+const { OUT, ROOT, proxyLib, pool, sleep, loadPool, arg } = require('./lib');
+const { signupOn, finish, signInOn } = require('./flow');
+
+const COUNT = parseInt(arg('count', '30'), 10);
+const CONC = parseInt(arg('conc', '4'), 10);
+const AMOUNT = parseInt(arg('amount', '100000000'), 10);
+const MODEL = arg('model', 'MiniMaxAI/MiniMax-M2.7');
+const MAX_EXITS = parseInt(arg('exits', '10'), 10);
+const JIGGLE = parseInt(arg('jiggle', '0'), 10);
+
+const KEYS_FILE = path.join(ROOT, 'keys.txt');
+const ACCOUNTS_FILE = path.join(ROOT, 'accounts.json');
+const LOG_FILE = path.join(OUT, 'mint-log.jsonl');
+const STATE_FILE = path.join(OUT, 'mint-state.json');
+const POINT_FILE = path.join(OUT, 'dahl-point-of-use-live.txt');
+
+const state = {
+  startedAt: new Date().toISOString(),
+  count: COUNT,
+  amount: AMOUNT,
+  model: MODEL,
+  accounts: 0,
+  keys: 0,
+  exitsTried: 0,
+  exitTransportFailures: 0,
+  exitGrants: 0,
+  signup429: 0,
+  signinRecoveries: 0,
+  errors: [],
+  done: false,
+};
+const saveState = () => fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 2));
+const logRow = (row) => fs.appendFileSync(LOG_FILE, JSON.stringify({ ts: new Date().toISOString(), ...row }) + '\n');
+
+function appendKey(key) {
+  fs.appendFileSync(KEYS_FILE, key + '\n');
+  try {
+    fs.appendFileSync(path.join(process.env.USERPROFILE || process.env.HOME || '.', 'dahl-keys.txt'), key + '\n');
+  } catch {}
+}
+
+const loadAccounts = () => {
+  try {
+    return JSON.parse(fs.readFileSync(ACCOUNTS_FILE, 'utf8'));
+  } catch {
+    return [];
+  }
+};
+const saveAccounts = (list) => fs.writeFileSync(ACCOUNTS_FILE, JSON.stringify(list, null, 2));
+
+function exits() {
+  const files = [
+    POINT_FILE,
+    path.join(OUT, 'dahl-screen-live.txt'),
+    path.join(OUT, 'dahl-screen-live-mine.txt'),
+    path.join(OUT, 'dahl-live.txt'),
+  ];
+  const seen = new Set();
+  const out = [];
+  for (const f of files) {
+    if (!fs.existsSync(f)) continue;
+    for (const p of proxyLib.loadPoolFile(f)) {
+      const k = `${p.protocol}://${p.host}:${p.port}`;
+      if (seen.has(k)) continue;
+      seen.add(k);
+      out.push(p);
+    }
+  }
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  // Last resort: the raw pool (`proxies.txt` / `$DAHL_PROXIES`). The signup is
+  // itself the point-of-use probe, so an unscreened pool still mints — screening
+  // only raises the yield per attempt.
+  for (const p of loadPool()) {
+    const k = `${p.protocol}://${p.host}:${p.port}`;
+    if (seen.has(k)) continue;
+    seen.add(k);
+    out.push(p);
+  }
+  return out;
+}
+
+async function main() {
+  fs.mkdirSync(OUT, { recursive: true });
+  if (!fs.existsSync(KEYS_FILE)) fs.writeFileSync(KEYS_FILE, '');
+  if (!fs.existsSync(ACCOUNTS_FILE)) saveAccounts([]);
+
+  const list = exits();
+  console.log(`[mint] count=${COUNT} conc=${CONC} amount=${AMOUNT} model=${MODEL} exits=${list.length}`);
+  if (!list.length) throw new Error('exit queue empty');
+  let cursor = 0;
+  const nextExit = () => list[cursor++ % list.length];
+
+  const accounts = loadAccounts();
+  const seenUsers = new Set(accounts.map((a) => a.username));
+  let done = 0;
+  const t0 = Date.now();
+  saveState();
+  const heartbeat = setInterval(() => {
+    state.seconds = Math.round((Date.now() - t0) / 1000);
+    saveState();
+  }, 20000);
+
+  await pool(
+    Array.from({ length: COUNT }, (_, i) => i),
+    CONC,
+    async (idx) => {
+      if (JIGGLE) await sleep(Math.random() * JIGGLE);
+      let rec = null;
+      let client = null;
+      let transportAttempts = 0;
+
+      for (let attempt = 0; attempt < MAX_EXITS * 3 && transportAttempts < MAX_EXITS; attempt++) {
+        const exit = nextExit();
+        state.exitsTried++;
+        try {
+          if (!rec) {
+            // Phase 1: create the account.
+            const res = await signupOn(exit);
+            rec = res.rec;
+            client = res.d;
+          } else {
+            // Phase 2 after a lost line: sign back in with the fingerprint.
+            const res = await signInOn(exit, rec.fingerprint);
+            client = res.d;
+            state.signinRecoveries++;
+          }
+          const doneRec = await finish(client, rec, { amount: AMOUNT, model: MODEL });
+          rec = doneRec;
+          if (!rec.ok) {
+            logRow({ idx, stage: 'verify-failed', ...rec });
+            state.errors.push({ idx, username: rec.username, note: 'verification failed', verify: rec.verify });
+            // Key cannot actually call a model → do not ship it.
+            saveState();
+            return;
+          }
+          state.exitGrants++;
+          state.accounts++;
+          state.keys++;
+          appendKey(rec.keyToken);
+          accounts.push(rec);
+          saveAccounts(accounts);
+          seenUsers.add(rec.username);
+          logRow({ idx, stage: 'minted', ...rec });
+          fs.appendFileSync(POINT_FILE, `${rec.signupExit}\n${rec.exit || ''}\n`.replace(/\n\n/g, '\n'));
+          done++;
+          console.log(
+            `[mint] ${done}/${COUNT} ${rec.username} key=${rec.keyToken.slice(0, 9)}…${rec.keyToken.slice(-4)} pool=${rec.allocate.poolBefore} alloc=${rec.allocate.requested} bal=${rec.balance.tokens} chat=${rec.verify.chatStatus} exit=${rec.signupExit}`
+          );
+          saveState();
+          return;
+        } catch (e) {
+          const isRate = e.code === 429;
+          if (isRate) {
+            state.signup429++;
+            await sleep(1500 + Math.random() * 2000);
+          } else {
+            state.exitTransportFailures++;
+            transportAttempts++;
+          }
+          logRow({ idx, stage: rec ? 'finish-failed' : 'signup-failed', exit: proxyLib.label(exit), error: e.message, code: e.code || null, gate: !!e.gate, transportAttempts });
+          if (e.gate) {
+            state.errors.push({ idx, username: rec && rec.username, exit: proxyLib.label(exit), error: e.message, gate: true });
+            saveState();
+            return;
+          }
+          // Transport failure (or a rate window) → next exit, keeping the account record.
+        }
+      }
+      state.errors.push({ idx, username: rec && rec.username, note: 'exhausted exits' });
+      saveState();
+    }
+  );
+
+  state.done = true;
+  state.finishedAt = new Date().toISOString();
+  state.seconds = Math.round((Date.now() - t0) / 1000);
+  clearInterval(heartbeat);
+  saveState();
+  console.log(
+    `[mint] done: ${state.keys}/${COUNT} keys; exits tried ${state.exitsTried}, transport failures ${state.exitTransportFailures}, 429s ${state.signup429}, signin recoveries ${state.signinRecoveries}, ${state.seconds}s`
+  );
+}
+
+main().catch((e) => {
+  console.error('[mint] fatal', e);
+  process.exit(1);
+});

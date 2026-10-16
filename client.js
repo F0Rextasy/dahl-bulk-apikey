@@ -1,1 +1,166 @@
-const a0_0x51fa4c=a0_0x5f55;(function(_0x598aa8,_0x176827){const _0x3d38c8=a0_0x5f55,_0x49d3d5=_0x598aa8();while(!![]){try{const _0x5dee41=-parseInt(_0x3d38c8(0x1c0))/0x1*(parseInt(_0x3d38c8(0x1e9))/0x2)+parseInt(_0x3d38c8(0x1b7))/0x3*(parseInt(_0x3d38c8(0x1af))/0x4)+-parseInt(_0x3d38c8(0x1ee))/0x5+-parseInt(_0x3d38c8(0x1ac))/0x6*(parseInt(_0x3d38c8(0x1e2))/0x7)+-parseInt(_0x3d38c8(0x1e0))/0x8+parseInt(_0x3d38c8(0x1a6))/0x9*(-parseInt(_0x3d38c8(0x1f4))/0xa)+-parseInt(_0x3d38c8(0x1be))/0xb*(-parseInt(_0x3d38c8(0x1eb))/0xc);if(_0x5dee41===_0x176827)break;else _0x49d3d5['push'](_0x49d3d5['shift']());}catch(_0x2f5427){_0x49d3d5['push'](_0x49d3d5['shift']());}}}(a0_0x4f3e,0xb7c3b));const a0_0x308d47=(function(){let _0x7c1603=!![];return function(_0x41c524,_0x15bb31){const _0x2227c1=_0x7c1603?function(){const _0x67b347=a0_0x5f55;if(_0x15bb31){const _0x1a322c=_0x15bb31[_0x67b347(0x1f3)](_0x41c524,arguments);return _0x15bb31=null,_0x1a322c;}}:function(){};return _0x7c1603=![],_0x2227c1;};}()),a0_0x2c4327=a0_0x308d47(this,function(){const _0x1d3dff=a0_0x5f55;if(a0_0x2c4327[_0x1d3dff(0x1dc)]()[_0x1d3dff(0x1df)]()[_0x1d3dff(0x1d9)]('\x0a')!==-0x1)return;return a0_0x2c4327[_0x1d3dff(0x1df)]()[_0x1d3dff(0x1c7)](_0x1d3dff(0x1de))['toString']()[_0x1d3dff(0x1e5)](a0_0x2c4327)['search'](_0x1d3dff(0x1de));});a0_0x2c4327();function a0_0x4f3e(){const _0x28bf87=['ywXSB2nHDgu','ANnVBG','l3yXl2fJy291BNqVywXSB2nHDgu','l3yXl21VzgvSCW','BgfIzwW','qMvHCMvYia','ChjVEhK','ywjZB3jI','Aw5KzxHpzG','AgvHzgvYCW','l3yXl2fJy291BNqVCMv0DxjU','yMLUza','AgvHzgvY','kcGOlISPkYKRksSK','Dg9tDhjPBMC','nZKWnJmWnejAvK51zq','AxnbCNjHEq','mtmZvLjuAxLI','l3yXl2fJy291BNq','DxnHz2u','y29UC3rYDwn0B3i','DhjPBq','y3jLyxrLqwDLBNq','ywDLBNq','mJG2oteWnK1Qt3j1za','C2LNBMLU','mteZnJG4uKvrBhLt','yw5VBLrVA2vU','yxbWBgLJyxrPB24VANnVBIWGDgv4Dc9WBgfPBIWGkI8Q','mZu0nZi3nwX5BNnVzq','l3rVA2vUCY9JDxjYzw50','DgLTzw91De1Z','BwfW','z2v0qwnJB3vUDa','yxbWBhK','mtblBK5isM0','l3yXl2fJy291BNqVDxnHz2u/zgf5CZ0','ndyYndC1oez2r1LyyG','CMv0DxjUvg9Rzw5Z','C3bSAxq','DgvZDa','l3yXl2f1DgGVC2LNBNvW','C2L6zq','nZq0ndjTyLjYrvi','C2LNBNvW','lI9SAwi','mJK3odq0nhjWwufzyG','AMfY','l3yXl2nOyxqVy29TCgXLDgLVBNm','y29UBMvJDfrPBwvVDxrnCW','y29VA2LLCW','A2vLCefSAxzL','CgfYC2u','y3jLyxrLs2v5','nKzwB0jXuG','C3rHDhvZ','l3yXl2f1DgGVC2LNBMLU','Bwf4u29JA2v0CW','Ahr0Chm6lY9PBMzLCMvUy2uUzgfOBc5NBg9IywW','y2HHDa','y2fSBa','mZy1mLver055AG','l3yXl2fJy291BNqVBgvKz2vY','mwfdCwjqtW','C2v0lwnVB2TPzq','C2v0','yM9KEq','AM9PBG','r0vu','l3yXl2f1DgGVy2HLy2STDxnLCM5HBwu/DxnLCM5HBwu9','C2vHCMnO','C2XPy2u','l3rVA2vUCW','BgLZDeTLExm','ue9tva','l3yXl2fJy291BNqVA2v5CW','A2v5qMfSyw5Jzq','qxv0Ag9YAxPHDgLVBG','l2fJy291BNq','zxHWB3j0CW'];a0_0x4f3e=function(){return _0x28bf87;};return a0_0x4f3e();}'use strict';const {request,proxyLib}=require(a0_0x51fa4c(0x1ae)),BASE=a0_0x51fa4c(0x1bb);function a0_0x5f55(_0x213929,_0x5ccb78){_0x213929=_0x213929-0x1a6;const _0x325d98=a0_0x4f3e();let _0x2c4327=_0x325d98[_0x213929];if(a0_0x5f55['BuDVAj']===undefined){var _0x308d47=function(_0x5354d8){const _0xd0ae79='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0xec7919='',_0x562027='',_0x4fe931=_0xec7919+_0x308d47,_0x2cec75=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x7c1603=0x0,_0x41c524,_0x15bb31,_0x2227c1=0x0;_0x15bb31=_0x5354d8['charAt'](_0x2227c1++);~_0x15bb31&&(_0x41c524=_0x7c1603%0x4?_0x41c524*0x40+_0x15bb31:_0x15bb31,_0x7c1603++%0x4)?_0xec7919+=_0x2cec75||_0x4fe931['charCodeAt'](_0x2227c1+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x41c524>>(-0x2*_0x7c1603&0x6)):_0x7c1603:0x0){_0x15bb31=_0xd0ae79['indexOf'](_0x15bb31);}for(let _0x1a322c=0x0,_0x28291d=_0xec7919['length'];_0x1a322c<_0x28291d;_0x1a322c++){_0x562027+='%'+('00'+_0xec7919['charCodeAt'](_0x1a322c)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x562027);};a0_0x5f55['XxwKNl']=_0x308d47,a0_0x5f55['GItkMH']={},a0_0x5f55['BuDVAj']=!![];}const _0x4f3e5a=_0x325d98[0x0];a0_0x5f55['JgaEDm']!==_0x4f3e5a&&(a0_0x5f55['GItkMH']={},a0_0x5f55['JgaEDm']=_0x4f3e5a);const _0x5f555a=a0_0x5f55['GItkMH'][_0x213929];if(_0x5f555a===undefined){const _0x16b5f1=function(_0x4305ea){this['wXWqwO']=_0x4305ea,this['vzXExh']=[0x1,0x0,0x0],this['bMSRHV']=function(){return'newState';},this['YLSXKb']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['rZUthf']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x16b5f1['prototype']['ZEoUHu']=function(){const _0x51541c=new RegExp(this['YLSXKb']+this['rZUthf']),_0x52a0e0=_0x51541c['test'](this['bMSRHV']['toString']())?--this['vzXExh'][0x1]:--this['vzXExh'][0x0];return this['PylSJN'](_0x52a0e0);},_0x16b5f1['prototype']['PylSJN']=function(_0x2ca9a6){if(!Boolean(~_0x2ca9a6))return _0x2ca9a6;return this['eDTAxa'](this['wXWqwO']);},_0x16b5f1['prototype']['eDTAxa']=function(_0x1937fa){for(let _0xdeca77=0x0,_0x449c20=this['vzXExh']['length'];_0xdeca77<_0x449c20;_0xdeca77++){this['vzXExh']['push'](Math['round'](Math['random']())),_0x449c20=this['vzXExh']['length'];}return _0x1937fa(this['vzXExh'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x16b5f1(a0_0x5f55)['ZEoUHu'](),_0x2c4327=a0_0x5f55['XxwKNl'](_0x2c4327),a0_0x5f55['GItkMH'][_0x213929]=_0x2c4327;}else _0x2c4327=_0x5f555a;return _0x2c4327;}class Jar{constructor(){this['cookies']=new Map();}[a0_0x51fa4c(0x1d8)](_0x28291d){const _0x4e45af=a0_0x51fa4c,_0x16b5f1=_0x28291d[_0x4e45af(0x1c1)];if(!_0x16b5f1)return;for(const _0x4305ea of Array[_0x4e45af(0x1e1)](_0x16b5f1)?_0x16b5f1:[_0x16b5f1]){const _0x51541c=String(_0x4305ea)[_0x4e45af(0x1a8)](';')[0x0],_0x52a0e0=_0x51541c[_0x4e45af(0x1d9)]('=');if(_0x52a0e0<=0x0)continue;const _0x2ca9a6=_0x51541c[_0x4e45af(0x1c8)](0x0,_0x52a0e0)[_0x4e45af(0x1e6)](),_0x1937fa=_0x51541c['slice'](_0x52a0e0+0x1)['trim']();if(_0x1937fa===''||/expires=Thu, 01 Jan 1970/i[_0x4e45af(0x1a9)](_0x4305ea))this['cookies']['delete'](_0x2ca9a6);else this['cookies'][_0x4e45af(0x1c2)](_0x2ca9a6,_0x1937fa);}}[a0_0x51fa4c(0x1dd)](){const _0x4279fe=a0_0x51fa4c;return[...this[_0x4279fe(0x1b3)]['entries']()][_0x4279fe(0x1f1)](([_0xdeca77,_0x449c20])=>_0xdeca77+'='+_0x449c20)[_0x4279fe(0x1c4)](';\x20');}get['size'](){const _0x1cb3cc=a0_0x51fa4c;return this['cookies'][_0x1cb3cc(0x1ab)];}}class Dahl{constructor(_0x2be05c,_0x36fdfc={}){const _0xf2f3a8=a0_0x51fa4c;this['proxy']={..._0x2be05c,'connectTimeoutMs':_0x36fdfc[_0xf2f3a8(0x1b2)]||0x1f40,'timeoutMs':_0x36fdfc[_0xf2f3a8(0x1f0)]||0x7530},this['jar']=new Jar(),this[_0xf2f3a8(0x1e8)]=proxyLib[_0xf2f3a8(0x1e7)](this[_0xf2f3a8(0x1d7)],{'keepAlive':_0x36fdfc[_0xf2f3a8(0x1b4)]!==![],'maxSockets':_0x36fdfc[_0xf2f3a8(0x1ba)]||0x2});}['destroy'](){const _0x3234d2=a0_0x51fa4c;try{this[_0x3234d2(0x1e8)]['destroy']();}catch{}}async[a0_0x51fa4c(0x1bd)](_0x4c7748,{method:method=a0_0x51fa4c(0x1c5),body:_0x11991f,headers:headers={},token:_0x32e918,raw:raw=![]}={}){const _0x35d013=a0_0x51fa4c,_0x40f6b4={'Origin':BASE,'Referer':BASE+_0x35d013(0x1cf),'Accept':_0x35d013(0x1ed),...headers};if(this[_0x35d013(0x1b0)]['size'])_0x40f6b4['Cookie']=this[_0x35d013(0x1b0)][_0x35d013(0x1dd)]();if(_0x32e918)_0x40f6b4[_0x35d013(0x1ce)]=_0x35d013(0x1d6)+_0x32e918;const _0x51ea4d=await request(this[_0x35d013(0x1d7)],''+BASE+_0x4c7748,{'method':method,'body':_0x11991f,'headers':_0x40f6b4,'agent':this[_0x35d013(0x1e8)]});return this[_0x35d013(0x1b0)][_0x35d013(0x1d8)](_0x51ea4d[_0x35d013(0x1da)]),raw?_0x51ea4d:_0x51ea4d;}async['json'](_0x392689,_0x2f5c05={}){const _0x474162=a0_0x51fa4c,_0x2d1c19=await this['call'](_0x392689,_0x2f5c05);let _0x4d5100=null;try{_0x4d5100=JSON[_0x474162(0x1b5)](_0x2d1c19[_0x474162(0x1c3)]);}catch{_0x4d5100=_0x2d1c19[_0x474162(0x1c3)];}return{'status':_0x2d1c19[_0x474162(0x1b8)],'data':_0x4d5100,'res':_0x2d1c19};}['checkUsername'](_0xce24d8){const _0x1a3741=a0_0x51fa4c;return this['json'](_0x1a3741(0x1c6)+encodeURIComponent(_0xce24d8));}[a0_0x51fa4c(0x1ad)](_0x396b07){const _0x24b56a=a0_0x51fa4c;return this[_0x24b56a(0x1d2)](_0x24b56a(0x1aa),{'method':_0x24b56a(0x1cb),'body':{'username':_0x396b07}});}[a0_0x51fa4c(0x1ea)](_0x3f3933){const _0x20c016=a0_0x51fa4c;return this[_0x20c016(0x1d2)](_0x20c016(0x1b9),{'method':_0x20c016(0x1cb),'body':{'fingerprint':_0x3f3933}});}[a0_0x51fa4c(0x1f2)](){const _0x10ef5c=a0_0x51fa4c;return this[_0x10ef5c(0x1d2)](_0x10ef5c(0x1e3));}[a0_0x51fa4c(0x1ca)](){const _0x48ce40=a0_0x51fa4c;return this[_0x48ce40(0x1d2)](_0x48ce40(0x1cc));}[a0_0x51fa4c(0x1b6)](_0x436c76){const _0x45b08e=a0_0x51fa4c;return this[_0x45b08e(0x1d2)](_0x45b08e(0x1cc),{'method':_0x45b08e(0x1cb),'body':_0x436c76?{'name':_0x436c76}:undefined});}[a0_0x51fa4c(0x1d1)](_0x55a75b,_0x387255){const _0x48a33e=a0_0x51fa4c;return this['json'](_0x48a33e(0x1d3),{'method':'POST','body':{'key_id':_0x55a75b,'amount':_0x387255}});}[a0_0x51fa4c(0x1a7)](_0x1c1b4c,_0x29af45){const _0x14eebf=a0_0x51fa4c;return this[_0x14eebf(0x1d2)](_0x14eebf(0x1db),{'method':_0x14eebf(0x1cb),'body':{'key_id':_0x1c1b4c,'amount':_0x29af45}});}[a0_0x51fa4c(0x1e4)](_0x1b4bf4=0x1e){const _0x53fe8c=a0_0x51fa4c;return this[_0x53fe8c(0x1d2)](_0x53fe8c(0x1f5)+_0x1b4bf4);}['ledger'](){const _0x174522=a0_0x51fa4c;return this[_0x174522(0x1d2)](_0x174522(0x1bf));}async[a0_0x51fa4c(0x1ec)](){const _0x51e44f=a0_0x51fa4c,_0x531841=await this['call'](_0x51e44f(0x1c9),{'method':_0x51e44f(0x1cb)});let _0x5d6671=null;try{_0x5d6671=JSON[_0x51e44f(0x1b5)](_0x531841[_0x51e44f(0x1c3)]);}catch{_0x5d6671=_0x531841[_0x51e44f(0x1c3)];}return{'status':_0x531841[_0x51e44f(0x1b8)],'data':_0x5d6671,'res':_0x531841};}[a0_0x51fa4c(0x1cd)](_0x5a2a88){const _0x2eeee1=a0_0x51fa4c;return this[_0x2eeee1(0x1d2)](_0x2eeee1(0x1ef),{'token':_0x5a2a88});}['models'](){const _0xb9f944=a0_0x51fa4c;return this[_0xb9f944(0x1d2)](_0xb9f944(0x1d4));}[a0_0x51fa4c(0x1bc)](_0x34418b,_0x386d17){const _0xaa52a3=a0_0x51fa4c;return this[_0xaa52a3(0x1d2)](_0xaa52a3(0x1b1),{'method':_0xaa52a3(0x1cb),'token':_0x34418b,'body':_0x386d17});}[a0_0x51fa4c(0x1d5)](){const _0x46a88e=a0_0x51fa4c;return proxyLib[_0x46a88e(0x1d5)](this[_0x46a88e(0x1d7)]);}}module[a0_0x51fa4c(0x1d0)]={'Dahl':Dahl,'Jar':Jar,'BASE':BASE};
+'use strict';
+
+/**
+ * Dahl Inference API client — session-cookie aware, proxy-only.
+ *
+ * Contracts reverse-engineered from the site's own bundles
+ * (`/_astro/accountUi.*.js`) on 2026-10-14 and confirmed by the docs:
+ *   POST /v1/auth/signup            {username}                 → {user, fingerprint, api_key}
+ *   POST /v1/auth/signin            {fingerprint}              → session
+ *   GET  /v1/auth/check-username    ?username=…                → {available, suggestions}
+ *   GET  /v1/account                                           → account + pool
+ *   POST /v1/account/keys                                      → {key:{id, token, …}}
+ *   POST /v1/account/allocate       {key_id, amount}           → pool → key
+ *   POST /v1/account/return         {key_id, amount}           → key → pool
+ *   DELETE /v1/account/keys/{id}
+ *   GET  /v1/account/usage?days=30 | /v1/account/ledger
+ *   POST /tokens                                               → anonymous key
+ *   GET  /tokens/current            (Bearer key)               → {…, tokens …}
+ *   GET  /v1/models                 (public), POST /v1/chat/completions (Bearer key)
+ */
+
+const { request, proxyLib } = require('./lib');
+
+const BASE = 'https://inference.dahl.global';
+
+/** Minimal cookie jar for one Dahl session. */
+class Jar {
+  constructor() {
+    this.cookies = new Map();
+  }
+  absorb(headers) {
+    const raw = headers['set-cookie'];
+    if (!raw) return;
+    for (const line of Array.isArray(raw) ? raw : [raw]) {
+      const pair = String(line).split(';')[0];
+      const eq = pair.indexOf('=');
+      if (eq <= 0) continue;
+      const name = pair.slice(0, eq).trim();
+      const value = pair.slice(eq + 1).trim();
+      if (value === '' || /expires=Thu, 01 Jan 1970/i.test(line)) this.cookies.delete(name);
+      else this.cookies.set(name, value);
+    }
+  }
+  header() {
+    return [...this.cookies.entries()].map(([k, v]) => `${k}=${v}`).join('; ');
+  }
+  get size() {
+    return this.cookies.size;
+  }
+}
+
+class Dahl {
+  /**
+   * @param {object|null} proxy  parsed pool exit (never null in practice)
+   * @param {{connectTimeoutMs?:number,timeoutMs?:number,keepAlive?:boolean}} [opts]
+   */
+  constructor(proxy, opts = {}) {
+    this.proxy = { ...proxy, connectTimeoutMs: opts.connectTimeoutMs || 8000, timeoutMs: opts.timeoutMs || 30000 };
+    this.jar = new Jar();
+    // One tunnel per client, reused across the whole account flow: re-dialling
+    // the exit for every call multiplies the chance of losing the line (free
+    // exits have a 1–3 minute half-life; the flow is 5–9 calls).
+    this.agent = proxyLib.createAgent(this.proxy, { keepAlive: opts.keepAlive !== false, maxSockets: opts.maxSockets || 2 });
+  }
+
+  destroy() {
+    try {
+      this.agent.destroy();
+    } catch {}
+  }
+
+  async call(path, { method = 'GET', body, headers = {}, token, raw = false } = {}) {
+    const h = {
+      Origin: BASE,
+      Referer: `${BASE}/account`,
+      Accept: 'application/json, text/plain, */*',
+      ...headers,
+    };
+    if (this.jar.size) h.Cookie = this.jar.header();
+    if (token) h.Authorization = `Bearer ${token}`;
+    const res = await request(this.proxy, `${BASE}${path}`, { method, body, headers: h, agent: this.agent });
+    this.jar.absorb(res.headers);
+    return raw ? res : res;
+  }
+
+  async json(path, opts = {}) {
+    const res = await this.call(path, opts);
+    let data = null;
+    try {
+      data = JSON.parse(res.body);
+    } catch {
+      data = res.body;
+    }
+    return { status: res.status, data, res };
+  }
+
+  checkUsername(username) {
+    return this.json(`/v1/auth/check-username?username=${encodeURIComponent(username)}`);
+  }
+
+  signup(username) {
+    return this.json('/v1/auth/signup', { method: 'POST', body: { username } });
+  }
+
+  signin(fingerprint) {
+    return this.json('/v1/auth/signin', { method: 'POST', body: { fingerprint } });
+  }
+
+  getAccount() {
+    return this.json('/v1/account');
+  }
+
+  listKeys() {
+    return this.json('/v1/account/keys');
+  }
+
+  createKey(name) {
+    return this.json('/v1/account/keys', { method: 'POST', body: name ? { name } : undefined });
+  }
+
+  allocate(keyId, amount) {
+    return this.json('/v1/account/allocate', { method: 'POST', body: { key_id: keyId, amount } });
+  }
+
+  returnTokens(keyId, amount) {
+    return this.json('/v1/account/return', { method: 'POST', body: { key_id: keyId, amount } });
+  }
+
+  usage(days = 30) {
+    return this.json(`/v1/account/usage?days=${days}`);
+  }
+
+  ledger() {
+    return this.json('/v1/account/ledger');
+  }
+
+  /** Anonymous key from the landing page: `POST /tokens`. */
+  async anonToken() {
+    const res = await this.call('/tokens', { method: 'POST' });
+    let data = null;
+    try {
+      data = JSON.parse(res.body);
+    } catch {
+      data = res.body;
+    }
+    return { status: res.status, data, res };
+  }
+
+  keyBalance(keyToken) {
+    return this.json('/tokens/current', { token: keyToken });
+  }
+
+  models() {
+    return this.json('/v1/models');
+  }
+
+  chat(keyToken, body) {
+    return this.json('/v1/chat/completions', { method: 'POST', token: keyToken, body });
+  }
+
+  label() {
+    return proxyLib.label(this.proxy);
+  }
+}
+
+module.exports = { Dahl, Jar, BASE };

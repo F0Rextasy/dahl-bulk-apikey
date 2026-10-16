@@ -1,1 +1,33 @@
-const a0_0x2e00d2=a0_0x7bf4;(function(_0x17ac97,_0x520bab){const _0x4a192f=a0_0x7bf4,_0x19a7b4=_0x17ac97();while(!![]){try{const _0x58ced0=-parseInt(_0x4a192f(0xf8))/0x1+parseInt(_0x4a192f(0xf0))/0x2*(parseInt(_0x4a192f(0x103))/0x3)+-parseInt(_0x4a192f(0xf6))/0x4+parseInt(_0x4a192f(0x109))/0x5*(parseInt(_0x4a192f(0x10b))/0x6)+-parseInt(_0x4a192f(0x10c))/0x7+parseInt(_0x4a192f(0xfe))/0x8+-parseInt(_0x4a192f(0xfc))/0x9*(parseInt(_0x4a192f(0x100))/0xa);if(_0x58ced0===_0x520bab)break;else _0x19a7b4['push'](_0x19a7b4['shift']());}catch(_0x305796){_0x19a7b4['push'](_0x19a7b4['shift']());}}}(a0_0x5a68,0x42e78));const a0_0x3df511=(function(){let _0x53c0d8=!![];return function(_0x5f318a,_0x14ab52){const _0x261ab3=_0x53c0d8?function(){const _0x100fd7=a0_0x7bf4;if(_0x14ab52){const _0x48df71=_0x14ab52[_0x100fd7(0x108)](_0x5f318a,arguments);return _0x14ab52=null,_0x48df71;}}:function(){};return _0x53c0d8=![],_0x261ab3;};}()),a0_0x1239e1=a0_0x3df511(this,function(){const _0x1e6e19=a0_0x7bf4;if(a0_0x1239e1[_0x1e6e19(0x107)]()[_0x1e6e19(0xef)]()[_0x1e6e19(0xfa)]('\x0a')!==-0x1)return;return a0_0x1239e1[_0x1e6e19(0xef)]()[_0x1e6e19(0x10a)](_0x1e6e19(0xf2))['toString']()['constructor'](a0_0x1239e1)[_0x1e6e19(0x10a)]('(((.+)+)+)+$');});a0_0x1239e1();'use strict';const fs=require('fs'),[logFile,outFile]=process[a0_0x2e00d2(0x105)]['slice'](0x2);if(!logFile||!outFile)throw new Error('usage:\x20node\x20live-from-log.js\x20<log.jsonl>\x20<out.txt>');const seen=new Set(),live=[],src=fs[a0_0x2e00d2(0xee)](logFile)?fs[a0_0x2e00d2(0x101)](logFile,'utf8'):'';function a0_0x5a68(){const _0x5a3507=['mJq0mdeZmhnJqwXvCq','CgfYC2u','zxHPC3rZu3LUyW','Dg9tDhjPBMC','ntu2otrXEuT4zgG','C3rHDhvZ','kcGOlISPkYKRksSK','Bg9N','D3jPDgvgAwXLu3LUyW','w2XPDMuTzNjVBs1SB2DDia','mtyWodqWsfrhrfzm','AgfZ','mZC3nti2BMHdzurg','igXPDMuGzxHPDhmG4OAsia','Aw5KzxHpzG','ChvZAa','mZa2zKHmtuPP','BgvUz3rO','mZC4mZu4nfDJAM5pEG','ChjVEhK','mZK2mZbuy01sB1C','CMvHzezPBgvtEw5J','AM9PBG','mZn2vfboExm','DhjPBq','yxjNDG','icaJig1Zpq','yMLUza','yxbWBhK','mtaYntvtEu10teS','C2vHCMnO','mte1ofD2r3DyzG'];a0_0x5a68=function(){return _0x5a3507;};return a0_0x5a68();}for(const line of src['split']('\x0a')){const t=line[a0_0x2e00d2(0x104)]();if(!t)continue;let row;try{row=JSON[a0_0x2e00d2(0x10d)](t);}catch{continue;}if(row[a0_0x2e00d2(0xf1)]!==0xc8||!row[a0_0x2e00d2(0xff)])continue;if(seen[a0_0x2e00d2(0xf7)](row[a0_0x2e00d2(0xff)]))continue;seen['add'](row['proxy']),live[a0_0x2e00d2(0xfb)](row[a0_0x2e00d2(0xff)]+a0_0x2e00d2(0x106)+row['ms']+'\x20'+(row['ts']||''));}function a0_0x7bf4(_0x24fc76,_0x2028bb){_0x24fc76=_0x24fc76-0xee;const _0x474b79=a0_0x5a68();let _0x1239e1=_0x474b79[_0x24fc76];if(a0_0x7bf4['ZcLgrE']===undefined){var _0x3df511=function(_0x3a4852){const _0x300185='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x1aaf86='',_0x5d15a5='',_0x47e77a=_0x1aaf86+_0x3df511,_0x5f5001=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x53c0d8=0x0,_0x5f318a,_0x14ab52,_0x261ab3=0x0;_0x14ab52=_0x3a4852['charAt'](_0x261ab3++);~_0x14ab52&&(_0x5f318a=_0x53c0d8%0x4?_0x5f318a*0x40+_0x14ab52:_0x14ab52,_0x53c0d8++%0x4)?_0x1aaf86+=_0x5f5001||_0x47e77a['charCodeAt'](_0x261ab3+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x5f318a>>(-0x2*_0x53c0d8&0x6)):_0x53c0d8:0x0){_0x14ab52=_0x300185['indexOf'](_0x14ab52);}for(let _0x48df71=0x0,_0x12731a=_0x1aaf86['length'];_0x48df71<_0x12731a;_0x48df71++){_0x5d15a5+='%'+('00'+_0x1aaf86['charCodeAt'](_0x48df71)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x5d15a5);};a0_0x7bf4['TwGwFr']=_0x3df511,a0_0x7bf4['SpTPKT']={},a0_0x7bf4['ZcLgrE']=!![];}const _0x5a6848=_0x474b79[0x0];a0_0x7bf4['xECEem']!==_0x5a6848&&(a0_0x7bf4['SpTPKT']={},a0_0x7bf4['xECEem']=_0x5a6848);const _0x7bf451=a0_0x7bf4['SpTPKT'][_0x24fc76];if(_0x7bf451===undefined){const _0xed8b35=function(_0x4a55f7){this['XxeBLo']=_0x4a55f7,this['CTHofg']=[0x1,0x0,0x0],this['bPyEZq']=function(){return'newState';},this['FbsbqO']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['sCzicd']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0xed8b35['prototype']['GqUpPW']=function(){const _0x2c30c2=new RegExp(this['FbsbqO']+this['sCzicd']),_0x521fb5=_0x2c30c2['test'](this['bPyEZq']['toString']())?--this['CTHofg'][0x1]:--this['CTHofg'][0x0];return this['DwtWST'](_0x521fb5);},_0xed8b35['prototype']['DwtWST']=function(_0x115d1f){if(!Boolean(~_0x115d1f))return _0x115d1f;return this['Bistkd'](this['XxeBLo']);},_0xed8b35['prototype']['Bistkd']=function(_0x58d4d8){for(let _0xe4928f=0x0,_0x49cb52=this['CTHofg']['length'];_0xe4928f<_0x49cb52;_0xe4928f++){this['CTHofg']['push'](Math['round'](Math['random']())),_0x49cb52=this['CTHofg']['length'];}return _0x58d4d8(this['CTHofg'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0xed8b35(a0_0x7bf4)['GqUpPW'](),_0x1239e1=a0_0x7bf4['TwGwFr'](_0x1239e1),a0_0x7bf4['SpTPKT'][_0x24fc76]=_0x1239e1;}else _0x1239e1=_0x7bf451;return _0x1239e1;}fs[a0_0x2e00d2(0xf4)](outFile,live[a0_0x2e00d2(0x102)]('\x0a')+(live[a0_0x2e00d2(0xfd)]?'\x0a':'')),console[a0_0x2e00d2(0xf3)](a0_0x2e00d2(0xf5)+live[a0_0x2e00d2(0xfd)]+a0_0x2e00d2(0xf9)+outFile);
+'use strict';
+
+/**
+ * Turn a screen log into a live-exit list: every row with an HTTP 200 (any
+ * body size — `/health` is 15 bytes, so body length is not a liveness signal).
+ *
+ * Usage: node live-from-log.js <log.jsonl> <out.txt>
+ */
+
+const fs = require('fs');
+
+const [logFile, outFile] = process.argv.slice(2);
+if (!logFile || !outFile) throw new Error('usage: node live-from-log.js <log.jsonl> <out.txt>');
+
+const seen = new Set();
+const live = [];
+const src = fs.existsSync(logFile) ? fs.readFileSync(logFile, 'utf8') : '';
+for (const line of src.split('\n')) {
+  const t = line.trim();
+  if (!t) continue;
+  let row;
+  try {
+    row = JSON.parse(t);
+  } catch {
+    continue;
+  }
+  if (row.status !== 200 || !row.proxy) continue;
+  if (seen.has(row.proxy)) continue;
+  seen.add(row.proxy);
+  live.push(`${row.proxy}  # ms=${row.ms} ${row.ts || ''}`);
+}
+fs.writeFileSync(outFile, live.join('\n') + (live.length ? '\n' : ''));
+console.log(`[live-from-log] ${live.length} live exits → ${outFile}`);

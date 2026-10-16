@@ -1,1 +1,57 @@
-const a0_0x691427=a0_0x1bb9;(function(_0x1797b4,_0x44c614){const _0x2a2bce=a0_0x1bb9,_0x347db4=_0x1797b4();while(!![]){try{const _0x3fa812=parseInt(_0x2a2bce(0xdf))/0x1*(-parseInt(_0x2a2bce(0xd7))/0x2)+-parseInt(_0x2a2bce(0xe7))/0x3*(parseInt(_0x2a2bce(0xdc))/0x4)+-parseInt(_0x2a2bce(0xe2))/0x5+-parseInt(_0x2a2bce(0xde))/0x6+-parseInt(_0x2a2bce(0xdb))/0x7+-parseInt(_0x2a2bce(0xea))/0x8+parseInt(_0x2a2bce(0xe9))/0x9;if(_0x3fa812===_0x44c614)break;else _0x347db4['push'](_0x347db4['shift']());}catch(_0xfd8fc4){_0x347db4['push'](_0x347db4['shift']());}}}(a0_0x8e11,0x51771));const a0_0x42d120=(function(){let _0x528d45=!![];return function(_0x527a1e,_0x13595d){const _0x307419=_0x528d45?function(){const _0x512123=a0_0x1bb9;if(_0x13595d){const _0x103444=_0x13595d[_0x512123(0xe1)](_0x527a1e,arguments);return _0x13595d=null,_0x103444;}}:function(){};return _0x528d45=![],_0x307419;};}()),a0_0x1a6769=a0_0x42d120(this,function(){const _0x2fce60=a0_0x1bb9;if(a0_0x1a6769['bind']()['toString']()['indexOf']('\x0a')!==-0x1)return;return a0_0x1a6769[_0x2fce60(0xe8)]()[_0x2fce60(0xdd)](_0x2fce60(0xd6))['toString']()['constructor'](a0_0x1a6769)['search'](_0x2fce60(0xd6));});a0_0x1a6769();'use strict';const fs=require('fs'),file=process['argv'][0x2],pattern=process[a0_0x691427(0xe0)][0x3];function a0_0x1bb9(_0x43ac00,_0x125eaa){_0x43ac00=_0x43ac00-0xd4;const _0x865f42=a0_0x8e11();let _0x1a6769=_0x865f42[_0x43ac00];if(a0_0x1bb9['zBHBrm']===undefined){var _0x42d120=function(_0x53c0e7){const _0x58f530='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x424385='',_0xc64057='',_0x4278a4=_0x424385+_0x42d120,_0x465bb0=(''+function(){return 0x0;})['indexOf']('\x0a')!==-0x1;for(let _0x528d45=0x0,_0x527a1e,_0x13595d,_0x307419=0x0;_0x13595d=_0x53c0e7['charAt'](_0x307419++);~_0x13595d&&(_0x527a1e=_0x528d45%0x4?_0x527a1e*0x40+_0x13595d:_0x13595d,_0x528d45++%0x4)?_0x424385+=_0x465bb0||_0x4278a4['charCodeAt'](_0x307419+0xa)-0xa!==0x0?String['fromCharCode'](0xff&_0x527a1e>>(-0x2*_0x528d45&0x6)):_0x528d45:0x0){_0x13595d=_0x58f530['indexOf'](_0x13595d);}for(let _0x103444=0x0,_0x37fd97=_0x424385['length'];_0x103444<_0x37fd97;_0x103444++){_0xc64057+='%'+('00'+_0x424385['charCodeAt'](_0x103444)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0xc64057);};a0_0x1bb9['tLusCt']=_0x42d120,a0_0x1bb9['qeZKDu']={},a0_0x1bb9['zBHBrm']=!![];}const _0x8e1183=_0x865f42[0x0];a0_0x1bb9['FNZWHq']!==_0x8e1183&&(a0_0x1bb9['qeZKDu']={},a0_0x1bb9['FNZWHq']=_0x8e1183);const _0x1bb99f=a0_0x1bb9['qeZKDu'][_0x43ac00];if(_0x1bb99f===undefined){const _0x25b0c7=function(_0x230ecc){this['FIZqIW']=_0x230ecc,this['vNiyRM']=[0x1,0x0,0x0],this['IRIjRu']=function(){return'newState';},this['OxUVQb']='\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a',this['MJJoUE']='\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d';};_0x25b0c7['prototype']['aLrpbF']=function(){const _0x11a685=new RegExp(this['OxUVQb']+this['MJJoUE']),_0x18c4d4=_0x11a685['test'](this['IRIjRu']['toString']())?--this['vNiyRM'][0x1]:--this['vNiyRM'][0x0];return this['XkxCsT'](_0x18c4d4);},_0x25b0c7['prototype']['XkxCsT']=function(_0xf61b88){if(!Boolean(~_0xf61b88))return _0xf61b88;return this['egvGNz'](this['FIZqIW']);},_0x25b0c7['prototype']['egvGNz']=function(_0xd3aabc){for(let _0x151b91=0x0,_0x2158e2=this['vNiyRM']['length'];_0x151b91<_0x2158e2;_0x151b91++){this['vNiyRM']['push'](Math['round'](Math['random']())),_0x2158e2=this['vNiyRM']['length'];}return _0xd3aabc(this['vNiyRM'][0x0]);},(''+function(){return 0x0;})['indexOf']('\x0a')===-0x1&&new _0x25b0c7(a0_0x1bb9)['aLrpbF'](),_0x1a6769=a0_0x1bb9['tLusCt'](_0x1a6769),a0_0x1bb9['qeZKDu'][_0x43ac00]=_0x1a6769;}else _0x1a6769=_0x1bb99f;return _0x1a6769;}let html=fs[a0_0x691427(0xd4)](file,a0_0x691427(0xda));function a0_0x8e11(){const _0x380f8e=['m3nODNv2za','Dg9tDhjPBMC','mJu0odC5ndzqsMHQywW','ntaWmdy0ofrsC1nOua','cI0Tlq','CMvWBgfJzq','DhjPBq','CMvHzezPBgvtEw5J','Bg9N','kcGOlISPkYKRksSK','mKLrrhfusq','BwfW','AM9PBG','DxrMoa','mJu2mtq0mgv4z1b4Ea','mtKYotmWoeLytMXYvG','C2vHCMnO','mtiWndqXmgjYsKPHyG','nduYmtK4t1L4r2rm','yxjNDG','yxbWBhK','mtG2mdi2mhDsqvzxrq','kg5Vig1HDgnOkq','Bwf4','C2XPy2u','zM9YrwfJAa'];a0_0x8e11=function(){return _0x380f8e;};return a0_0x8e11();}html=html[a0_0x691427(0xec)](/<script[\s\S]*?<\/script>/gi,'\x20')[a0_0x691427(0xec)](/<style[\s\S]*?<\/style>/gi,'\x20')[a0_0x691427(0xec)](/<svg[\s\S]*?<\/svg>/gi,'\x20'),html=html[a0_0x691427(0xec)](/<\/(p|div|li|tr|h[1-6]|pre|code|section|article|td|th)>/gi,'\x0a')['replace'](/<br\s*\/?>/gi,'\x0a'),html=html[a0_0x691427(0xec)](/<[^>]+>/g,'\x20');const decode=_0x37fd97=>_0x37fd97[a0_0x691427(0xec)](/&#x27;|&#39;/g,'\x27')[a0_0x691427(0xec)](/&quot;|&#34;/g,'\x22')[a0_0x691427(0xec)](/&lt;/g,'<')[a0_0x691427(0xec)](/&gt;/g,'>')['replace'](/&amp;/g,'&')[a0_0x691427(0xec)](/&nbsp;/g,'\x20')[a0_0x691427(0xec)](/&#x2F;/g,'/')['replace'](/&#x3D;/g,'=')[a0_0x691427(0xec)](/&#x60;/g,'`');html=decode(html);const text=html['split']('\x0a')[a0_0x691427(0xd8)](_0x25b0c7=>_0x25b0c7[a0_0x691427(0xec)](/[ \t\u00a0]+/g,'\x20')[a0_0x691427(0xed)]())['filter'](Boolean)['join']('\x0a');if(pattern){const re=new RegExp(pattern,'i'),lines=text['split']('\x0a'),hits=[];lines[a0_0x691427(0xe6)]((_0x230ecc,_0x11a685)=>{const _0xbe17bc=a0_0x691427;if(re['test'](_0x230ecc))hits['push'](lines[_0xbe17bc(0xe5)](Math[_0xbe17bc(0xe4)](0x0,_0x11a685-0x2),_0x11a685+0x6)[_0xbe17bc(0xd9)]('\x0a')+_0xbe17bc(0xeb));}),console[a0_0x691427(0xd5)](hits[a0_0x691427(0xd9)]('\x0a')||a0_0x691427(0xe3));}else console['log'](text);
+'use strict';
+
+/**
+ * Crude HTML → text: strips script/style, tags, and decodes the handful of
+ * entities the Dahl docs actually use. Enough to read documentation prose.
+ *
+ * Usage: node text.js <file.html> [pattern]
+ */
+
+const fs = require('fs');
+
+const file = process.argv[2];
+const pattern = process.argv[3];
+let html = fs.readFileSync(file, 'utf8');
+
+html = html
+  .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+  .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+  .replace(/<svg[\s\S]*?<\/svg>/gi, ' ');
+
+// Keep block boundaries as newlines before stripping tags.
+html = html
+  .replace(/<\/(p|div|li|tr|h[1-6]|pre|code|section|article|td|th)>/gi, '\n')
+  .replace(/<br\s*\/?>/gi, '\n');
+
+html = html.replace(/<[^>]+>/g, ' ');
+
+const decode = (s) =>
+  s
+    .replace(/&#x27;|&#39;/g, "'")
+    .replace(/&quot;|&#34;/g, '"')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&#x2F;/g, '/')
+    .replace(/&#x3D;/g, '=')
+    .replace(/&#x60;/g, '`');
+
+html = decode(html);
+const text = html
+  .split('\n')
+  .map((l) => l.replace(/[ \t\u00a0]+/g, ' ').trim())
+  .filter(Boolean)
+  .join('\n');
+
+if (pattern) {
+  const re = new RegExp(pattern, 'i');
+  const lines = text.split('\n');
+  const hits = [];
+  lines.forEach((l, i) => {
+    if (re.test(l)) hits.push(lines.slice(Math.max(0, i - 2), i + 6).join('\n') + '\n---');
+  });
+  console.log(hits.join('\n') || '(no match)');
+} else {
+  console.log(text);
+}
