@@ -1,17 +1,17 @@
 <div align="center">
 
 ```
-███████╗ ██████╗ ██████╗ ███████╗██╗  ██╗████████╗ █████╗ ███████╗██╗   ██╗
-██╔════╝██╔═████╗██╔══██╗██╔════╝╚██╗██╔╝╚══██╔══╝██╔══██╗██╔════╝╚██╗ ██╔╝
-█████╗  ██║██╔██║██████╔╝█████╗   ╚███╔╝    ██║   ███████║███████╗ ╚████╔╝
-██╔══╝  ████╔╝██║██╔══██╗██╔══╝   ██╔██╗    ██║   ██╔══██║╚════██║  ╚██╔╝
-██║     ╚██████╔╝██║  ██║███████╗██╔╝ ██╗   ██║   ██║  ██║███████║   ██║
-╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝   ╚═╝
+██████╗  █████╗ ██╗  ██╗██╗
+██╔══██╗██╔══██╗██║  ██║██║
+██║  ██║███████║███████║██║
+██║  ██║██╔══██║██╔══██║██║
+██████╔╝██║  ██║██║  ██║███████╗
+╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
 ```
 
 # dahl-bulk-apikey
 
-**Bulk-create [Dahl Inference](https://inference.dahl.global) accounts with auto-generated API keys — OpenAI-compatible inference + 9Router connector.**
+**Bulk-create [Dahl Inference](https://inference.dahl.global) accounts with auto-generated API keys — OpenAI-compatible inference + [9Router](https://9router.com) connector.**
 
 [![Node](https://img.shields.io/badge/Node-%E2%89%A518-3DA639?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-blue?style=for-the-badge)](#)
@@ -94,28 +94,31 @@ cd dahl-bulk-apikey
 printf 'socks5://127.0.0.1:1080\n' > proxies.txt
 
 # 2) go
-node launcher.js          # interactive: mint / verify / screen / settings
+node src/launcher.js        # interactive: mint / verify / screen / settings
 # or directly:
-node cli.js --count 30    # any N — 30 is just the default sample
+node src/cli.js --count 30  # any N — 30 is just the default sample
 ```
 
 `keys.txt` (one key per line, mirrored to `%USERPROFILE%\dahl-keys.txt`) is written **only**
 after a live chat completion proves the key; `accounts.json` keeps the username / fingerprint /
-key id so any account can be recovered later (`recover.js`).
+key id so any account can be recovered later (`src/recover.js`).
 
 ### 🖱️ The launcher
 
 ```
-╔═══════════════════════════════════════════════════════════════════════════════╗
-║  ███████╗ ██████╗ ██████╗ ███████╗██╗  ██╗████████╗ █████╗ ███████╗██╗   ██╗  ║
-║  ██╔════╝██╔═████╗██╔══██╗██╔════╝╚██╗██╔╝╚══██╔══╝██╔══██╗██╔════╝╚██╗ ██╔╝  ║
-║  █████╗  ██║██╔██║██████╔╝█████╗   ╚███╔╝    ██║   ███████║███████╗ ╚████╔╝   ║
-║  ██╔══╝  ████╔╝██║██╔══██╗██╔══╝   ██╔██╗    ██║   ██╔══██║╚════██║  ╚██╔╝    ║
-║  ██║     ╚██████╔╝██║  ██║███████╗██╔╝ ██╗   ██║   ██║  ██║███████║   ██║     ║
-║  ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝   ╚═╝     ║
-║  dahl-bulk-apikey                                                             ║
-║  one account per key — 100M tokens each                                       ║
-╚═══════════════════════════════════════════════════════════════════════════════╝
+╔══════════════════════════════════════════╗
+║                                          ║
+║  ██████╗  █████╗ ██╗  ██╗██╗             ║
+║  ██╔══██╗██╔══██╗██║  ██║██║             ║
+║  ██║  ██║███████║███████║██║             ║
+║  ██║  ██║██╔══██║██╔══██║██║             ║
+║  ██████╔╝██║  ██║██║  ██║███████╗        ║
+║  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝        ║
+║                                          ║
+║  dahl-bulk-apikey                        ║
+║  one account per key — 100M tokens each  ║
+║                                          ║
+╚══════════════════════════════════════════╝
   dahl-bulk-apikey contributors
 
   1) Mint keys      — sign up one account per key, allocate the grant, verify
@@ -139,7 +142,7 @@ key id so any account can be recovered later (`recover.js`).
 Re-check the whole list at any time:
 
 ```bash
-node cli.js --verify-only                 # GET /tokens/current + a chat call per key
+node src/cli.js --verify-only                 # GET /tokens/current + a chat call per key
 # or a single key:
 curl https://inference.dahl.global/tokens/current -H "Authorization: Bearer dahl_…"
 ```
@@ -163,11 +166,11 @@ funded while the pool is empty, which is why this tool mints exactly **one key p
 ## ⚙️ CLI options
 
 ```bash
-node cli.js --count N        # screen exits, mint, allocate, verify (any N, default 30)
-node cli.js --verify-only    # re-verify every key in keys.txt
-node cli.js --screen         # only screen your proxy list
-node cli.js --connect-9router  # …and register every key in keys.txt into 9Router
-node cli.js --help
+node src/cli.js --count N        # screen exits, mint, allocate, verify (any N, default 30)
+node src/cli.js --verify-only    # re-verify every key in keys.txt
+node src/cli.js --screen         # only screen your proxy list
+node src/cli.js --connect-9router  # …and register every key in keys.txt into 9Router
+node src/cli.js --help
 ```
 
 | Environment variable | Default | Meaning |
@@ -202,7 +205,7 @@ OpenAI-compatible endpoint (`https://inference.dahl.global/v1`), so register it 
 you minted becomes a connection under one provider-node — 9Router load-balances across them:
 
 ```bash
-node connect-9router.js \
+node src/connect-9router.js \
   --base http://localhost:20128 --password 123456 \
   --api-key dahl_xxxxxxxx
 ```
@@ -221,8 +224,8 @@ dahl/deepseek-ai/DeepSeek-V4-Flash-0731
 dahl/zai-org/GLM-5.3-Flash
 ```
 
-`node cli.js --count 30 --connect-9router` mints and registers in one pass, and
-`node launcher.js` → *Connect to 9Router* asks for the base URL and password.
+`node src/cli.js --count 30 --connect-9router` mints and registers in one pass, and
+`node src/launcher.js` → *Connect to 9Router* asks for the base URL and password.
 
 ## 🐞 Issues
 

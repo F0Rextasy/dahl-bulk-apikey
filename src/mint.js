@@ -13,7 +13,7 @@
  * Artifacts: keys.txt (one verified key per line), accounts.json,
  * outputs/mint-log.jsonl, outputs/mint-state.json.
  *
- * Usage: node mint.js --count=30 [--conc=4] [--amount=100000000] [--resume]
+ * Usage: node src/mint.js --count=30 [--conc=4] [--amount=100000000] [--model=<id>] [--exits=10] [--jiggle=0]
  */
 
 const fs = require('fs');
@@ -21,6 +21,11 @@ const path = require('path');
 require('./guard').guard('mint');
 const { OUT, ROOT, proxyLib, pool, sleep, loadPool, arg } = require('./lib');
 const { signupOn, finish, signInOn } = require('./flow');
+
+if (process.argv.includes('--help') || process.argv.includes('-h')) {
+  console.log('usage: node src/mint.js --count=30 [--conc=4] [--amount=100000000] [--model=<id>] [--exits=10] [--jiggle=0]');
+  process.exit(0);
+}
 
 const COUNT = parseInt(arg('count', '30'), 10);
 const CONC = parseInt(arg('conc', '4'), 10);

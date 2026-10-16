@@ -3,7 +3,7 @@
 /**
  * Fetch one URL through a (live) pool exit and print/write the body.
  *
- * Usage: node get.js <url> [--out=file] [--proxy=http://host:port] [--raw]
+ * Usage: node src/get.js <url> [--out=file] [--proxy=http://host:port] [--raw]
  * Picks exits from outputs/dahl-live.txt unless --proxy is given, retrying
  * until one carries the request.
  */
@@ -22,11 +22,11 @@ function liveProxies() {
 
 (async () => {
   const url = process.argv[2];
-  if (!url) throw new Error('usage: node get.js <url>');
+  if (!url) throw new Error('usage: node src/get.js <url>');
   const outFile = arg('out');
   const explicit = arg('proxy');
   const list = explicit ? [{ ...proxyLib.parseProxy(explicit), connectTimeoutMs: 8000, timeoutMs: 30000 }] : liveProxies();
-  if (!list.length) throw new Error('no live proxies: run screen.js first');
+  if (!list.length) throw new Error('no live proxies: run node src/screen.js first');
 
   let lastErr;
   for (let i = 0; i < Math.min(list.length, 25); i++) {

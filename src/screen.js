@@ -7,7 +7,7 @@
  * 8 in flight. Survivors are appended to `outputs/dahl-live.txt` and the first
  * doc body of each distinct page shape is dumped to `outputs/`.
  *
- * Usage: node screen.js [start] [end] [--url=...] [--limit=N]
+ * Usage: node src/screen.js [start] [end] [--url=...] [--limit=N]
  */
 
 const fs = require('fs');
@@ -26,7 +26,7 @@ async function main() {
 
   const filesArg = arg('files');
   const files = filesArg
-    ? filesArg.split(',').map((f) => (path.isAbsolute(f) ? f : path.resolve(__dirname, '..', '..', '..', f)))
+    ? filesArg.split(',').map((f) => (path.isAbsolute(f) ? f : path.resolve(__dirname, '..', f)))
     : undefined;
 
   const all = loadPool(files);

@@ -5,7 +5,7 @@
  * N completions spaced `--gap=` ms apart through one keep-alive tunnel, each
  * logged with status/code/message/latency. Optionally repeats per model.
  *
- * Usage: node measure-chat-limit.js --token=dahl_… [--n=6 --gap=3500 --models=a,b]
+ * Usage: node src/measure-chat-limit.js --token=dahl_… [--n=6 --gap=3500 --models=a,b]
  */
 
 const fs = require('fs');

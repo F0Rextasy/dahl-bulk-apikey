@@ -4,7 +4,7 @@
  * Build the report's masked key table from accounts.json + verify-report.json.
  * Masks as `first4…last4` of the token body.
  *
- * Usage: node make-keys-table.js   → writes outputs/keys-table.md
+ * Usage: node src/make-keys-table.js   → writes outputs/keys-table.md
  */
 
 const fs = require('fs');

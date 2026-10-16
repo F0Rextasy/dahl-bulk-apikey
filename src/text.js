@@ -4,7 +4,7 @@
  * Crude HTML → text: strips script/style, tags, and decodes the handful of
  * entities the Dahl docs actually use. Enough to read documentation prose.
  *
- * Usage: node text.js <file.html> [pattern]
+ * Usage: node src/text.js <file.html> [pattern]
  */
 
 const fs = require('fs');

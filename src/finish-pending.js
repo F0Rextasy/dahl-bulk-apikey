@@ -8,7 +8,7 @@
  * fresh exit → shortfall-only allocate → verify (with capacity retries) →
  * append to keys.txt / accounts.json.
  *
- * Usage: node finish-pending.js [--conc=3] [--limit=N]
+ * Usage: node src/finish-pending.js [--conc=3] [--limit=N]
  */
 
 require('./guard').guard('finish-pending');

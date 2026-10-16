@@ -9,8 +9,8 @@
  * and then runs the CLI with the right flags — including the proxy list, which
  * is the setting people most often need and cannot guess.
  *
- * Usage: node launcher.js            (menu)
- *        node launcher.js --help
+ * Usage: node src/launcher.js            (menu)
+ *        node src/launcher.js --help
  */
 
 const fs = require('fs');
@@ -18,7 +18,8 @@ const path = require('path');
 const readline = require('readline');
 const { spawnSync } = require('child_process');
 
-const CONFIG = path.join(__dirname, 'launcher.config.json');
+const ROOT = path.resolve(__dirname, '..');
+const CONFIG = path.join(ROOT, 'launcher.config.json');
 const CLI = path.join(__dirname, 'cli.js');
 
 const defaults = {
@@ -57,7 +58,7 @@ function run(args, env = {}) {
   console.log('');
   const res = spawnSync(process.execPath, [CLI, ...args], {
     windowsHide: true,
-    cwd: __dirname,
+    cwd: ROOT,
     stdio: 'inherit',
     env: { ...process.env, ...env },
   });
@@ -65,12 +66,12 @@ function run(args, env = {}) {
 }
 
 const BANNER_LOGO = String.raw`
-███████╗ ██████╗ ██████╗ ███████╗██╗  ██╗████████╗ █████╗ ███████╗██╗   ██╗
-██╔════╝██╔═████╗██╔══██╗██╔════╝╚██╗██╔╝╚══██╔══╝██╔══██╗██╔════╝╚██╗ ██╔╝
-█████╗  ██║██╔██║██████╔╝█████╗   ╚███╔╝    ██║   ███████║███████╗ ╚████╔╝
-██╔══╝  ████╔╝██║██╔══██╗██╔══╝   ██╔██╗    ██║   ██╔══██║╚════██║  ╚██╔╝
-██║     ╚██████╔╝██║  ██║███████╗██╔╝ ██╗   ██║   ██║  ██║███████║   ██║
-╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝   ╚═╝
+██████╗  █████╗ ██╗  ██╗██╗
+██╔══██╗██╔══██╗██║  ██║██║
+██║  ██║███████║███████║██║
+██║  ██║██╔══██║██╔══██║██║
+██████╔╝██║  ██║██║  ██║███████╗
+╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
 `;
 
 function banner() {
@@ -78,8 +79,10 @@ function banner() {
   const dim = '\x1b[2m';
   const bold = '\x1b[1m';
   const reset = '\x1b[0m';
+  const title = 'dahl-bulk-apikey';
+  const tagline = 'one account per key — 100M tokens each';
   const lines = BANNER_LOGO.replace(/^\n/, '').replace(/\n$/, '').split('\n');
-  const width = Math.max(...lines.map((l) => [...l].length));
+  const width = Math.max(...lines.map((l) => [...l].length), [...title].length, [...tagline].length);
   const pad = (s) => s + ' '.repeat(width - [...s].length);
   const inner = width + 4;
   console.log('');
@@ -87,8 +90,8 @@ function banner() {
   console.log(`${cyan}║${' '.repeat(inner)}║${reset}`);
   for (const line of lines) console.log(`${cyan}║${reset}  ${bold}${pad(line)}${reset}  ${cyan}║${reset}`);
   console.log(`${cyan}║${' '.repeat(inner)}║${reset}`);
-  console.log(`${cyan}║${reset}  ${pad('dahl-bulk-apikey')}  ${cyan}║${reset}`);
-  console.log(`${cyan}║${reset}  ${dim}${pad('one account per key — 100M tokens each')}${reset}  ${cyan}║${reset}`);
+  console.log(`${cyan}║${reset}  ${pad(title)}  ${cyan}║${reset}`);
+  console.log(`${cyan}║${reset}  ${dim}${pad(tagline)}${reset}  ${cyan}║${reset}`);
   console.log(`${cyan}║${' '.repeat(inner)}║${reset}`);
   console.log(`${cyan}╚${'═'.repeat(inner)}╝${reset}`);
   console.log(`  ${dim}dahl-bulk-apikey contributors${reset}`);
@@ -102,7 +105,7 @@ async function mintFlow(cfg) {
   cfg.amount = parseInt(await ask('Welcome grant to allocate per key', cfg.amount), 10) || cfg.amount;
   saveConfig(cfg);
 
-  if (!fs.existsSync(path.resolve(__dirname, '..', cfg.proxyFile)) && !fs.existsSync(cfg.proxyFile)) {
+  if (!fs.existsSync(path.resolve(ROOT, cfg.proxyFile)) && !fs.existsSync(cfg.proxyFile)) {
     console.log(`  ! ${cfg.proxyFile} not found — put one proxy per line there first`);
     console.log('    (http://host:port, socks5://host:port or host:port) — this tool never dials direct');
     return;
@@ -160,7 +163,7 @@ async function main() {
 }
 
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
-  console.log('Interactive launcher: run `node launcher.js` and pick a menu item.');
+  console.log('Interactive launcher: run `node src/launcher.js` and pick a menu item.');
   process.exit(0);
 }
 

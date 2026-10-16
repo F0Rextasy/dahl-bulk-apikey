@@ -7,7 +7,7 @@
  *           POST /v1/chat/completions (Bearer, MiniMax-M2.7) → 200 + real content
  * Also:     GET /v1/models (public) → models.json
  *
- * Usage: node verify.js [--conc=6] [--model=…] [--keys=keys.txt] [--chat=1] [--limit=N]
+ * Usage: node src/verify.js [--conc=6] [--model=…] [--keys=keys.txt] [--chat=1] [--limit=N]
  */
 
 const fs = require('fs');

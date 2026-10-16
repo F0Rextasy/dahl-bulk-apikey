@@ -4,7 +4,7 @@
  * Finish (or recover) one already-signed-up account: sign in with the
  * fingerprint on a fresh exit, allocate the welcome grant to its key, verify.
  *
- * Usage: node recover.js --fingerprint=… [--username=…] [--key-id=…] [--token=…] [--amount=…]
+ * Usage: node src/recover.js --fingerprint=… [--username=…] [--key-id=…] [--token=…] [--amount=…]
  */
 
 const fs = require('fs');

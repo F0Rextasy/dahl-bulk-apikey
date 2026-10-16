@@ -5,16 +5,16 @@
   "license": "MIT",
   "type": "commonjs",
   "bin": {
-    "dahl-bulk-apikey": "cli.js",
-    "dahl-bulk-apikey-launcher": "launcher.js"
+    "dahl-bulk-apikey": "src/cli.js",
+    "dahl-bulk-apikey-launcher": "src/launcher.js"
   },
-  "main": "cli.js",
+  "main": "src/cli.js",
   "engines": {
     "node": ">=18"
   },
   "scripts": {
-    "start": "node launcher.js",
-    "mint": "node cli.js"
+    "start": "node src/launcher.js",
+    "mint": "node src/cli.js"
   },
   "keywords": [
     "api-key",
@@ -27,25 +27,25 @@
     "openai-compatible"
   ],
   "files": [
-    "cli.js",
-    "client.js",
-    "finish-pending.js",
-    "flow.js",
-    "get.js",
-    "guard.js",
-    "launcher.js",
-    "lib.js",
-    "live-from-log.js",
-    "make-keys-table.js",
-    "measure-chat-limit.js",
-    "mint.js",
-    "probe-limits.js",
-    "proxy.js",
-    "recover.js",
-    "screen.js",
-    "text.js",
-    "verify.js",
-    "connect-9router.js",
+    "src/cli.js",
+    "src/client.js",
+    "src/finish-pending.js",
+    "src/flow.js",
+    "src/get.js",
+    "src/guard.js",
+    "src/launcher.js",
+    "src/lib.js",
+    "src/live-from-log.js",
+    "src/make-keys-table.js",
+    "src/measure-chat-limit.js",
+    "src/mint.js",
+    "src/probe-limits.js",
+    "src/proxy.js",
+    "src/recover.js",
+    "src/screen.js",
+    "src/text.js",
+    "src/verify.js",
+    "src/connect-9router.js",
     "README.md",
     "LICENSE"
   ]

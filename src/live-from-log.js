@@ -4,13 +4,13 @@
  * Turn a screen log into a live-exit list: every row with an HTTP 200 (any
  * body size — `/health` is 15 bytes, so body length is not a liveness signal).
  *
- * Usage: node live-from-log.js <log.jsonl> <out.txt>
+ * Usage: node src/live-from-log.js <log.jsonl> <out.txt>
  */
 
 const fs = require('fs');
 
 const [logFile, outFile] = process.argv.slice(2);
-if (!logFile || !outFile) throw new Error('usage: node live-from-log.js <log.jsonl> <out.txt>');
+if (!logFile || !outFile) throw new Error('usage: node src/live-from-log.js <log.jsonl> <out.txt>');
 
 const seen = new Set();
 const live = [];

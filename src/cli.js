@@ -10,15 +10,16 @@
  * the grant to that key, and only writes a key after a live chat completion.
  *
  * Usage:
- *   node cli.js --count N             screen exits, mint, allocate, verify (default 30, no cap)
- *   node cli.js --verify-only         re-verify every key in keys.txt
- *   node cli.js --screen              only screen proxy exits
- *   node cli.js --connect-9router     after the run, register every key in keys.txt with 9Router
- *   node cli.js --help
+ *   node src/cli.js --count N             screen exits, mint, allocate, verify (default 30, no cap)
+ *   node src/cli.js --verify-only         re-verify every key in keys.txt
+ *   node src/cli.js --screen              only screen proxy exits
+ *   node src/cli.js --connect-9router     after the run, register every key in keys.txt with 9Router
+ *   node src/cli.js help                  print mint's flags
+ *   node src/cli.js --help
  *
  * Egress: every Dahl request goes through an HTTP(S)/SOCKS exit from your pool
- * file (`proxies.txt` next to the repo, or $DAHL_PROXIES). There is no direct
- * fallback anywhere in this tool.
+ * file (`proxies.txt` at the repository root, or $DAHL_PROXIES). There is no
+ * direct fallback anywhere in this tool.
  */
 const path = require('path');
 const { spawnSync } = require('child_process');
@@ -30,6 +31,15 @@ if (args.includes('--help') || args.includes('-h')) {
   console.log(require('fs').readFileSync(path.join(__dirname, '..', 'README.md'), 'utf8').split('## ⚙️')[1] || 'see README.md');
   console.log('  --connect-9router  register every key in keys.txt with 9Router after the run');
   process.exit(0);
+}
+
+if (args[0] === 'help') {
+  const res = spawnSync(process.execPath, [path.join(__dirname, 'mint.js'), '--help'], {
+    windowsHide: true,
+    stdio: 'inherit',
+    cwd: path.resolve(__dirname, '..'),
+  });
+  process.exit(res.status ?? 0);
 }
 
 const child = args.includes('--screen')

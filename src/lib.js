@@ -24,10 +24,9 @@ const UA =
 
 /** Pool files, freshest first.
  *
- * Order keeps the published layout (`proxies.txt` next to the tool, or
- * `$DAHL_PROXIES` as a path list) and the workspace layout (`out`)
- * both working; missing files are skipped, nothing falls back to a direct
- * connection.
+ * `$DAHL_PROXIES` as a comma/semicolon-separated path list comes first, then
+ * `proxies.txt` at the checkout root; missing files are skipped, nothing falls
+ * back to a direct connection.
  */
 const POOL_FILES = [
   ...String(process.env.DAHL_PROXIES || '')

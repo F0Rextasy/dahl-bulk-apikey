@@ -10,7 +10,7 @@
  *   4. GET /v1/models                      → live model ids (written to models.json)
  *   5. POST /tokens                        → anonymous key: same 100M allowance?
  *
- * Usage: node probe-limits.js --fingerprint=… --token=… [--models=…]
+ * Usage: node src/probe-limits.js --fingerprint=… --token=… [--models=…]
  */
 
 const fs = require('fs');
