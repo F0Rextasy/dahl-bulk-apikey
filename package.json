@@ -6,6 +6,7 @@
   "type": "commonjs",
   "bin": {
     "dahl-bulk-apikey": "src/cli.js",
+    "dahl-bulk-apikey-9router": "src/connect-9router.js",
     "dahl-bulk-apikey-launcher": "src/launcher.js"
   },
   "main": "src/cli.js",
@@ -14,7 +15,8 @@
   },
   "scripts": {
     "start": "node src/launcher.js",
-    "mint": "node src/cli.js"
+    "mint": "node src/cli.js",
+    "9router": "node src/connect-9router.js"
   },
   "keywords": [
     "api-key",
