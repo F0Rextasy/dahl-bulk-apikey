@@ -21,6 +21,14 @@ const OUT = path.join(ROOT, 'outputs');
 
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36';
+// Per-account fingerprint (operator standard v3): each account task runs inside
+// withUa(...) so its requests carry their own UA from ua-pool (SD_UA pins one UA
+// for a one-off run; SD_UA_POOL supplies a file path or an inline list).
+const { AsyncLocalStorage } = require('async_hooks');
+const { uaPool } = require('./ua-pool');
+const SESS = new AsyncLocalStorage();
+const activeUa = () => { const s = SESS.getStore(); return (s && s.ua) || UA; };
+const withUa = (ua, fn) => SESS.run({ ua: ua || uaPool()[0] }, fn);
 
 /** Pool files, freshest first.
  *
@@ -71,7 +79,7 @@ function request(proxy, url, { method = 'GET', headers = {}, body, timeoutMs = 3
         : Buffer.isBuffer(body)
           ? body
           : Buffer.from(typeof body === 'string' ? body : JSON.stringify(body));
-    const h = { 'User-Agent': UA, Accept: '*/*', ...headers };
+    const h = { 'User-Agent': activeUa(), Accept: '*/*', ...headers };
     if (payload && !Object.keys(h).some((k) => k.toLowerCase() === 'content-type')) h['Content-Type'] = 'application/json';
     if (payload && !Object.keys(h).some((k) => k.toLowerCase() === 'content-length')) h['Content-Length'] = payload.length;
     h['Accept-Language'] = h['Accept-Language'] || 'en-US,en;q=0.9';
@@ -174,4 +182,4 @@ function rand(n, chars = 'abcdefghijklmnopqrstuvwxyz0123456789') {
   return s;
 }
 
-module.exports = { UA, ROOT, OUT, POOL_FILES, loadPool, tuned, request, parseJson, sleep, arg, flag, pool, appendJsonl, rand, proxyLib, label: proxyLib.label };
+module.exports = { UA, ROOT, OUT, POOL_FILES, loadPool, tuned, request, parseJson, sleep, arg, flag, pool, appendJsonl, rand, proxyLib, label: proxyLib.label, activeUa, withUa };

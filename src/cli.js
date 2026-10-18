@@ -15,11 +15,14 @@
  *   node src/cli.js --screen              only screen proxy exits
  *   node src/cli.js --connect-9router     after the run, register every key in keys.txt with 9Router
  *   node src/cli.js help                  print mint's flags
+ *   node src/cli.js --preset=turbo --count N   run shape: turbo = 5 workers / 3 s
  *   node src/cli.js --help
  *
  * Egress: every Dahl request goes through an HTTP(S)/SOCKS exit from your pool
  * file (`proxies.txt` at the repository root, or $DAHL_PROXIES). There is no
  * direct fallback anywhere in this tool.
+ * Presets (operator standard v3): `--preset=turbo|balanced|safe` (and explicit
+ * `--conc=`/`--gap=`) reach mint.js unchanged; absent = today's defaults.
  */
 const path = require('path');
 const { spawnSync } = require('child_process');
@@ -46,7 +49,8 @@ const child = args.includes('--screen')
   ? ['screen.js']
   : args.includes('--verify-only')
     ? ['verify.js', ...args.filter((a) => a !== '--verify-only')]
-    : ['mint.js', '--count', String(arg('--count', '30'))];
+    // `--preset` (and any other mint flag) is forwarded to the task file as-is.
+    : ['mint.js', '--count', String(arg('--count', '30')), ...process.argv.slice(2).filter((a) => a.startsWith('--preset=') || a.startsWith('--conc=') || a.startsWith('--gap='))];
 
 const res = spawnSync(process.execPath, [path.join(__dirname, child[0]), ...child.slice(1)], {
   windowsHide: true,

@@ -215,3 +215,11 @@ MIT © 2026 — see [LICENSE](LICENSE).
 **[MIT](LICENSE)** © 2026 dahl-bulk-apikey contributors
 
 </div>
+
+## ⚡ Run shape (presets)
+
+`--preset=turbo|balanced|safe` sets workers + the pause between accounts (turbo = 5,
+balanced = 4, safe = 2); explicit `--conc`/`--gap` (or the repo's own flags) always win,
+and without `--preset` the tool keeps its historical shape exactly.
+
+Turbo önerilir (5 worker); daha fazlası zayıf bilgisayarda yük/ban riski.

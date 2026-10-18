@@ -13,22 +13,37 @@
  * Artifacts: keys.txt (one verified key per line), accounts.json,
  * outputs/mint-log.jsonl, outputs/mint-state.json.
  *
- * Usage: node src/mint.js --count=30 [--conc=4] [--amount=100000000] [--model=<id>] [--exits=10] [--jiggle=0]
+ * Usage: node src/mint.js --count=30 [--conc=4] [--amount=100000000] [--model=<id>] [--exits=10] [--jiggle=0] [--preset=turbo|balanced|safe]
  */
 
 const fs = require('fs');
 const path = require('path');
 require('./guard').guard('mint');
-const { OUT, ROOT, proxyLib, pool, sleep, loadPool, arg } = require('./lib');
+const { OUT, ROOT, proxyLib, pool, sleep, loadPool, arg, withUa } = require('./lib');
 const { signupOn, finish, signInOn } = require('./flow');
 
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
   console.log('usage: node src/mint.js --count=30 [--conc=4] [--amount=100000000] [--model=<id>] [--exits=10] [--jiggle=0]');
   process.exit(0);
 }
+const { presetArgv, resolvePreset } = require('./preset');
+const { uaFor } = require('./ua-pool');
+// A flag with no value (`--conc`) parses as boolean true — treat it as unset.
+const numArg = (v) => (v == null || v === true || Number.isNaN(parseInt(v, 10)) ? null : parseInt(v, 10));
 
 const COUNT = parseInt(arg('count', '30'), 10);
-const CONC = parseInt(arg('conc', '4'), 10);
+// Presets (operator standard v3): turbo = 5 workers / 3 s pad, balanced = 4/6,
+// safe = 2/8. Explicit --conc/--gap always win; without --preset the rail keeps
+// today's shape exactly (4 workers, no extra pad).
+const PRESET_RUN = resolvePreset({
+  preset: (typeof arg('preset', null) === 'string' ? arg('preset', null) : null) || presetArgv(),
+  conc: numArg(arg('conc', null)),
+  gap: numArg(arg('gap', null)),
+  defaultConc: 4,
+  defaultGap: 0,
+});
+const CONC = Math.max(1, PRESET_RUN.conc);
+const GAP_MS = Math.max(0, PRESET_RUN.gap) * 1000;
 const AMOUNT = parseInt(arg('amount', '100000000'), 10);
 const MODEL = arg('model', 'MiniMaxAI/MiniMax-M2.7');
 const MAX_EXITS = parseInt(arg('exits', '10'), 10);
@@ -114,7 +129,7 @@ async function main() {
   if (!fs.existsSync(ACCOUNTS_FILE)) saveAccounts([]);
 
   const list = exits();
-  console.log(`[mint] count=${COUNT} conc=${CONC} amount=${AMOUNT} model=${MODEL} exits=${list.length}`);
+  console.log(`[mint] count=${COUNT} conc=${CONC} gap=${GAP_MS / 1000}s${PRESET_RUN.name ? ` preset=${PRESET_RUN.name}` : ''} amount=${AMOUNT} model=${MODEL} exits=${list.length}`);
   if (!list.length) throw new Error('exit queue empty');
   let cursor = 0;
   const nextExit = () => list[cursor++ % list.length];
@@ -132,8 +147,11 @@ async function main() {
   await pool(
     Array.from({ length: COUNT }, (_, i) => i),
     CONC,
-    async (idx) => {
+    // Per-account fingerprint: the item body runs inside withUa so every request
+    // of this account carries its own UA from the ua-pool.
+    async (idx) => withUa(uaFor(idx + 1).ua, async () => {
       if (JIGGLE) await sleep(Math.random() * JIGGLE);
+      if (GAP_MS) await sleep(GAP_MS);
       let rec = null;
       let client = null;
       let transportAttempts = 0;
@@ -141,6 +159,7 @@ async function main() {
       for (let attempt = 0; attempt < MAX_EXITS * 3 && transportAttempts < MAX_EXITS; attempt++) {
         const exit = nextExit();
         state.exitsTried++;
+        if (!attempt) console.log(`… #${idx + 1} başladı (${String(proxyLib.label(exit)).replace(/:[^:@]+@/, ':***@')})`);
         try {
           if (!rec) {
             // Phase 1: create the account.
@@ -175,6 +194,7 @@ async function main() {
           console.log(
             `[mint] ${done}/${COUNT} ${rec.username} key=${rec.keyToken.slice(0, 9)}…${rec.keyToken.slice(-4)} pool=${rec.allocate.poolBefore} alloc=${rec.allocate.requested} bal=${rec.balance.tokens} chat=${rec.verify.chatStatus} exit=${rec.signupExit}`
           );
+          console.log(`✓ #${idx + 1} KEY ALINDI: ${rec.keyToken.slice(0, 22)}… [${state.keys} ok / ${COUNT} deneme]`);
           saveState();
           return;
         } catch (e) {
@@ -187,6 +207,7 @@ async function main() {
             transportAttempts++;
           }
           logRow({ idx, stage: rec ? 'finish-failed' : 'signup-failed', exit: proxyLib.label(exit), error: e.message, code: e.code || null, gate: !!e.gate, transportAttempts });
+          console.error(`✗ #${idx + 1} key yok: ${String(e.message || e).slice(0, 160)}`);
           if (e.gate) {
             state.errors.push({ idx, username: rec && rec.username, exit: proxyLib.label(exit), error: e.message, gate: true });
             saveState();
@@ -196,8 +217,9 @@ async function main() {
         }
       }
       state.errors.push({ idx, username: rec && rec.username, note: 'exhausted exits' });
+      console.error(`✗ #${idx + 1} key yok: exhausted exits`);
       saveState();
-    }
+    })
   );
 
   state.done = true;
@@ -208,6 +230,7 @@ async function main() {
   console.log(
     `[mint] done: ${state.keys}/${COUNT} keys; exits tried ${state.exitsTried}, transport failures ${state.exitTransportFailures}, 429s ${state.signup429}, signin recoveries ${state.signinRecoveries}, ${state.seconds}s`
   );
+  console.log(`DAHL-MINT ${state.keys}/${COUNT} OK`);
 }
 
 main().catch((e) => {
