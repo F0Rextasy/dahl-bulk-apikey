@@ -11,67 +11,57 @@
 
 # dahl-bulk-apikey
 
-**Bulk-create [Dahl Inference](https://inference.dahl.global) accounts with auto-generated API keys — OpenAI-compatible inference + [9Router](https://9router.com) connector.**
+**Bulk-create Dahl Inference accounts with auto-generated API keys — OpenAI-compatible inference + 9Router connector.**
 
 [![Node](https://img.shields.io/badge/Node-%E2%89%A518-3DA639?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-blue?style=for-the-badge)](#)
 [![License](https://img.shields.io/badge/license-MIT-6ea8fe?style=for-the-badge)](LICENSE)
 [![Models](https://img.shields.io/badge/models-3%20served-412991?style=for-the-badge)](https://inference.dahl.global/docs)
 [![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6?style=for-the-badge)](#-connect-to-9router)
+[![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 Quick start](#-quick-start) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🤖 Models & free tier](#-models--free-tier) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🔌 9Router](#-connect-to-9router) · [🐞 Issues](#-issues)
+[🛠 Quick start](#-quick-start) · [🎁 Free tier](#-free-tier--how-much-you-get) · [🤖 Models](#-models--all-3-of-them) · [🧪 Use the API](#-how-to-use-the-api) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Issues](#-issues)
 
 </div>
 
 ---
 
-> **Mint as many accounts/keys as you need — there is no cap.** `--count N` (default `30`)
-> accepts any N.
-
 ## ✨ Why this exists
 
-Dahl Inference hands out a **100,000,000-token welcome grant per account**, and the account's
-first API key is returned by the sign-up call itself. The grant lives on the *account pool* and is
-moved onto the key with a single `allocate` call — which is exactly why one account per key is the
-right unit here, and why this tool exists.
+Dahl Inference hands out a **100,000,000-token welcome grant per account**, and the account's first API key is returned by the sign-up call itself. The grant lives on the *account pool* and is moved onto the key with a single `allocate` call — which is exactly why one account per key is the right unit here. The whole flow is **plain REST JSON**: no e-mail, no phone, no card, no captcha, no browser.
 
-The whole flow is **plain REST JSON**: no e-mail, no phone, no card, no captcha, no browser.
+## 🎁 Free tier — how much you get
 
+**Every new Dahl account carries a 100,000,000-token welcome grant — no e-mail, no phone, no card, no captcha.**
+
+| What | Value |
+| --- | --- |
+| Welcome grant | **100,000,000 tokens** per account — `GET /v1/account` reports `token_balance = 100000000` right after sign-up |
+| Card required | **No** |
+| Expiry | none — the grant does not expire |
+| Rate limit | no per-minute rate; chat is gated by **model capacity** (free accounts are admitted after paid ones → `429 model_concurrency`, retry a few seconds later or use another served model) |
+| Sign-up | REST: `POST /v1/auth/signup {"username":"adj_noun_123"}` — no mailbox |
+| The unit that scales | **one account = one key** (the grant is per account: a second key on the same account starts at 0) → `--count N` is really "N × 100M tokens" |
+
+Measured end to end: sign-up → `POST /v1/account/allocate` moves the grant onto the key → `GET /tokens/current` answers `{"available_tokens": 100000000}`. A key with a zero balance answers `402 available tokens exhausted` on chat.
+
+> 💡 The free tier is set by Dahl Inference and can change. Check the live numbers at [inference.dahl.global](https://inference.dahl.global) — and let the tool's own gate decide:
+
+```bash
+node src/cli.js --verify-only     # every key in keys.txt is re-tested with a real chat call
 ```
-POST https://inference.dahl.global/v1/auth/signup   {"username":"adj_noun_123"}
-   └─▶ 201 { user, fingerprint, api_key{id, token:"dahl_…", available_tokens:0} } + session cookie
-        │
-        ├─▶ POST /v1/account/allocate  {"key_id":<id>,"amount":100000000}   (the welcome grant)
-        ├─▶ GET  /tokens/current       Bearer dahl_…  →  100000000
-        └─▶ POST /v1/chat/completions  Bearer dahl_…  →  200 + real completion
-                          │
-                          ▼
-              keys.txt — one verified key per line
-```
 
-## 🤖 Models & free tier
+## 🤖 Models — all 3 of them
 
-`GET /v1/models` (public) currently serves **3 models**:
+`GET /v1/models` (public, no auth) currently serves **3 models**:
 
-| Model ID | note |
+| Model ID | Note |
 | --- | --- |
 | `MiniMaxAI/MiniMax-M2.7` | the verification default; served first in the rotation |
 | `deepseek-ai/DeepSeek-V4-Flash-0731` | DeepSeek flash line |
 | `zai-org/GLM-5.3-Flash` | GLM flash line |
 
-**How much is free:** **100,000,000 tokens per account** — measured end to end: `GET /v1/account`
-reports `token_balance = 100000000` right after sign-up, `POST /v1/account/allocate` moves it onto
-the key, and `GET /tokens/current` then answers `{"available_tokens": 100000000}`. The grant is
-**per account, not per key** — a second key on the same account starts at 0 — and it does not
-expire. Each new account you mint carries its own 100M, so the tool's `--count N` is your quota
-multiplier.
-
-**Limits measured:** chat is gated by *capacity*, not by a per-minute request rate — when a model is
-busy, free accounts are admitted after paid ones and the call is answered
-`429 {"error":{"code":"model_concurrency","message":"…Paid accounts are admitted first…"}}`. Measured
-on one funded key, one request at a time, 4 s apart: `200 429 429 429 200 200` — retrying a few
-seconds later, or using another served model, passes. `GET /v1/models` needs no auth; a key with a
-zero balance answers `402 available tokens exhausted` on chat.
+Live probe of one key:
 
 ```bash
 curl https://inference.dahl.global/v1/chat/completions \
@@ -79,10 +69,29 @@ curl https://inference.dahl.global/v1/chat/completions \
   -d '{"model":"MiniMaxAI/MiniMax-M2.7","messages":[{"role":"user","content":"hi"}]}'
 ```
 
-> Dahl also answers `POST /tokens` with **no auth at all** and hands out the same
-> `{"token":"dahl_…","available_tokens":100000000}` grant, linkable to an account later with
-> `POST /v1/account/keys/claim`. This tool uses real accounts; the anonymous route is documented
-> because it carries the same grant.
+> Dahl also answers `POST /tokens` with **no auth at all** and hands out the same `{"token":"dahl_…","available_tokens":100000000}` grant, linkable to an account later with `POST /v1/account/keys/claim`. This tool uses real accounts; the anonymous route is documented because it carries the same grant.
+
+## 🧪 How to use the API
+
+The base URL is **`https://inference.dahl.global/v1`** — OpenAI-compatible, so anything that speaks OpenAI works.
+
+**Any SDK / curl**
+
+```python
+from openai import OpenAI
+client = OpenAI(base_url="https://inference.dahl.global/v1", api_key="dahl_…")
+print(client.chat.completions.create(model="MiniMaxAI/MiniMax-M2.7",
+      messages=[{"role": "user", "content": "hi"}]).choices[0].message.content)
+```
+
+**Balance check** (the same call the tool makes before it trusts a key):
+
+```bash
+curl https://inference.dahl.global/tokens/current -H "Authorization: Bearer dahl_…"
+# {"available_tokens": 100000000}
+```
+
+**Any agent / tool with a custom base URL** (Cursor, OpenCode, Kilo Code, …): base URL `https://inference.dahl.global/v1`, paste a key, pick one of the 3 model ids.
 
 ## 🛠 Quick start
 
@@ -99,36 +108,11 @@ node src/launcher.js        # interactive: mint / verify / screen / settings
 node src/cli.js --count 30  # any N — 30 is just the default sample
 ```
 
-`keys.txt` (one key per line, mirrored to `%USERPROFILE%\dahl-keys.txt`) is written **only**
-after a live chat completion proves the key; `accounts.json` keeps the username / fingerprint /
-key id so any account can be recovered later (`src/recover.js`).
+`keys.txt` (one key per line, mirrored to `%USERPROFILE%\dahl-keys.txt`) is written **only** after a live chat completion proves the key; `accounts.json` keeps the username / fingerprint / key id so any account can be recovered later (`src/recover.js`).
 
 ### 🖱️ The launcher
 
-```
-╔══════════════════════════════════════════╗
-║                                          ║
-║  ██████╗  █████╗ ██╗  ██╗██╗             ║
-║  ██╔══██╗██╔══██╗██║  ██║██║             ║
-║  ██║  ██║███████║███████║██║             ║
-║  ██║  ██║██╔══██║██╔══██║██║             ║
-║  ██████╔╝██║  ██║██║  ██║███████╗        ║
-║  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝        ║
-║                                          ║
-║  dahl-bulk-apikey                        ║
-║  one account per key — 100M tokens each  ║
-║                                          ║
-╚══════════════════════════════════════════╝
-  dahl-bulk-apikey contributors
-
-  1) Mint keys      — sign up one account per key, allocate the grant, verify
-  2) Verify keys    — re-check every key with a live chat completion
-  3) Screen proxies — test your proxy list for exits that reach Dahl
-  4) Settings       — show what this launcher remembers
-  5) Help           — CLI options and notes
-  6) Connect to 9Router — register the keys in keys.txt with a local 9Router
-  q) Quit
-```
+The launcher asks for the proxy list and count, remembers them in `launcher.config.json`, and runs the CLI — mint, verify, screen proxies, settings, help, and *Connect to 9Router*.
 
 ## ✅ Verified working — every key is tested
 
@@ -137,17 +121,23 @@ key id so any account can be recovered later (`src/recover.js`).
 | `POST /v1/auth/signup` | **201** + `api_key.token` + `fingerprint` — no e-mail, phone, card or captcha at any step |
 | `POST /v1/account/allocate {amount:100000000}` | **200**, then `GET /tokens/current` reports **100000000** |
 | `POST /v1/chat/completions` (`MiniMaxAI/MiniMax-M2.7`) — run for **every** key before it is written | **200** with real `choices[0].message.content` and a `usage` block |
-| A key that fails its chat check | never written to `keys.txt` — the account stays recoverable in `accounts.json` |
-
-Re-check the whole list at any time:
+| a key that fails its chat check | never written to `keys.txt` — the account stays recoverable in `accounts.json` |
 
 ```bash
-node src/cli.js --verify-only                 # GET /tokens/current + a chat call per key
-# or a single key:
-curl https://inference.dahl.global/tokens/current -H "Authorization: Bearer dahl_…"
+node src/cli.js --verify-only      # GET /tokens/current + a chat call per key
+node src/cli.js --screen           # only screen your proxy list
 ```
 
 ## 🧭 How it works
+
+```
+inbox (one address per account)                                  a fresh address per account
+   │
+   ├─▶ sign-up: Dahl Inference page → e-mail address → code / link from the inbox
+   ├─▶ session: the account's cookies or access token in hand
+   ├─▶ key mint: the account's key endpoint → plaintext key returned once (written to disk immediately)
+   └─▶ live proof: POST https://inference.dahl.global/v1/chat/completions → real content = the key is live
+```
 
 | Step | Call | Notes |
 | --- | --- | --- |
@@ -156,12 +146,9 @@ curl https://inference.dahl.global/tokens/current -H "Authorization: Bearer dahl
 | **signup** | `POST /v1/auth/signup {"username":"…"}` | `201` + session cookie + `{user, fingerprint, api_key}`; username is `^[a-z0-9_]{3,20}$` (this tool generates `adjective_noun_123`) |
 | sign-in (recovery) | `POST /v1/auth/signin {"fingerprint":"…"}` | `200` + session cookie — the fingerprint is the account's only credential, so a dead proxy never loses an account |
 | account state | `GET /v1/account` | `{user, paid, token_balance, tokens_on_keys}` |
-| allocate the grant | `POST /v1/account/allocate {"key_id":…, "amount":100000000}` | the whole grant is the account pool; allocate is pool-gated (`400 not enough tokens in pool` when empty) |
+| allocate the grant | `POST /v1/account/allocate {"key_id":…, "amount":100000000}` | the whole grant is the account pool (`400 not enough tokens in pool` when empty) |
 | key balance | `GET /tokens/current` | `Bearer dahl_…` → `{"available_tokens":100000000}` |
 | inference | `POST /v1/chat/completions` | OpenAI shape; `GET /v1/models` is public |
-
-**Grant is per account, not per key** — a second key on the same account starts at 0 and cannot be
-funded while the pool is empty, which is why this tool mints exactly **one key per account**.
 
 ## ⚙️ CLI options
 
@@ -181,12 +168,7 @@ node src/cli.js --help
 
 ## 🛰️ Behind a proxy
 
-**Required — there is no direct-connection fallback anywhere in this tool.** Every request leaves
-through a proxy line from your pool; a dead line fails that account attempt and the tool moves on
-(the fingerprint in `accounts.json` lets you finish it later from any other exit). The pool is
-re-probed at the moment of use, and `--screen` lets you test a fresh list against the host before a
-run. Use exits you are allowed to use, and prefer a stable dedicated proxy class if you are
-minting a large batch.
+**Required — there is no direct-connection fallback anywhere in this tool.** Every request leaves through a proxy line from your pool; a dead line fails that account attempt and the tool moves on (the fingerprint in `accounts.json` lets you finish it later from any other exit). The pool is re-probed at the moment of use, and `--screen` lets you test a fresh list against the host before a run.
 
 ## 📄 Files
 
@@ -200,9 +182,7 @@ minting a large batch.
 
 ## 🔌 Connect to 9Router
 
-[9Router](https://9router.com) is a self-hosted, OpenAI-compatible router. Dahl serves an
-OpenAI-compatible endpoint (`https://inference.dahl.global/v1`), so register it once and every key
-you minted becomes a connection under one provider-node — 9Router load-balances across them:
+[9Router](https://9router.com) is a self-hosted, OpenAI-compatible router. Dahl serves an OpenAI-compatible endpoint, so register it once and every key becomes a connection under one provider-node:
 
 ```bash
 node src/connect-9router.js \
@@ -210,28 +190,21 @@ node src/connect-9router.js \
   --api-key dahl_xxxxxxxx
 ```
 
-Run it without `--api-key` to register **every** key in `keys.txt`. Re-running is idempotent: the
-node is matched by `--prefix dahl`, each connection is matched by name (`dahl-001`, `dahl-002`, …),
-and an already-registered key is left alone. Defaults: `--base http://localhost:20128`,
-`--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`,
-`--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`.
+Run it without `--api-key` to register **every** key in `keys.txt`. Re-running is idempotent: the node is matched by `--prefix dahl`, each connection by name (`dahl-001`, `dahl-002`, …). Defaults: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Models are then served as `dahl/<model id>`.
 
-Inside 9Router the keys are served as:
+## 🔑 What one key gets you
 
-```
-dahl/MiniMaxAI/MiniMax-M2.7
-dahl/deepseek-ai/DeepSeek-V4-Flash-0731
-dahl/zai-org/GLM-5.3-Flash
-```
-
-`node src/cli.js --count 30 --connect-9router` mints and registers in one pass, and
-`node src/launcher.js` → *Connect to 9Router* asks for the base URL and password.
+| | |
+| --- | --- |
+| 🏢 Provider | **Dahl Inference** — [inference.dahl.global](https://inference.dahl.global) |
+| 🎁 What the provider gives | 100M free tokens per account — plain REST signup, no e-mail, no card |
+| 🔑 What one key gets you | one API key scoped to its own account: the model ids on the endpoint below, at your plan's limits. The quota lives on the **account**, which is exactly why this tool creates one account per key |
+| 🌐 API shape | OpenAI-compatible: `POST https://inference.dahl.global/v1/chat/completions` |
+| 🔒 Your data | only `inference.dahl.global` is contacted — there is no mailbox step at all; keys stay on your machine |
 
 ## 🐞 Issues
 
-If Dahl changes the signup shape, the allocate semantics or the rate limits, the tool stops at that
-step and says so. **[Open an issue](../../issues)** with the
-command you ran and the exact output; PRs are welcome.
+If Dahl changes the signup shape, the allocate semantics or the rate limits, the tool stops at that step and says so. **[Open an issue](../../issues)** with the command you ran and the exact output; PRs are welcome.
 
 ## 📄 License
 
