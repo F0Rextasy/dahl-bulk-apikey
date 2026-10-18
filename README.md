@@ -176,7 +176,7 @@ node src/cli.js --help
 | --- | --- |
 | `keys.txt` | one live-verified key per line — git-ignored, never committed |
 | `accounts.json` | username / user_id / fingerprint / key id — enough to recover any account |
-| [`models.json`](models.json) | `/v1/models` as served |
+| `/v1/models` | the live catalogue (public, no auth) — 3 ids |
 | `proxies.txt` | your exits, one per line — git-ignored |
 | `outputs/` | run logs and state — git-ignored |
 
