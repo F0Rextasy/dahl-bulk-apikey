@@ -64,6 +64,8 @@ node src/cli.js --verify-only     # every key in keys.txt is re-tested with a re
 |Model|✓|
 |---|---|
 |`MiniMaxAI/MiniMax-M2.7`|✓|
+|`deepseek-ai/DeepSeek-V4-Flash-0731`|✓|
+|`zai-org/GLM-5.3-Flash`|✓|
 
 Live probe of one key:
 

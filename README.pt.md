@@ -20,7 +20,7 @@
 [![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6?style=for-the-badge)](#-connect-to-9router)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 Início rápido](#-quick-start) · [🎁 Nível gratuito](#-free-tier--how-much-you-get) · [🤖 Modelos](#-models--all-3-of-them) · [🧪 Use a API](#-how-to-use-the-api) · [✅ Verificado](#-verified-working--every-key-is-tested) · [🧭 Como funciona](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Opções](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problemas](#-issues)
+[🛠 Quick start](#-quick-start) · [🎁 Free tier](#-free-tier--how-much-you-get) · [🤖 Models](#-models--all-3-of-them) · [🧪 Use the API](#-how-to-use-the-api) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Issues](#-issues)
 
 </div>
 
@@ -32,26 +32,26 @@
 
 ---
 
-## ✨ Por que isso existe
+## ✨ Por que isto existe
 
-O Dahl Inference concede uma **concessão de boas-vindas de 100.000.000 de tokens por conta**, e a primeira chave de API da conta é retornada pela própria chamada de cadastro. A concessão fica no *pool da conta* e é transferida para a chave com uma única chamada `allocate` — que é exatamente por isso que uma conta por chave é a unidade correta aqui. Todo o fluxo é **REST JSON puro**: sem e-mail, sem telefone, sem cartão, sem captcha, sem navegador.
+O Dahl Inference concede uma **bolsa de boas-vindas de 100.000.000 de tokens por conta**, e a primeira chave de API da conta é devolvida pela própria chamada de cadastro. A bolsa fica no *pool da conta* e é transferida para a chave com uma única chamada `allocate` — e é exatamente por isso que uma conta por chave é a unidade correta aqui. Todo o fluxo é **REST JSON puro**: sem e-mail, sem telefone, sem cartão, sem captcha, sem navegador.
 
 ## 🎁 Nível gratuito — quanto você recebe
 
-**Toda nova conta Dahl carrega uma concessão de boas-vindas de 100.000.000 de tokens — sem e-mail, sem telefone, sem cartão, sem captcha.**
+**Cada nova conta Dahl traz uma bolsa de boas-vindas de 100.000.000 de tokens — sem e-mail, sem telefone, sem cartão, sem captcha.**
 
 | O quê | Valor |
 | --- | --- |
-| Concessão de boas-vindas | **100.000.000 de tokens** por conta — `GET /v1/account` reporta `token_balance = 100000000` logo após o cadastro |
+| Bolsa de boas-vindas | **100.000.000 de tokens** por conta — `GET /v1/account` informa `token_balance = 100000000` logo após o cadastro |
 | Cartão exigido | **Não** |
-| Expiração | nenhuma — a concessão não expira |
-| Limite de taxa | sem limite por minuto; o chat é controlado pela **capacidade do modelo** (contas gratuitas são admitidas depois das pagas → `429 model_concurrency`, tente novamente alguns segundos depois ou use outro modelo servido) |
-| Cadastro | REST: `POST /v1/auth/signup {"username":"adj_noun_123"}` — sem caixa de correio |
-| A unidade que escala | **uma conta = uma chave** (a concessão é por conta: uma segunda chave na mesma conta começa em 0) → `--count N` é na verdade "N × 100M tokens" |
+| Expiração | nenhuma — a bolsa não expira |
+| Limite de taxa | sem limite por minuto; o chat é condicionado pela **capacidade do modelo** (contas gratuitas são admitidas depois das pagas → `429 model_concurrency`, tente novamente alguns segundos depois ou use outro modelo disponível) |
+| Cadastro | REST: `POST /v1/auth/signup {"username":"adj_noun_123"}` — sem caixa de e-mail |
+| A unidade que escala | **uma conta = uma chave** (a bolsa é por conta: uma segunda chave na mesma conta começa em 0) → `--count N` na prática significa "N × 100M de tokens" |
 
-Medido de ponta a ponta: cadastro → `POST /v1/account/allocate` move a concessão para a chave → `GET /tokens/current` responde `{"available_tokens": 100000000}`. Uma chave com saldo zero responde `402 available tokens exhausted` no chat.
+Medido de ponta a ponta: cadastro → `POST /v1/account/allocate` move a bolsa para a chave → `GET /tokens/current` responde `{"available_tokens": 100000000}`. Uma chave com saldo zero responde `402 available tokens exhausted` no chat.
 
-> 💡 O nível gratuito é definido pelo Dahl Inference e pode mudar. Confira os números ao vivo em [inference.dahl.global](https://inference.dahl.global) — e deixe o próprio gate da ferramenta decidir:
+> 💡 O nível gratuito é definido pelo Dahl Inference e pode mudar. Confira os números atuais em [inference.dahl.global](https://inference.dahl.global) — e deixe a própria verificação da ferramenta decidir:
 
 ```bash
 node src/cli.js --verify-only     # every key in keys.txt is re-tested with a real chat call
@@ -64,6 +64,8 @@ node src/cli.js --verify-only     # every key in keys.txt is re-tested with a re
 |Modelo|✓|
 |---|---|
 |`MiniMaxAI/MiniMax-M2.7`|✓|
+|`deepseek-ai/DeepSeek-V4-Flash-0731`|✓|
+|`zai-org/GLM-5.3-Flash`|✓|
 
 Teste ao vivo de uma chave:
 
@@ -73,7 +75,7 @@ curl https://inference.dahl.global/v1/chat/completions \
   -d '{"model":"MiniMaxAI/MiniMax-M2.7","messages":[{"role":"user","content":"hi"}]}'
 ```
 
-> O Dahl também responde a `POST /tokens` **sem nenhuma autenticação** e entrega a mesma concessão `{"token":"dahl_…","available_tokens":100000000}`, vinculável a uma conta depois com `POST /v1/account/keys/claim`. Esta ferramenta usa contas reais; a rota anônima está documentada porque carrega a mesma concessão.
+> O Dahl também responde a `POST /tokens` **sem nenhuma autenticação** e entrega a mesma bolsa `{"token":"dahl_…","available_tokens":100000000}`, que pode ser vinculada a uma conta depois com `POST /v1/account/keys/claim`. Esta ferramenta usa contas reais; a rota anônima está documentada porque carrega a mesma bolsa.
 
 ## 🧪 Como usar a API
 
@@ -112,20 +114,20 @@ node src/launcher.js        # interactive: mint / verify / screen / settings
 node src/cli.js --count 30  # any N — 30 is just the default sample
 ```
 
-`keys.txt` (uma chave por linha, espelhado em `%USERPROFILE%\dahl-keys.txt`) é escrito **somente** depois que uma conclusão de chat ao vivo comprova a chave; `accounts.json` mantém o nome de usuário / fingerprint / id da chave para que qualquer conta possa ser recuperada depois (`src/recover.js`).
+`keys.txt` (uma chave por linha, espelhado em `%USERPROFILE%\dahl-keys.txt`) é gravado **somente** depois que uma conclusão de chat ao vivo comprova a chave; `accounts.json` guarda o nome de usuário / fingerprint / id da chave para que qualquer conta possa ser recuperada depois (`src/recover.js`).
 
 ### 🖱️ O launcher
 
-O launcher pede a lista de proxies e a contagem, lembra-os em `launcher.config.json` e executa a CLI — mint, verify, screen proxies, settings, help e *Connect to 9Router*.
+O launcher pede a lista de proxies e a quantidade, memoriza-os em `launcher.config.json` e executa a CLI — criar, verificar, filtrar proxies, configurações, ajuda e *Conectar ao 9Router*.
 
-## ✅ Verificado e funcionando — toda chave é testada
+## ✅ Verificado e funcionando — cada chave é testada
 
 | Verificação | Resultado |
 | --- | --- |
 | `POST /v1/auth/signup` | **201** + `api_key.token` + `fingerprint` — sem e-mail, telefone, cartão ou captcha em nenhuma etapa |
-| `POST /v1/account/allocate {amount:100000000}` | **200**, depois `GET /tokens/current` reporta **100000000** |
-| `POST /v1/chat/completions` (`MiniMaxAI/MiniMax-M2.7`) — executado para **toda** chave antes de ser escrita | **200** com `choices[0].message.content` real e um bloco `usage` |
-| uma chave que falha na verificação de chat | nunca é escrita em `keys.txt` — a conta permanece recuperável em `accounts.json` |
+| `POST /v1/account/allocate {amount:100000000}` | **200**, depois `GET /tokens/current` informa **100000000** |
+| `POST /v1/chat/completions` (`MiniMaxAI/MiniMax-M2.7`) — executado para **cada** chave antes de ser gravada | **200** com `choices[0].message.content` real e um bloco `usage` |
+| uma chave que falha na verificação de chat | nunca é gravada em `keys.txt` — a conta permanece recuperável em `accounts.json` |
 
 ```bash
 node src/cli.js --verify-only      # GET /tokens/current + a chat call per key
@@ -143,14 +145,14 @@ inbox (one address per account)                                  a fresh address
    └─▶ live proof: POST https://inference.dahl.global/v1/chat/completions → real content = the key is live
 ```
 
-| Etapa | Chamada | Notas |
+| Etapa | Chamada | Observações |
 | --- | --- | --- |
-| health | `GET /health` | alcançabilidade da saída (sem autenticação) |
-| verificação de nome de usuário | `GET /v1/auth/check-username?username=…` | `200 {"available":true,"valid":true}`; em uso → `{"available":false,"suggestions":[…]}` |
-| **signup** | `POST /v1/auth/signup {"username":"…"}` | `201` + cookie de sessão + `{user, fingerprint, api_key}`; o nome de usuário é `^[a-z0-9_]{3,20}$` (esta ferramenta gera `adjective_noun_123`) |
-| sign-in (recuperação) | `POST /v1/auth/signin {"fingerprint":"…"}` | `200` + cookie de sessão — o fingerprint é a única credencial da conta, então um proxy morto nunca perde uma conta |
+| health | `GET /health` | acessibilidade da saída (sem autenticação) |
+| verificação de nome de usuário | `GET /v1/auth/check-username?username=…` | `200 {"available":true,"valid":true}`; ocupado → `{"available":false,"suggestions":[…]}` |
+| **cadastro** | `POST /v1/auth/signup {"username":"…"}` | `201` + cookie de sessão + `{user, fingerprint, api_key}`; o nome de usuário segue `^[a-z0-9_]{3,20}$` (esta ferramenta gera `adjective_noun_123`) |
+| login (recuperação) | `POST /v1/auth/signin {"fingerprint":"…"}` | `200` + cookie de sessão — o fingerprint é a única credencial da conta, então um proxy morto nunca perde uma conta |
 | estado da conta | `GET /v1/account` | `{user, paid, token_balance, tokens_on_keys}` |
-| alocar a concessão | `POST /v1/account/allocate {"key_id":…, "amount":100000000}` | toda a concessão é o pool da conta (`400 not enough tokens in pool` quando vazio) |
+| alocar a bolsa | `POST /v1/account/allocate {"key_id":…, "amount":100000000}` | a bolsa inteira é o pool da conta (`400 not enough tokens in pool` quando vazio) |
 | saldo da chave | `GET /tokens/current` | `Bearer dahl_…` → `{"available_tokens":100000000}` |
 | inferência | `POST /v1/chat/completions` | formato OpenAI; `GET /v1/models` é público |
 
@@ -166,27 +168,27 @@ node src/cli.js --help
 
 | Variável de ambiente | Padrão | Significado |
 | --- | --- | --- |
-| `DAHL_PROXIES` | `proxies.txt` | arquivo de pool, um proxy por linha |
-| `DAHL_MODEL` | `MiniMaxAI/MiniMax-M2.7` | modelo usado para a verificação ao vivo |
-| `DAHL_AMOUNT` | `100000000` | concessão de boas-vindas alocada a cada chave |
+| `DAHL_PROXIES` | `proxies.txt` | arquivo do pool, um proxy por linha |
+| `DAHL_MODEL` | `MiniMaxAI/MiniMax-M2.7` | modelo usado na verificação ao vivo |
+| `DAHL_AMOUNT` | `100000000` | bolsa de boas-vindas alocada a cada chave |
 
 ## 🛰️ Atrás de um proxy
 
-**Obrigatório — não há fallback de conexão direta em nenhum lugar desta ferramenta.** Toda requisição sai através de uma linha de proxy do seu pool; uma linha morta faz aquela tentativa de conta falhar e a ferramenta segue em frente (o fingerprint em `accounts.json` permite concluí-la depois a partir de qualquer outra saída). O pool é re-testado no momento do uso, e `--screen` permite testar uma lista nova contra o host antes de uma execução.
+**Obrigatório — não há nenhum fallback de conexão direta em qualquer parte desta ferramenta.** Toda requisição sai por uma linha de proxy do seu pool; uma linha morta faz aquela tentativa de conta falhar e a ferramenta segue adiante (o fingerprint em `accounts.json` permite concluí-la depois a partir de qualquer outra saída). O pool é testado novamente no momento do uso, e `--screen` permite testar uma lista nova contra o host antes de uma execução.
 
 ## 📄 Arquivos
 
 | Caminho | Conteúdo |
 | --- | --- |
 | `keys.txt` | uma chave verificada ao vivo por linha — ignorado pelo git, nunca commitado |
-| `accounts.json` | nome de usuário / user_id / fingerprint / id da chave — suficiente para recuperar qualquer conta |
+| `accounts.json` | nome de usuário / user_id / fingerprint / id da chave — o suficiente para recuperar qualquer conta |
 | `/v1/models` | o catálogo ao vivo (público, sem autenticação) — 3 ids |
 | `proxies.txt` | suas saídas, uma por linha — ignorado pelo git |
-| `outputs/` | logs de execução e estado — ignorado pelo git |
+| `outputs/` | logs e estado das execuções — ignorado pelo git |
 
 ## 🔌 Conectar ao 9Router
 
-[9Router](https://9router.com) é um roteador auto-hospedado e compatível com OpenAI. O Dahl serve um endpoint compatível com OpenAI, então registre-o uma vez e toda chave se torna uma conexão sob um nó de provedor:
+O [9Router](https://9router.com) é um roteador auto-hospedado e compatível com OpenAI. O Dahl oferece um endpoint compatível com OpenAI, então registre-o uma vez e cada chave se torna uma conexão sob um único nó de provedor:
 
 ```bash
 node src/connect-9router.js \
@@ -194,21 +196,21 @@ node src/connect-9router.js \
   --api-key dahl_xxxxxxxx
 ```
 
-Execute sem `--api-key` para registrar **toda** chave em `keys.txt`. Reexecutar é idempotente: o nó é correspondido por `--prefix dahl`, cada conexão por nome (`dahl-001`, `dahl-002`, …). Padrões: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Os modelos são então servidos como `dahl/<model id>`.
+Execute sem `--api-key` para registrar **todas** as chaves de `keys.txt`. Reexecutar é idempotente: o nó é identificado por `--prefix dahl`, cada conexão pelo nome (`dahl-001`, `dahl-002`, …). Padrões: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Os modelos passam então a ser servidos como `dahl/<model id>`.
 
 ## 🔑 O que uma chave oferece
 
 | | |
 | --- | --- |
 | 🏢 Provedor | **Dahl Inference** — [inference.dahl.global](https://inference.dahl.global) |
-| 🎁 O que o provedor oferece | 100M de tokens grátis por conta — cadastro REST simples, sem e-mail, sem cartão |
-| 🔑 O que uma chave oferece | uma chave de API vinculada à sua própria conta: os ids de modelo no endpoint abaixo, nos limites do seu plano. A cota fica na **conta**, que é exatamente por isso que esta ferramenta cria uma conta por chave |
-| 🌐 Formato da API | Compatível com OpenAI: `POST https://inference.dahl.global/v1/chat/completions` |
-| 🔒 Seus dados | apenas `inference.dahl.global` é contatado — não há etapa de caixa de correio; as chaves ficam na sua máquina |
+| 🎁 O que o provedor dá | 100M de tokens grátis por conta — cadastro REST puro, sem e-mail, sem cartão |
+| 🔑 O que uma chave oferece | uma chave de API restrita à sua própria conta: os ids de modelo do endpoint abaixo, nos limites do seu plano. A cota fica na **conta**, e é exatamente por isso que esta ferramenta cria uma conta por chave |
+| 🌐 Formato da API | compatível com OpenAI: `POST https://inference.dahl.global/v1/chat/completions` |
+| 🔒 Seus dados | apenas `inference.dahl.global` é contatado — não há nenhuma etapa de caixa de e-mail; as chaves ficam na sua máquina |
 
 ## 🐞 Problemas
 
-Se o Dahl mudar o formato do cadastro, a semântica de alocação ou os limites de taxa, a ferramenta para nessa etapa e avisa. **[Abra uma issue](../../issues)** com o comando que você executou e a saída exata; PRs são bem-vindos.
+Se a Dahl mudar o formato do cadastro, a semântica de alocação ou os limites de taxa, a ferramenta para nessa etapa e avisa. **[Abra uma issue](../../issues)** com o comando que você executou e a saída exata; PRs são bem-vindos.
 
 ## 📄 Licença
 
@@ -222,8 +224,8 @@ MIT © 2026 — veja [LICENSE](LICENSE).
 
 ## ⚡ Formato de execução (presets)
 
-`--preset=turbo|balanced|safe` define workers + a pausa entre contas (turbo = 5,
-balanced = 4, safe = 2); `--conc`/`--gap` explícitos (ou as próprias flags do repositório) sempre vencem,
-e sem `--preset` a ferramenta mantém exatamente seu formato histórico.
+`--preset=turbo|balanced|safe` define os workers + a pausa entre contas (turbo = 5,
+balanced = 4, safe = 2); `--conc`/`--gap` explícitos (ou as próprias flags do repositório) sempre prevalecem,
+e sem `--preset` a ferramenta mantém exatamente o seu formato histórico.
 
-Turbo önerilir (5 worker); daha fazlası zayıf bilgisayarda yük/ban riski.
+Turbo é recomendado (5 workers); mais do que isso traz risco de carga/ban em máquinas fracas.

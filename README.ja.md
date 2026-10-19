@@ -11,7 +11,7 @@
 
 # dahl-bulk-apikey
 
-**自動生成された API キーで Dahl Inference アカウントを一括作成 — OpenAI 互換の推論 + 9Router コネクタ。**
+**API キーを自動生成して Dahl Inference アカウントを一括作成 — OpenAI 互換の推論 + 9Router コネクター。**
 
 [![Node](https://img.shields.io/badge/Node-%E2%89%A518-3DA639?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
 [![Dependencies](https://img.shields.io/badge/dependencies-0-blue?style=for-the-badge)](#)
@@ -20,7 +20,7 @@
 [![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6?style=for-the-badge)](#-connect-to-9router)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 クイックスタート](#-quick-start) · [🎁 無料枠](#-free-tier--how-much-you-get) · [🤖 モデル](#-models--all-3-of-them) · [🧪 API の使い方](#-how-to-use-the-api) · [✅ 検証済み](#-verified-working--every-key-is-tested) · [🧭 仕組み](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ オプション](#️-cli-options) · [🛰️ プロキシ](#️-behind-a-proxy) · [🐞 問題報告](#-issues)
+[🛠 クイックスタート](#-quick-start) · [🎁 無料枠](#-free-tier--how-much-you-get) · [🤖 モデル](#-models--all-3-of-them) · [🧪 API の使い方](#-how-to-use-the-api) · [✅ 動作確認済み](#-verified-working--every-key-is-tested) · [🧭 仕組み](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ オプション](#️-cli-options) · [🛰️ プロキシ](#️-behind-a-proxy) · [🐞 イシュー](#-issues)
 
 </div>
 
@@ -32,40 +32,42 @@
 
 ---
 
-## ✨ これが存在する理由
+## ✨ なぜこれが存在するのか
 
-Dahl Inference は **アカウントごとに 100,000,000 トークンのウェルカム付与**を配布しており、そのアカウントの最初の API キーはサインアップ呼び出し自体によって返されます。付与は*アカウントプール*上に存在し、1 回の `allocate` 呼び出しでキーに移されます — まさにこれが、ここで 1 アカウントにつき 1 キーが正しい単位である理由です。フロー全体は**プレーンな REST JSON**です: メールなし、電話なし、カードなし、キャプチャなし、ブラウザなし。
+Dahl Inference は**アカウントごとに 100,000,000 トークンのウェルカム付与**を配布し、そのアカウントの最初の API キーはサインアップの呼び出し自体で返されます。付与分は*アカウントプール*上に存在し、1 回の `allocate` 呼び出しでキーへ移されます — まさにこれが、ここでキー 1 本につきアカウント 1 つが正しい単位である理由です。フロー全体は**プレーンな REST JSON** です: メールなし、電話なし、カードなし、キャプチャなし、ブラウザなし。
 
-## 🎁 無料枠 — どれだけ得られるか
+## 🎁 無料枠 — どれだけ使えるか
 
-**新しい Dahl アカウントにはそれぞれ 100,000,000 トークンのウェルカム付与が付きます — メールなし、電話なし、カードなし、キャプチャなし。**
+**新しい Dahl アカウントにはすべて 100,000,000 トークンのウェルカム付与が付いてきます — メールなし、電話なし、カードなし、キャプチャなし。**
 
 | 項目 | 値 |
 | --- | --- |
-| ウェルカム付与 | アカウントごとに **100,000,000 トークン** — サインアップ直後に `GET /v1/account` が `token_balance = 100000000` を報告します |
-| カード必須 | **いいえ** |
-| 有効期限 | なし — 付与は失効しません |
-| レート制限 | 毎分のレート制限はなし。チャットは**モデル容量**によって制限されます (無料アカウントは有料アカウントの後に受け入れられる → `429 model_concurrency`、数秒後に再試行するか別の提供モデルを使用してください) |
+| ウェルカム付与 | **1 アカウントあたり 100,000,000 トークン** — サインアップ直後に `GET /v1/account` が `token_balance = 100000000` を返します |
+| カードの要否 | **不要** |
+| 有効期限 | なし — 付与分は失効しません |
+| レート制限 | 毎分のレート制限なし; チャットは**モデル容量**によって制限されます（無料アカウントは有料アカウントの後に受け入れられます → `429 model_concurrency`、数秒後に再試行するか、別の提供モデルを使用してください） |
 | サインアップ | REST: `POST /v1/auth/signup {"username":"adj_noun_123"}` — メールボックス不要 |
-| スケールする単位 | **1 アカウント = 1 キー** (付与はアカウント単位: 同じアカウントの 2 つ目のキーは 0 から始まります) → `--count N` は実質的に「N × 100M トークン」です |
+| スケールする単位 | **1 アカウント = 1 キー**（付与はアカウント単位: 同じアカウントの 2 本目のキーは 0 から始まります）→ `--count N` は実質「N × 100M トークン」です |
 
-エンドツーエンドで計測済み: サインアップ → `POST /v1/account/allocate` が付与をキーに移動 → `GET /tokens/current` が `{"available_tokens": 100000000}` を返す。残高がゼロのキーはチャットで `402 available tokens exhausted` を返します。
+エンドツーエンドで実測済み: サインアップ → `POST /v1/account/allocate` が付与分をキーに移す → `GET /tokens/current` が `{"available_tokens": 100000000}` を返す。残高がゼロのキーはチャットで `402 available tokens exhausted` を返します。
 
-> 💡 無料枠は Dahl Inference によって設定されており、変更される可能性があります。最新の数値は [inference.dahl.global](https://inference.dahl.global) で確認してください — そしてツール自身のゲートに判断させてください:
+> 💡 無料枠は Dahl Inference が設定するものであり、変更される可能性があります。最新の数値は [inference.dahl.global](https://inference.dahl.global) で確認してください — そしてツール自身のゲートに判断させましょう:
 
 ```bash
 node src/cli.js --verify-only     # every key in keys.txt is re-tested with a real chat call
 ```
 
-## 🤖 モデル — そのすべて 3 つ
+## 🤖 モデル — 全部で 3 つ
 
-`GET /v1/models` (公開、認証不要) は現在 **3 つのモデル**を提供しています:
+`GET /v1/models`（公開、認証不要）は現在 **3 つのモデル**を提供しています:
 
 |モデル|✓|
 |---|---|
 |`MiniMaxAI/MiniMax-M2.7`|✓|
+|`deepseek-ai/DeepSeek-V4-Flash-0731`|✓|
+|`zai-org/GLM-5.3-Flash`|✓|
 
-1 つのキーのライブプローブ:
+1 本のキーでのライブプローブ:
 
 ```bash
 curl https://inference.dahl.global/v1/chat/completions \
@@ -73,7 +75,7 @@ curl https://inference.dahl.global/v1/chat/completions \
   -d '{"model":"MiniMaxAI/MiniMax-M2.7","messages":[{"role":"user","content":"hi"}]}'
 ```
 
-> Dahl はまた、`POST /tokens` に**認証なしで**応答し、同じ `{"token":"dahl_…","available_tokens":100000000}` の付与を配布します。これは後で `POST /v1/account/keys/claim` でアカウントにリンクできます。このツールは実際のアカウントを使用しますが、匿名ルートも同じ付与を持つため文書化されています。
+> Dahl はまた、`POST /tokens` に**まったく認証なしで**応答し、同じ `{"token":"dahl_…","available_tokens":100000000}` の付与を渡します。これは後から `POST /v1/account/keys/claim` でアカウントに紐付けられます。このツールは実際のアカウントを使用しますが、匿名ルートも同じ付与を持つため記載しています。
 
 ## 🧪 API の使い方
 
@@ -88,14 +90,14 @@ print(client.chat.completions.create(model="MiniMaxAI/MiniMax-M2.7",
       messages=[{"role": "user", "content": "hi"}]).choices[0].message.content)
 ```
 
-**残高確認** (ツールがキーを信頼する前に行うのと同じ呼び出し):
+**残高チェック**（ツールがキーを信頼する前に行うのと同じ呼び出し）:
 
 ```bash
 curl https://inference.dahl.global/tokens/current -H "Authorization: Bearer dahl_…"
 # {"available_tokens": 100000000}
 ```
 
-**カスタムベース URL を持つ任意のエージェント / ツール** (Cursor、OpenCode、Kilo Code など): ベース URL `https://inference.dahl.global/v1`、キーを貼り付け、3 つのモデル ID から 1 つを選択します。
+**カスタムベース URL を設定できる任意のエージェント / ツール**（Cursor、OpenCode、Kilo Code など）: ベース URL に `https://inference.dahl.global/v1` を設定し、キーを貼り付け、3 つのモデル ID から 1 つを選びます。
 
 ## 🛠 クイックスタート
 
@@ -112,20 +114,20 @@ node src/launcher.js        # interactive: mint / verify / screen / settings
 node src/cli.js --count 30  # any N — 30 is just the default sample
 ```
 
-`keys.txt` (1 行に 1 キー、`%USERPROFILE%\dahl-keys.txt` にミラーリング) は、ライブチャット補完がキーを証明した**後にのみ**書き込まれます。`accounts.json` はユーザー名 / フィンガープリント / キー ID を保持するので、後で任意のアカウントを復元できます (`src/recover.js`)。
+`keys.txt`（1 行 1 キー、`%USERPROFILE%\dahl-keys.txt` にミラーリング）は、実際のチャット補完でキーが証明された**後にのみ**書き込まれます。`accounts.json` はユーザー名 / フィンガープリント / キー ID を保持するため、後からどのアカウントでも復旧できます（`src/recover.js`）。
 
 ### 🖱️ ランチャー
 
-ランチャーはプロキシリストと件数を尋ね、それらを `launcher.config.json` に記憶し、CLI を実行します — mint、verify、screen proxies、settings、help、そして *Connect to 9Router*。
+ランチャーはプロキシリストと件数を尋ね、それらを `launcher.config.json` に記憶して CLI を実行します — ミント、検証、プロキシのスクリーニング、設定、ヘルプ、そして *9Router への接続*。
 
-## ✅ 検証済みで動作 — すべてのキーがテストされます
+## ✅ 動作確認済み — すべてのキーがテストされます
 
 | チェック | 結果 |
 | --- | --- |
-| `POST /v1/auth/signup` | **201** + `api_key.token` + `fingerprint` — どのステップでもメール、電話、カード、キャプチャなし |
+| `POST /v1/auth/signup` | **201** + `api_key.token` + `fingerprint` — どのステップでもメール、電話、カード、キャプチャは不要 |
 | `POST /v1/account/allocate {amount:100000000}` | **200**、その後 `GET /tokens/current` が **100000000** を報告 |
-| `POST /v1/chat/completions` (`MiniMaxAI/MiniMax-M2.7`) — 書き込まれる**前**に**すべての**キーに対して実行 | **200**、実際の `choices[0].message.content` と `usage` ブロック付き |
-| チャットチェックに失敗したキー | `keys.txt` には決して書き込まれない — アカウントは `accounts.json` で復元可能なまま |
+| `POST /v1/chat/completions` (`MiniMaxAI/MiniMax-M2.7`) — 書き込み前に**すべての**キーで実行 | 実際の `choices[0].message.content` と `usage` ブロックを含む **200** |
+| チャットチェックに失敗したキー | `keys.txt` には決して書き込まれない — アカウントは `accounts.json` で復旧可能なまま残る |
 
 ```bash
 node src/cli.js --verify-only      # GET /tokens/current + a chat call per key
@@ -145,14 +147,14 @@ inbox (one address per account)                                  a fresh address
 
 | ステップ | 呼び出し | 備考 |
 | --- | --- | --- |
-| health | `GET /health` | 出口の到達可能性 (認証不要) |
-| username check | `GET /v1/auth/check-username?username=…` | `200 {"available":true,"valid":true}`; 使用済み → `{"available":false,"suggestions":[…]}` |
-| **signup** | `POST /v1/auth/signup {"username":"…"}` | `201` + セッション Cookie + `{user, fingerprint, api_key}`; ユーザー名は `^[a-z0-9_]{3,20}$` (このツールは `adjective_noun_123` を生成します) |
-| sign-in (recovery) | `POST /v1/auth/signin {"fingerprint":"…"}` | `200` + セッション Cookie — フィンガープリントはアカウントの唯一の資格情報なので、死んだプロキシでもアカウントを失うことはありません |
-| account state | `GET /v1/account` | `{user, paid, token_balance, tokens_on_keys}` |
-| allocate the grant | `POST /v1/account/allocate {"key_id":…, "amount":100000000}` | 付与全体がアカウントプールです (空のときは `400 not enough tokens in pool`) |
-| key balance | `GET /tokens/current` | `Bearer dahl_…` → `{"available_tokens":100000000}` |
-| inference | `POST /v1/chat/completions` | OpenAI 形式; `GET /v1/models` は公開 |
+| ヘルス | `GET /health` | 出口の到達性（認証不要） |
+| ユーザー名チェック | `GET /v1/auth/check-username?username=…` | `200 {"available":true,"valid":true}`; 使用済み → `{"available":false,"suggestions":[…]}` |
+| **サインアップ** | `POST /v1/auth/signup {"username":"…"}` | `201` + セッション Cookie + `{user, fingerprint, api_key}`; ユーザー名は `^[a-z0-9_]{3,20}$`（このツールは `adjective_noun_123` を生成） |
+| サインイン（復旧） | `POST /v1/auth/signin {"fingerprint":"…"}` | `200` + セッション Cookie — フィンガープリントがアカウント唯一の資格情報なので、プロキシが死んでもアカウントを失うことはありません |
+| アカウント状態 | `GET /v1/account` | `{user, paid, token_balance, tokens_on_keys}` |
+| 付与分の割り当て | `POST /v1/account/allocate {"key_id":…, "amount":100000000}` | 付与分全体がアカウントプール（空のときは `400 not enough tokens in pool`） |
+| キー残高 | `GET /tokens/current` | `Bearer dahl_…` → `{"available_tokens":100000000}` |
+| 推論 | `POST /v1/chat/completions` | OpenAI 形式; `GET /v1/models` は公開 |
 
 ## ⚙️ CLI オプション
 
@@ -167,26 +169,26 @@ node src/cli.js --help
 | 環境変数 | デフォルト | 意味 |
 | --- | --- | --- |
 | `DAHL_PROXIES` | `proxies.txt` | プールファイル、1 行に 1 プロキシ |
-| `DAHL_MODEL` | `MiniMaxAI/MiniMax-M2.7` | ライブ検証に使用されるモデル |
-| `DAHL_AMOUNT` | `100000000` | 各キーに割り当てられるウェルカム付与 |
+| `DAHL_MODEL` | `MiniMaxAI/MiniMax-M2.7` | ライブ検証に使用するモデル |
+| `DAHL_AMOUNT` | `100000000` | 各キーに割り当てるウェルカム付与 |
 
 ## 🛰️ プロキシの背後で
 
-**必須 — このツールには直接接続のフォールバックはどこにもありません。** すべてのリクエストはプールからのプロキシ行を通って出ていきます。死んだ行はそのアカウントの試行を失敗させ、ツールは次に進みます (`accounts.json` のフィンガープリントにより、後で他の出口から完了できます)。プールは使用時に再プローブされ、`--screen` により実行前に新しいリストをホストに対してテストできます。
+**必須 — このツールには直接接続のフォールバックがどこにもありません。** すべてのリクエストはプール内のプロキシ行を経由して出ていきます。死んだ行はそのアカウントの試行を失敗させ、ツールは次へ進みます（`accounts.json` のフィンガープリントがあれば、後から別の出口で完了できます）。プールは使用時に再プローブされ、`--screen` を使えば実行前に新しいリストをホストに対してテストできます。
 
 ## 📄 ファイル
 
 | パス | 内容 |
 | --- | --- |
-| `keys.txt` | 1 行に 1 つのライブ検証済みキー — git 無視、コミットされない |
-| `accounts.json` | ユーザー名 / user_id / フィンガープリント / キー ID — 任意のアカウントを復元するのに十分 |
-| `/v1/models` | ライブカタログ (公開、認証不要) — 3 つの ID |
-| `proxies.txt` | あなたの出口、1 行に 1 つ — git 無視 |
-| `outputs/` | 実行ログと状態 — git 無視 |
+| `keys.txt` | 1 行に 1 本のライブ検証済みキー — git 管理外、コミットされません |
+| `accounts.json` | ユーザー名 / user_id / フィンガープリント / キー ID — どのアカウントでも復旧するのに十分 |
+| `/v1/models` | ライブカタログ（公開、認証不要）— 3 つの ID |
+| `proxies.txt` | あなたの出口、1 行に 1 つ — git 管理外 |
+| `outputs/` | 実行ログと状態 — git 管理外 |
 
-## 🔌 9Router に接続
+## 🔌 9Router への接続
 
-[9Router](https://9router.com) はセルフホスト型の OpenAI 互換ルーターです。Dahl は OpenAI 互換エンドポイントを提供するので、一度登録すればすべてのキーが 1 つのプロバイダーノードの下の接続になります:
+[9Router](https://9router.com) はセルフホスト型の OpenAI 互換ルーターです。Dahl は OpenAI 互換エンドポイントを提供しているので、一度登録すればすべてのキーが 1 つのプロバイダーノード配下の接続になります:
 
 ```bash
 node src/connect-9router.js \
@@ -194,36 +196,34 @@ node src/connect-9router.js \
   --api-key dahl_xxxxxxxx
 ```
 
-`--api-key` なしで実行すると、`keys.txt` の**すべての**キーを登録します。再実行は冪等です: ノードは `--prefix dahl` で照合され、各接続は名前 (`dahl-001`、`dahl-002`、…) で照合されます。デフォルト: `--base http://localhost:20128`、`--password 123456`、`--name "Dahl Inference"`、`--prefix dahl`、`--base-url https://inference.dahl.global/v1`、`--model MiniMaxAI/MiniMax-M2.7`。モデルはその後 `dahl/<model id>` として提供されます。
+`--api-key` なしで実行すると、`keys.txt` 内の**すべての**キーを登録します。再実行は冪等です: ノードは `--prefix dahl` で照合され、各接続は名前（`dahl-001`、`dahl-002`、…）で照合されます。デフォルト: `--base http://localhost:20128`、`--password 123456`、`--name "Dahl Inference"`、`--prefix dahl`、`--base-url https://inference.dahl.global/v1`、`--model MiniMaxAI/MiniMax-M2.7`。モデルはその後 `dahl/<model id>` として提供されます。
 
-## 🔑 1 つのキーで得られるもの
+## 🔑 1 本のキーで得られるもの
 
 | | |
 | --- | --- |
 | 🏢 プロバイダー | **Dahl Inference** — [inference.dahl.global](https://inference.dahl.global) |
-| 🎁 プロバイダーが提供するもの | アカウントごとに 100M の無料トークン — プレーンな REST サインアップ、メールなし、カードなし |
-| 🔑 1 つのキーで得られるもの | 独自のアカウントにスコープされた 1 つの API キー: 以下のエンドポイントのモデル ID を、あなたのプランの制限で利用できます。クォータは**アカウント**上に存在するため、このツールがキーごとに 1 つのアカウントを作成するのです |
+| 🎁 プロバイダーが提供するもの | アカウントあたり 1 億トークン無料 — プレーンな REST サインアップ、メール不要、カード不要 |
+| 🔑 1 本のキーで得られるもの | それぞれのアカウントにスコープされた 1 本の API キー: 下記エンドポイントのモデル ID を、プランの制限内で利用できます。クォータは**アカウント**上に存在するため、このツールがキーごとに 1 アカウントを作成するのはまさにそのためです |
 | 🌐 API 形式 | OpenAI 互換: `POST https://inference.dahl.global/v1/chat/completions` |
-| 🔒 あなたのデータ | 接触するのは `inference.dahl.global` のみ — メールボックスのステップはまったくありません; キーはあなたのマシンに留まります |
+| 🔒 あなたのデータ | 接続先は `inference.dahl.global` のみ — メールボックスのステップは一切ありません; キーはあなたのマシン上に留まります |
 
-## 🐞 問題報告
+## 🐞 イシュー
 
-Dahl がサインアップの形式、allocate のセマンティクス、またはレート制限を変更した場合、ツールはそのステップで停止し、その旨を伝えます。実行したコマンドと正確な出力を添えて **[issue を開いてください](../../issues)**; PR も歓迎します。
+Dahl がサインアップの形式、allocate のセマンティクス、またはレート制限を変更した場合、ツールはそのステップで停止し、その旨を表示します。実行したコマンドと正確な出力を添えて **[イシューを作成してください](../../issues)**; PR も歓迎します。
 
 ## 📄 ライセンス
 
-MIT © 2026 — [LICENSE](LICENSE) を参照。
+MIT © 2026 — [LICENSE](LICENSE) を参照してください。
 
 <div align="center">
 
-**[MIT](LICENSE)** © 2026 dahl-bulk-apikey contributors
+**[MIT](LICENSE)** © 2026 dahl-bulk-apikey コントリビューター
 
 </div>
 
-## ⚡ 実行形態 (プリセット)
+## ⚡ 実行形態（プリセット）
 
-`--preset=turbo|balanced|safe` はワーカー数 + アカウント間のポーズを設定します (turbo = 5、
-balanced = 4、safe = 2); 明示的な `--conc`/`--gap` (またはリポジトリ自身のフラグ) が常に優先され、
-`--preset` なしの場合、ツールは従来の形態を正確に保ちます。
+`--preset=turbo|balanced|safe` はワーカー数とアカウント間のポーズを設定します（turbo = 5、balanced = 4、safe = 2）。明示的な `--conc`/`--gap`（またはリポジトリ独自のフラグ）が常に優先され、`--preset` を指定しない場合、ツールは従来の形態をそのまま維持します。
 
-Turbo önerilir (5 worker); daha fazlası zayıf bilgisayarda yük/ban riski.
+Turbo を推奨します（5 ワーカー）。それ以上は非力なコンピューターでは負荷や ban のリスクがあります。
