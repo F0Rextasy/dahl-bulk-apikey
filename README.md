@@ -24,6 +24,18 @@
 
 </div>
 
+<div align="center">
+
+**English** · [Türkçe](README.tr.md) · [中文](README.cn.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [Português](README.pt.md)
+
+</div>
+
+
+
+
+
+
+
 ---
 
 ## ✨ Why this exists
@@ -55,11 +67,9 @@ node src/cli.js --verify-only     # every key in keys.txt is re-tested with a re
 
 `GET /v1/models` (public, no auth) currently serves **3 models**:
 
-| Model ID | Note |
-| --- | --- |
-| `MiniMaxAI/MiniMax-M2.7` | the verification default; served first in the rotation |
-| `deepseek-ai/DeepSeek-V4-Flash-0731` | DeepSeek flash line |
-| `zai-org/GLM-5.3-Flash` | GLM flash line |
+|Model|✓|
+|---|---|
+|`MiniMaxAI/MiniMax-M2.7`|✓|
 
 Live probe of one key:
 
