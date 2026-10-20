@@ -18,9 +18,10 @@
  *   node src/cli.js --preset=turbo --count N   run shape: turbo = 5 workers / 3 s
  *   node src/cli.js --help
  *
- * Egress: every Dahl request goes through an HTTP(S)/SOCKS exit from your pool
- * file (`proxies.txt` at the repository root, or $DAHL_PROXIES). There is no
- * direct fallback anywhere in this tool.
+ * Egress: your proxy list is OPTIONAL — put exits in `proxies.txt` at the
+ * repository root (or set $DAHL_PROXIES) and every Dahl request leaves through
+ * an HTTP(S)/SOCKS exit from that list. Without a list the tool connects
+ * directly (a pool is recommended at scale: per-IP limits, bans).
  * Presets (operator standard v3): `--preset=turbo|balanced|safe` (and explicit
  * `--conc=`/`--gap=`) reach mint.js unchanged; absent = today's defaults.
  */

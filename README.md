@@ -105,8 +105,8 @@ curl https://inference.dahl.global/tokens/current -H "Authorization: Bearer dahl
 # clone or fork this repository, then:
 cd dahl-bulk-apikey
 
-# 1) your proxy list, one per line (http://, socks5://, socks4:// or bare host:port)
-printf 'socks5://127.0.0.1:1080\n' > proxies.txt
+# 1) your proxy list, one per line (http://, socks5://, socks4:// or bare host:port) — optional
+printf 'socks5://127.0.0.1:1080\n' > proxies.txt   # optional — without it the tool runs direct
 
 # 2) go
 node src/launcher.js        # interactive: mint / verify / screen / settings
@@ -118,7 +118,7 @@ node src/cli.js --count 30  # any N — 30 is just the default sample
 
 ### 🖱️ The launcher
 
-The launcher asks for the proxy list and count, remembers them in `launcher.config.json`, and runs the CLI — mint, verify, screen proxies, settings, help, and *Connect to 9Router*.
+The launcher asks for the proxy list (optional — without one the CLI runs direct) and count, remembers them in `launcher.config.json`, and runs the CLI — mint, verify, screen proxies, settings, help, and *Connect to 9Router*.
 
 ## ✅ Verified working — every key is tested
 
@@ -168,13 +168,17 @@ node src/cli.js --help
 
 | Environment variable | Default | Meaning |
 | --- | --- | --- |
-| `DAHL_PROXIES` | `proxies.txt` | pool file, one proxy per line |
+| `DAHL_PROXIES` | `proxies.txt` | pool file, one proxy per line — optional: without a pool the CLI connects directly |
 | `DAHL_MODEL` | `MiniMaxAI/MiniMax-M2.7` | model used for the live verification |
 | `DAHL_AMOUNT` | `100000000` | welcome grant allocated to each key |
 
 ## 🛰️ Behind a proxy
 
-**Required — there is no direct-connection fallback anywhere in this tool.** Every request leaves through a proxy line from your pool; a dead line fails that account attempt and the tool moves on (the fingerprint in `accounts.json` lets you finish it later from any other exit). The pool is re-probed at the moment of use, and `--screen` lets you test a fresh list against the host before a run.
+**Optional — recommended at scale (per-IP limits, bans).** The tool works without a proxy too.
+
+- **With a pool:** put exits in `proxies.txt` (or set `DAHL_PROXIES`) and every request goes through a proxy line — the pool is re-probed at the moment of use, a dead line fails that account attempt and the tool moves on (the fingerprint in `accounts.json` lets you finish it later from any other exit).
+- **Without a pool:** the CLI prints `running WITHOUT a proxy (direct)` and connects directly; sign-up, allocate and verify are unchanged — only where the packets leave from.
+- `--screen` works in either mode: it tests the exits you have (or the direct route) against the host before a run.
 
 ## 📄 Files
 

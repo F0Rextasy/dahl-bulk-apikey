@@ -50,6 +50,13 @@ function exits() {
     seen.add(k);
     out.push(p);
   }
+  if (!out.length) {
+    // No pool = DIRECT mode: a proxy is recommended at scale (per-IP limits,
+    // bans) but the tool works without one. `null` is the direct sentinel.
+    console.log('[verify] no proxy list — running WITHOUT a proxy (direct). Put exits in proxies.txt (or $DAHL_PROXIES) to route through them.');
+    return [null];
+  }
+
   return out;
 }
 
@@ -74,7 +81,7 @@ function exits() {
   }
   const ex = exits();
   if (!ex.length) throw new Error('no exits available');
-  console.log(`[verify] keys=${keys.length} exits=${ex.length} model=${MODEL}`);
+  console.log(`[verify] keys=${keys.length} exits=${ex.filter(Boolean).length || 'direct'} model=${MODEL}`);
 
   // Public model list first (one exit that works).
   let models = null;

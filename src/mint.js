@@ -120,6 +120,13 @@ function exits() {
     seen.add(k);
     out.push(p);
   }
+  if (!out.length) {
+    // No pool = DIRECT mode: a proxy is recommended at scale (per-IP limits,
+    // bans) but the tool works without one. `null` is the direct sentinel.
+    console.log('[mint] no proxy list — running WITHOUT a proxy (direct). Put exits in proxies.txt (or $DAHL_PROXIES) to route through them.');
+    return [null];
+  }
+
   return out;
 }
 
@@ -129,7 +136,7 @@ async function main() {
   if (!fs.existsSync(ACCOUNTS_FILE)) saveAccounts([]);
 
   const list = exits();
-  console.log(`[mint] count=${COUNT} conc=${CONC} gap=${GAP_MS / 1000}s${PRESET_RUN.name ? ` preset=${PRESET_RUN.name}` : ''} amount=${AMOUNT} model=${MODEL} exits=${list.length}`);
+  console.log(`[mint] count=${COUNT} conc=${CONC} gap=${GAP_MS / 1000}s${PRESET_RUN.name ? ` preset=${PRESET_RUN.name}` : ''} amount=${AMOUNT} model=${MODEL} exits=${list.filter(Boolean).length || 'direct'}`);
   if (!list.length) throw new Error('exit queue empty');
   let cursor = 0;
   const nextExit = () => list[cursor++ % list.length];

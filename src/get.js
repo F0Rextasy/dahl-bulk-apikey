@@ -26,7 +26,7 @@ function liveProxies() {
   const outFile = arg('out');
   const explicit = arg('proxy');
   const list = explicit ? [{ ...proxyLib.parseProxy(explicit), connectTimeoutMs: 8000, timeoutMs: 30000 }] : liveProxies();
-  if (!list.length) throw new Error('no live proxies: run node src/screen.js first');
+  if (!list.length) list.push(null); // no pool at all: fetch directly (the direct sentinel)
 
   let lastErr;
   for (let i = 0; i < Math.min(list.length, 25); i++) {

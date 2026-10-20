@@ -13,9 +13,9 @@
  *   · Node's https client, via `createAgent()`                    -> an https.Agent
  *     whose `createConnection()` returns a TLS socket layered on the tunnel.
  *
- * Everything here is written so a failed proxy fails the *account*, never
- * falls back to a direct connection: the whole point is that no request ever
- * leaves the machine from its own address.
+ * Everything here is written so a failed proxy fails the *account*: the tool
+ * never silently swaps a dead exit for the machine's own address. A pool is
+ * optional, though — callers that pass `null` go direct on purpose.
  */
 
 const net = require('net');

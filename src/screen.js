@@ -30,9 +30,15 @@ async function main() {
     : undefined;
 
   const all = loadPool(files);
+  if (!all.length) {
+    // No pool = DIRECT mode: a proxy is recommended at scale (per-IP limits,
+    // bans) but the tool works without one. `null` is the direct sentinel.
+    console.log('[screen] no proxy list — probing the DIRECT route (no proxy).');
+    all.push(null);
+  }
   let slice = all.slice(start, end);
   if (limit) slice = slice.slice(0, limit);
-  console.log(`[screen] candidates ${slice.length} (pool ${all.length}) → ${url}`);
+  console.log(`[screen] candidates ${slice.length} (pool ${all.filter(Boolean).length || 'direct'}) → ${url}`);
 
   fs.mkdirSync(OUT, { recursive: true });
   const liveFile = arg('out') ? path.join(OUT, arg('out')) : path.join(OUT, 'dahl-live.txt');
@@ -52,7 +58,7 @@ async function main() {
       row.cf = res.headers['cf-ray'] ? 'cf' : '';
       if (res.status >= 200 && res.status < 500 && res.body.length > 200) {
         live++;
-        fs.appendFileSync(liveFile, `${proxyLib.label(proxy)}  # status=${res.status} ms=${row.ms}\n`);
+        if (proxy) fs.appendFileSync(liveFile, `${proxyLib.label(proxy)}  # status=${res.status} ms=${row.ms}\n`);
         const bn = `doc-${path.basename(decodeURIComponent(new URL(url).pathname)) || 'root'}-${idx}.html`;
         const dump = path.join(OUT, bn);
         if (!fs.existsSync(dump)) fs.writeFileSync(dump, res.body.slice(0, 400000));

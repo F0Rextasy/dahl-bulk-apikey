@@ -3,10 +3,10 @@
 /**
  * Dahl Inference — shared plumbing.
  *
- * Everything HTTP that talks to Dahl goes through a pool proxy via
- * a standalone CONNECT/SOCKS tunnelling module. There is no
- * direct-connection fallback anywhere in this provider: the whole point of the
- * run is that no Dahl request leaves from our own line.
+ * Everything HTTP that talks to Dahl goes through a pool proxy via a standalone
+ * CONNECT/SOCKS tunnelling module when a pool is supplied. With no pool at all
+ * the shared `request()` connects directly: a list is recommended at scale
+ * (per-IP limits, bans) but it is optional.
  */
 
 const fs = require('fs');
@@ -33,8 +33,8 @@ const withUa = (ua, fn) => SESS.run({ ua: ua || uaPool()[0] }, fn);
 /** Pool files, freshest first.
  *
  * `$DAHL_PROXIES` as a comma/semicolon-separated path list comes first, then
- * `proxies.txt` at the checkout root; missing files are skipped, nothing falls
- * back to a direct connection.
+ * `proxies.txt` at the checkout root; missing files are skipped. An empty pool
+ * means DIRECT mode upstream (`[null]` is the direct sentinel).
  */
 const POOL_FILES = [
   ...String(process.env.DAHL_PROXIES || '')
@@ -61,12 +61,12 @@ function loadPool(files = POOL_FILES) {
 
 /** Per-attempt proxy config: short connect, generous TLS handshake budget. */
 function tuned(proxy, { connectTimeoutMs = 8000, timeoutMs = 30000, keepAlive = false } = {}) {
-  return { ...proxy, connectTimeoutMs, timeoutMs, keepAlive };
+  return proxy ? { ...proxy, connectTimeoutMs, timeoutMs, keepAlive } : null;
 }
 
 /**
- * One HTTPS request through `proxy` (null = direct, which this provider never
- * uses for Dahl hosts). Resolves with `{ ok, status, headers, body, location }`
+ * One HTTPS request through `proxy` (null = direct; a pool is optional).
+ * Resolves with `{ ok, status, headers, body, location }`
  * or rejects on transport failure.
  */
 function request(proxy, url, { method = 'GET', headers = {}, body, timeoutMs = 30000, connectTimeoutMs = 8000, agent } = {}) {

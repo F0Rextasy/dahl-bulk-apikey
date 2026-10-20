@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Dahl Inference API client — session-cookie aware, proxy-only.
+ * Dahl Inference API client — session-cookie aware, proxy-aware (`null` exit = direct).
  *
  * Contracts reverse-engineered from the site's own bundles
  * (`/_astro/accountUi.*.js`) on 2026-10-14 and confirmed by the docs:
@@ -51,16 +51,16 @@ class Jar {
 
 class Dahl {
   /**
-   * @param {object|null} proxy  parsed pool exit (never null in practice)
+   * @param {object|null} proxy  parsed pool exit, or `null` for the direct route
    * @param {{connectTimeoutMs?:number,timeoutMs?:number,keepAlive?:boolean}} [opts]
    */
   constructor(proxy, opts = {}) {
-    this.proxy = { ...proxy, connectTimeoutMs: opts.connectTimeoutMs || 8000, timeoutMs: opts.timeoutMs || 30000 };
+    this.proxy = proxy ? { ...proxy, connectTimeoutMs: opts.connectTimeoutMs || 8000, timeoutMs: opts.timeoutMs || 30000 } : null;
     this.jar = new Jar();
     // One tunnel per client, reused across the whole account flow: re-dialling
     // the exit for every call multiplies the chance of losing the line (free
     // exits have a 1–3 minute half-life; the flow is 5–9 calls).
-    this.agent = proxyLib.createAgent(this.proxy, { keepAlive: opts.keepAlive !== false, maxSockets: opts.maxSockets || 2 });
+    this.agent = this.proxy ? proxyLib.createAgent(this.proxy, { keepAlive: opts.keepAlive !== false, maxSockets: opts.maxSockets || 2 }) : undefined;
   }
 
   destroy() {

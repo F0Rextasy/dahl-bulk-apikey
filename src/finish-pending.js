@@ -46,6 +46,13 @@ function exits() {
     seen.add(k);
     out.push(p);
   }
+  if (!out.length) {
+    // No pool = DIRECT mode: a proxy is recommended at scale (per-IP limits,
+    // bans) but the tool works without one. `null` is the direct sentinel.
+    console.log('[finish-pending] no proxy list — running WITHOUT a proxy (direct). Put exits in proxies.txt (or $DAHL_PROXIES) to route through them.');
+    return [null];
+  }
+
   return out;
 }
 
@@ -77,7 +84,7 @@ function loadJsonl(file) {
   console.log(`[finish-pending] pending accounts ${byUser.size}, to recover ${todo.length}`);
 
   const list = exits();
-  console.log(`[finish-pending] exits ${list.length}`);
+  console.log(`[finish-pending] exits ${list.filter(Boolean).length || 'direct'}`);
   let cursor = 0;
   const nextExit = () => list[cursor++ % list.length];
   let ok = 0;
