@@ -19,7 +19,7 @@
 const fs = require('fs');
 const path = require('path');
 require('./guard').guard('mint');
-const { OUT, ROOT, proxyLib, pool, sleep, loadPool, arg, withUa } = require('./lib');
+const { OUT, ROOT, POOL_FILES, proxyLib, pool, sleep, loadPool, poolOrDirect, arg, num, numArg, withUa } = require('./lib');
 const { signupOn, finish, signInOn } = require('./flow');
 
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
@@ -28,26 +28,25 @@ if (process.argv.includes('--help') || process.argv.includes('-h')) {
 }
 const { presetArgv, resolvePreset } = require('./preset');
 const { uaFor } = require('./ua-pool');
-// A flag with no value (`--conc`) parses as boolean true — treat it as unset.
-const numArg = (v) => (v == null || v === true || Number.isNaN(parseInt(v, 10)) ? null : parseInt(v, 10));
-
-const COUNT = parseInt(arg('count', '30'), 10);
+const COUNT = numArg('count', 30);
 // Presets (operator standard v3): turbo = 5 workers / 3 s pad, balanced = 4/6,
 // safe = 2/8. Explicit --conc/--gap always win; without --preset the rail keeps
 // today's shape exactly (4 workers, no extra pad).
 const PRESET_RUN = resolvePreset({
   preset: (typeof arg('preset', null) === 'string' ? arg('preset', null) : null) || presetArgv(),
-  conc: numArg(arg('conc', null)),
-  gap: numArg(arg('gap', null)),
+  conc: num(arg('conc', null)),
+  gap: num(arg('gap', null)),
   defaultConc: 4,
   defaultGap: 0,
 });
 const CONC = Math.max(1, PRESET_RUN.conc);
 const GAP_MS = Math.max(0, PRESET_RUN.gap) * 1000;
-const AMOUNT = parseInt(arg('amount', '100000000'), 10);
-const MODEL = arg('model', 'MiniMaxAI/MiniMax-M2.7');
-const MAX_EXITS = parseInt(arg('exits', '10'), 10);
-const JIGGLE = parseInt(arg('jiggle', '0'), 10);
+// Flag, then the documented environment variable (the launcher sets both), then
+// the built-in default. A bare flag (`--amount`) means "the default", never NaN.
+const AMOUNT = num(arg('amount', null)) ?? num(process.env.DAHL_AMOUNT) ?? 100000000;
+const MODEL = (typeof arg('model', null) === 'string' ? arg('model', null) : null) || process.env.DAHL_MODEL || 'MiniMaxAI/MiniMax-M2.7';
+const MAX_EXITS = Math.max(1, numArg('exits', 10));
+const JIGGLE = numArg('jiggle', 0);
 
 const KEYS_FILE = path.join(ROOT, 'keys.txt');
 const ACCOUNTS_FILE = path.join(ROOT, 'accounts.json');
@@ -80,14 +79,24 @@ function appendKey(key) {
   } catch {}
 }
 
+/** The account ledger. A file that exists but does not parse is not "empty":
+ *  it holds the fingerprints of the accounts already minted, so it is an error,
+ *  not a reason to start over and overwrite it with this run's two accounts. */
 const loadAccounts = () => {
+  if (!fs.existsSync(ACCOUNTS_FILE)) return [];
+  const text = fs.readFileSync(ACCOUNTS_FILE, 'utf8');
   try {
-    return JSON.parse(fs.readFileSync(ACCOUNTS_FILE, 'utf8'));
-  } catch {
-    return [];
+    return JSON.parse(text);
+  } catch (e) {
+    throw new Error(`${ACCOUNTS_FILE} is not valid JSON (${e.message}) — move it aside if you want a fresh file; every account's fingerprint lives here`);
   }
 };
-const saveAccounts = (list) => fs.writeFileSync(ACCOUNTS_FILE, JSON.stringify(list, null, 2));
+/** Temp file + rename: a crash mid-write must not leave a truncated ledger. */
+const saveAccounts = (list) => {
+  const tmp = ACCOUNTS_FILE + '.tmp';
+  fs.writeFileSync(tmp, JSON.stringify(list, null, 2));
+  fs.renameSync(tmp, ACCOUNTS_FILE);
+};
 
 function exits() {
   const files = [
@@ -120,12 +129,11 @@ function exits() {
     seen.add(k);
     out.push(p);
   }
-  if (!out.length) {
-    // No pool = DIRECT mode: a proxy is recommended at scale (per-IP limits,
-    // bans) but the tool works without one. `null` is the direct sentinel.
-    console.log('[mint] no proxy list — running WITHOUT a proxy (direct). Put exits in proxies.txt (or $DAHL_PROXIES) to route through them.');
-    return [null];
-  }
+  // No pool at all = DIRECT mode (documented): a proxy is recommended at scale
+  // (per-IP limits, bans) but the tool works without one. `null` is the direct
+  // sentinel. A pool file that exists and yields nothing is a different thing —
+  // `poolOrDirect` throws rather than sending every request from this machine.
+  if (!out.length) return poolOrDirect(files.concat(POOL_FILES), 'mint');
 
   return out;
 }
@@ -196,7 +204,7 @@ async function main() {
           saveAccounts(accounts);
           seenUsers.add(rec.username);
           logRow({ idx, stage: 'minted', ...rec });
-          fs.appendFileSync(POINT_FILE, `${rec.signupExit}\n${rec.exit || ''}\n`.replace(/\n\n/g, '\n'));
+          fs.appendFileSync(POINT_FILE, `${rec.signupExitRaw || rec.signupExit}\n${rec.exit || ''}\n`.replace(/\n\n/g, '\n'));
           done++;
           console.log(
             `[mint] ${done}/${COUNT} ${rec.username} key=${rec.keyToken.slice(0, 9)}…${rec.keyToken.slice(-4)} pool=${rec.allocate.poolBefore} alloc=${rec.allocate.requested} bal=${rec.balance.tokens} chat=${rec.verify.chatStatus} exit=${rec.signupExit}`
@@ -221,6 +229,11 @@ async function main() {
             return;
           }
           // Transport failure (or a rate window) → next exit, keeping the account record.
+        } finally {
+          // The attempt is over: the client is what holds the tunnel open, and a
+          // run makes one per account (one per attempt when lines keep dying).
+          if (client) client.destroy();
+          client = null;
         }
       }
       state.errors.push({ idx, username: rec && rec.username, note: 'exhausted exits' });
@@ -237,7 +250,8 @@ async function main() {
   console.log(
     `[mint] done: ${state.keys}/${COUNT} keys; exits tried ${state.exitsTried}, transport failures ${state.exitTransportFailures}, 429s ${state.signup429}, signin recoveries ${state.signinRecoveries}, ${state.seconds}s`
   );
-  console.log(`DAHL-MINT ${state.keys}/${COUNT} OK`);
+  console.log(state.keys >= COUNT ? `DAHL-MINT ${state.keys}/${COUNT} OK` : `DAHL-MINT ${state.keys}/${COUNT} — short of the target (each failed account is in outputs/)`);
+  if (state.keys < COUNT) process.exitCode = 1;
 }
 
 main().catch((e) => {

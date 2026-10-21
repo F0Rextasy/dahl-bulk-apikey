@@ -10,7 +10,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { request, OUT, proxyLib, arg } = require('./lib');
+const { request, OUT, proxyLib, poolOrDirect, arg } = require('./lib');
 
 function liveProxies() {
   const f = path.join(OUT, 'dahl-live.txt');
@@ -26,7 +26,9 @@ function liveProxies() {
   const outFile = arg('out');
   const explicit = arg('proxy');
   const list = explicit ? [{ ...proxyLib.parseProxy(explicit), connectTimeoutMs: 8000, timeoutMs: 30000 }] : liveProxies();
-  if (!list.length) list.push(null); // no pool at all: fetch directly (the direct sentinel)
+  // No pool at all = fetch directly (the direct sentinel). An exit list that
+  // exists and yields nothing is a broken list, not an empty one: throw.
+  if (!list.length) list.push(...poolOrDirect([path.join(OUT, 'dahl-live.txt')], 'get'));
 
   let lastErr;
   for (let i = 0; i < Math.min(list.length, 25); i++) {

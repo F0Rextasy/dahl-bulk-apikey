@@ -59,6 +59,40 @@ function loadPool(files = POOL_FILES) {
   return out;
 }
 
+/** Lines a pool reader would treat as candidates: not blank, not a comment. */
+function poolCandidateLines(file) {
+  try {
+    return fs
+      .readFileSync(file, 'utf8')
+      .split(/\r?\n/)
+      .map((l) => l.replace(/\s+(#|\/\/).*$/, '').trim())
+      .filter((l) => l && !l.startsWith('#') && !l.startsWith('//'));
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Exits for a run, or `[null]` — the direct sentinel — when no pool is
+ * configured at all. A file that exists with candidate lines but yields no
+ * usable exit (a junk pool, an all-socks4 list, a saved HTML page) is NOT
+ * "no pool": going direct would put every request on this machine's own
+ * address, silently, so it throws instead.
+ */
+function poolOrDirect(files, tag) {
+  const list = loadPool(files);
+  if (list.length) return list;
+  const broken = files.filter((f) => fs.existsSync(f)).map((f) => ({ f, lines: poolCandidateLines(f) })).filter((x) => x.lines.length);
+  if (broken.length) {
+    const { f, lines } = broken[0];
+    throw new Error(
+      `${tag}: ${f} has ${lines.length} candidate line(s) but no usable exit — a line must be host:port, host:port:user:pass, user:pass@host:port, scheme://… or host|port|user|pass (socks4 lines are dropped, unparsable lines are skipped). Fix the pool, or delete the file to run direct.`
+    );
+  }
+  console.log(`[${tag}] no proxy list — running WITHOUT a proxy (direct). Put exits in proxies.txt (or $DAHL_PROXIES) to route through them.`);
+  return [null];
+}
+
 /** Per-attempt proxy config: short connect, generous TLS handshake budget. */
 function tuned(proxy, { connectTimeoutMs = 8000, timeoutMs = 30000, keepAlive = false } = {}) {
   return proxy ? { ...proxy, connectTimeoutMs, timeoutMs, keepAlive } : null;
@@ -84,13 +118,14 @@ function request(proxy, url, { method = 'GET', headers = {}, body, timeoutMs = 3
     if (payload && !Object.keys(h).some((k) => k.toLowerCase() === 'content-length')) h['Content-Length'] = payload.length;
     h['Accept-Language'] = h['Accept-Language'] || 'en-US,en;q=0.9';
 
+    const agentFor = (p) => (u.protocol === 'https:' ? proxyLib.createAgent(p) : proxyLib.createHttpAgent(p));
     const req = lib.request(
       {
         method,
         host: u.hostname,
         port: u.port || (u.protocol === 'https:' ? 443 : 80),
         path: u.pathname + u.search,
-        agent: agent || (proxy ? proxyLib.createAgent(tuned(proxy, { timeoutMs, connectTimeoutMs })) : undefined),
+        agent: agent || (proxy ? agentFor(tuned(proxy, { timeoutMs, connectTimeoutMs })) : undefined),
         headers: h,
       },
       (res) => {
@@ -149,6 +184,19 @@ function arg(name, dflt) {
   return dflt;
 }
 
+/** A flag with no value (`--conc`) parses as boolean true: treat it as unset. */
+function num(v) {
+  if (v == null || v === true) return null;
+  const n = parseInt(v, 10);
+  return Number.isNaN(n) ? null : n;
+}
+
+/** Numeric flag: a bare `--count` (or junk) keeps the documented default, never NaN. */
+function numArg(name, dflt) {
+  const n = num(arg(name, null));
+  return n == null ? dflt : n;
+}
+
 /** Boolean flag: `--name` present → true. */
 function flag(name) {
   return process.argv.slice(2).some((a) => a === `--${name}` || a.startsWith(`--${name}=`));
@@ -182,4 +230,4 @@ function rand(n, chars = 'abcdefghijklmnopqrstuvwxyz0123456789') {
   return s;
 }
 
-module.exports = { UA, ROOT, OUT, POOL_FILES, loadPool, tuned, request, parseJson, sleep, arg, flag, pool, appendJsonl, rand, proxyLib, label: proxyLib.label, activeUa, withUa };
+module.exports = { UA, ROOT, OUT, POOL_FILES, loadPool, poolCandidateLines, poolOrDirect, tuned, request, parseJson, sleep, arg, num, numArg, flag, pool, appendJsonl, rand, proxyLib, label: proxyLib.label, activeUa, withUa };

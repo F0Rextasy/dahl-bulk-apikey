@@ -14,12 +14,12 @@
 require('./guard').guard('finish-pending');
 const fs = require('fs');
 const path = require('path');
-const { OUT, ROOT, proxyLib, pool, sleep, loadPool, arg } = require('./lib');
+const { OUT, ROOT, POOL_FILES, proxyLib, pool, sleep, loadPool, poolOrDirect, numArg } = require('./lib');
 const { signInOn, finish } = require('./flow');
 
-const CONC = parseInt(arg('conc', '3'), 10);
-const LIMIT = parseInt(arg('limit', '0'), 10);
-const AMOUNT = parseInt(arg('amount', '100000000'), 10);
+const CONC = numArg('conc', 3);
+const LIMIT = numArg('limit', 0);
+const AMOUNT = numArg('amount', 100000000);
 
 const KEYS_FILE = path.join(ROOT, 'keys.txt');
 const ACCOUNTS_FILE = path.join(ROOT, 'accounts.json');
@@ -46,12 +46,10 @@ function exits() {
     seen.add(k);
     out.push(p);
   }
-  if (!out.length) {
-    // No pool = DIRECT mode: a proxy is recommended at scale (per-IP limits,
-    // bans) but the tool works without one. `null` is the direct sentinel.
-    console.log('[finish-pending] no proxy list — running WITHOUT a proxy (direct). Put exits in proxies.txt (or $DAHL_PROXIES) to route through them.');
-    return [null];
-  }
+  // No pool at all = DIRECT mode (documented). A pool file that exists and yields
+  // nothing is not the same thing: `poolOrDirect` throws instead of recovering
+  // these accounts from this machine's own address.
+  if (!out.length) return poolOrDirect(files.concat(POOL_FILES), 'finish-pending');
 
   return out;
 }
@@ -92,8 +90,9 @@ function loadJsonl(file) {
   await pool(todo, CONC, async (rec) => {
     for (let attempt = 0; attempt < 8; attempt++) {
       const exit = nextExit();
+      let d = null;
       try {
-        const { d } = await signInOn(exit, rec.fingerprint);
+        ({ d } = await signInOn(exit, rec.fingerprint));
         const done = await finish(d, rec, { amount: AMOUNT });
         if (!done.ok) {
           console.error(`[finish-pending] ${rec.username} verify failed: ${JSON.stringify(done.verify).slice(0, 160)}`);
@@ -105,7 +104,7 @@ function loadJsonl(file) {
         } catch {}
         accounts.push(done);
         fs.writeFileSync(ACCOUNTS_FILE, JSON.stringify(accounts, null, 2));
-        fs.appendFileSync(POINT_FILE, `${d.finishExit}\n`);
+        fs.appendFileSync(POINT_FILE, `${d.finishExitRaw || d.finishExit}\n`);
         ok++;
         console.log(`[finish-pending] recovered ${rec.username} key=${done.keyToken.slice(0, 9)}… bal=${done.balance.tokens} model=${done.verify.model}`);
         return;
@@ -113,6 +112,8 @@ function loadJsonl(file) {
         console.error(`[finish-pending] ${rec.username} on ${proxyLib.label(exit)} → ${e.message}`);
         if (e.code === 429) await sleep(2000 + Math.random() * 3000);
         if (e.gate) return;
+      } finally {
+        if (d) d.destroy();
       }
     }
   });

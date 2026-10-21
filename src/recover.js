@@ -10,7 +10,7 @@
 const fs = require('fs');
 const path = require('path');
 require('./guard').guard('recover');
-const { OUT, proxyLib, arg } = require('./lib');
+const { OUT, proxyLib, arg, num, numArg } = require('./lib');
 const { signInOn, finish } = require('./flow');
 
 function exits() {
@@ -35,18 +35,21 @@ function exits() {
   const rec = {
     username: arg('username', null),
     fingerprint,
-    keyId: arg('key-id') ? parseInt(arg('key-id'), 10) : null,
+    keyId: num(arg('key-id')),
     keyToken: arg('token', null),
   };
-  const amount = parseInt(arg('amount', '100000000'), 10);
+  // A bare `--amount` (or junk) keeps the documented default: NaN here would mean
+  // "no shortfall" and silently skip the allocation.
+  const amount = numArg('amount', 100000000);
 
   const list = exits();
   let lastErr;
   for (let i = 0; i < Math.min(list.length, 12); i++) {
     const exit = list[i];
+    let d = null;
     try {
       console.log(`[recover] exit ${proxyLib.label(exit)}`);
-      const { d } = await signInOn(exit, fingerprint);
+      ({ d } = await signInOn(exit, fingerprint));
       console.log('[recover] signed in');
       const done = await finish(d, rec, { amount });
       fs.writeFileSync(path.join(OUT, 'recover-result.json'), JSON.stringify(done, null, 2));
@@ -56,6 +59,8 @@ function exits() {
       lastErr = e;
       console.error(`[recover] ${proxyLib.label(exit)} failed: ${e.message}`);
       if (e.gate) break;
+    } finally {
+      if (d) d.destroy();
     }
   }
   throw lastErr || new Error('all exits failed');

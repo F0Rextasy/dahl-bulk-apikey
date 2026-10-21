@@ -49,6 +49,9 @@ class Jar {
   }
 }
 
+
+// How long an idle tunnel may stay open after its client stops using it (ms).
+const IDLE_TUNNEL_MS = 30000;
 class Dahl {
   /**
    * @param {object|null} proxy  parsed pool exit, or `null` for the direct route
@@ -60,7 +63,12 @@ class Dahl {
     // One tunnel per client, reused across the whole account flow: re-dialling
     // the exit for every call multiplies the chance of losing the line (free
     // exits have a 1–3 minute half-life; the flow is 5–9 calls).
-    this.agent = this.proxy ? proxyLib.createAgent(this.proxy, { keepAlive: opts.keepAlive !== false, maxSockets: opts.maxSockets || 2 }) : undefined;
+    // `timeout` is the idle bound: a client abandoned mid-flow (an attempt that
+    // throws between two calls) closes its tunnel by itself instead of holding it
+    // for the rest of the run.
+    this.agent = this.proxy
+      ? proxyLib.createAgent(this.proxy, { keepAlive: opts.keepAlive !== false, maxSockets: opts.maxSockets || 2, timeout: opts.idleTimeoutMs || IDLE_TUNNEL_MS })
+      : undefined;
   }
 
   destroy() {
@@ -160,6 +168,11 @@ class Dahl {
 
   label() {
     return proxyLib.label(this.proxy);
+  }
+
+  /** The pool line this client dials, for files that are read back as pools. */
+  raw() {
+    return (this.proxy && this.proxy.raw) || null;
   }
 }
 

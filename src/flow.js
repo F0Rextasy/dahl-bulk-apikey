@@ -88,6 +88,9 @@ async function signupOn(exit, { maxNameTries = 6 } = {}) {
     keyAvailableTokensAtSignup: (data.api_key && data.api_key.available_tokens) ?? null,
     createdAt: (data.user && data.user.created_at) || null,
     signupExit: d.label(),
+    // The pool files are read back as exit lists, so they need the usable line,
+    // not the masked label (`http://user:***@host:port` authenticates as `***`).
+    signupExitRaw: d.raw(),
     status: 'signed-up',
   };
   persistPending(rec);
@@ -128,6 +131,10 @@ async function verifyChat(client, keyToken, { models, attempts = 4, gapMs = 2500
  */
 async function finish(client, rec, { amount = 100000000, model = 'MiniMaxAI/MiniMax-M2.7' } = {}) {
   const bal0 = await client.keyBalance(rec.keyToken);
+  // A balance read that did not answer 200 says nothing about the key: treating it
+  // as "0 tokens" would re-allocate the whole grant and, on an empty pool, fail the
+  // account over a lost line. Make it a transport error instead — the caller re-dials.
+  if (bal0.status !== 200) throw new Error(`key balance ${bal0.status}: ${JSON.stringify(bal0.data).slice(0, 200)}`);
   const bal0Data = bal0.data && typeof bal0.data === 'object' ? bal0.data : {};
   const current =
     bal0Data.tokens ?? bal0Data.available_tokens ?? bal0Data.balance ?? bal0Data.token_balance ?? (typeof bal0Data === 'number' ? bal0Data : 0);
@@ -188,6 +195,8 @@ async function finish(client, rec, { amount = 100000000, model = 'MiniMaxAI/Mini
   rec.ok = bal.status === 200 && chat.chatStatus === 200 && !!chat.content;
   rec.status = rec.ok ? 'verified' : 'unverified';
   rec.finishExit = client.label();
+  // Same as signupExitRaw: what a later run needs to dial this exit again.
+  rec.finishExitRaw = client.raw();
   return rec;
 }
 

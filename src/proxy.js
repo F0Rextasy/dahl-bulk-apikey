@@ -34,6 +34,10 @@ const DEFAULT_TIMEOUT_MS = 35000;
 // sockets in SYN_SENT, mostly our own screens, while ICMP was clean).
 const DEFAULT_CONNECT_TIMEOUT_MS = 8000;
 
+// A proxy that never ends its header block must not grow the handshake buffer
+// until the budget expires: a hostile or looping exit just streams garbage.
+const MAX_HANDSHAKE_BYTES = 16384;
+
 /** Accepted line shapes:
  *    host:port
  *    host:port:user:pass        (some lists put credentials after the port)
@@ -215,6 +219,7 @@ function connectHttpProxy(proxy, { host, port, timeoutMs = DEFAULT_TIMEOUT_MS })
     let buffer = Buffer.alloc(0);
     const onData = (chunk) => {
       buffer = Buffer.concat([buffer, chunk]);
+      if (buffer.length > MAX_HANDSHAKE_BYTES) return fail(new Error(`proxy CONNECT header too large (${label(proxy)})`));
       const end = buffer.indexOf('\r\n\r\n');
       if (end === -1) return;
       socket.removeListener('data', onData);
@@ -407,7 +412,6 @@ class ProxyAgent extends https.Agent {
     openTunnel(this.proxy, { host, port, timeoutMs: connectMs })
       .then((socket) => {
         tunnel = socket;
-        if (options.secureEndpoint === false) return socket;
         const tlsSocket = tls.connect({
           socket,
           servername: options.servername || host,
@@ -425,6 +429,30 @@ class ProxyAgent extends https.Agent {
 
 function createAgent(proxy, options) {
   return new ProxyAgent(proxy, options);
+}
+
+/**
+ * The same tunnel for a plain-`http://` target: Node refuses to run an http
+ * request through an `https.Agent` (`Protocol "http:" not supported`), so those
+ * requests get an `http.Agent` whose connection is the bare CONNECT tunnel and
+ * the request line is sent to the origin in place.
+ */
+class ProxyHttpAgent extends http.Agent {
+  constructor(proxy, options = {}) {
+    super({ keepAlive: false, ...options });
+    this.proxy = proxy;
+  }
+
+  createConnection(options, callback) {
+    const host = options.host;
+    const port = Number(options.port) || 80;
+    const connectMs = this.proxy.connectTimeoutMs || DEFAULT_CONNECT_TIMEOUT_MS;
+    openTunnel(this.proxy, { host, port, timeoutMs: connectMs }).then((socket) => callback(null, socket), (err) => callback(err));
+  }
+}
+
+function createHttpAgent(proxy, options) {
+  return new ProxyHttpAgent(proxy, options);
 }
 
 /**
@@ -456,7 +484,7 @@ function fetchText(proxy, url, { timeoutMs = 15000, headers = {}, method = 'GET'
         host: u.hostname,
         port: u.port || (u.protocol === 'https:' ? 443 : 80),
         path: u.pathname + u.search,
-        agent: proxy ? createAgent(proxy) : undefined,
+        agent: proxy ? (u.protocol === 'https:' ? createAgent(proxy) : createHttpAgent(proxy)) : undefined,
         headers: finalHeaders,
       },
       (res) => {
@@ -583,6 +611,7 @@ module.exports = {
   label,
   openTunnel,
   createAgent,
+  createHttpAgent,
   fetchText,
   proxyForIndex,
   probe,
@@ -590,4 +619,5 @@ module.exports = {
   usableInBrowser,
   isLocalHost,
   ProxyAgent,
+  ProxyHttpAgent,
 };

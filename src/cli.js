@@ -29,7 +29,17 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const args = process.argv.slice(2);
-const arg = (name, fallback) => { const i = args.indexOf(name); return i === -1 ? fallback : args[i + 1]; };
+
+/** Mint flags this entry point forwards untouched (the `--flag=value` form). */
+const MINT_FLAGS = ['--preset=', '--conc=', '--gap=', '--amount=', '--model=', '--exits=', '--jiggle='];
+// A bare flag (or one followed by another flag) keeps the default: `--count`
+// alone used to become the literal string "undefined" and mint nothing.
+const arg = (name, fallback) => {
+  const i = args.indexOf(name);
+  if (i === -1) return fallback;
+  const next = args[i + 1];
+  return next === undefined || next.startsWith('--') ? fallback : next;
+};
 
 if (args.includes('--help') || args.includes('-h')) {
   console.log(require('fs').readFileSync(path.join(__dirname, '..', 'README.md'), 'utf8').split('## ⚙️')[1] || 'see README.md');
@@ -50,8 +60,9 @@ const child = args.includes('--screen')
   ? ['screen.js']
   : args.includes('--verify-only')
     ? ['verify.js', ...args.filter((a) => a !== '--verify-only')]
-    // `--preset` (and any other mint flag) is forwarded to the task file as-is.
-    : ['mint.js', '--count', String(arg('--count', '30')), ...process.argv.slice(2).filter((a) => a.startsWith('--preset=') || a.startsWith('--conc=') || a.startsWith('--gap='))];
+    // Mint's own `--flag=value` flags are forwarded as-is; `--count` is passed
+    // separately because a bare `--count` must still resolve to the default.
+    : ['mint.js', '--count', String(arg('--count', '30')), ...process.argv.slice(2).filter((a) => MINT_FLAGS.some((f) => a.startsWith(f)))]
 
 const res = spawnSync(process.execPath, [path.join(__dirname, child[0]), ...child.slice(1)], {
   windowsHide: true,

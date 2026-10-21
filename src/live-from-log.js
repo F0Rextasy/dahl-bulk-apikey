@@ -24,10 +24,13 @@ for (const line of src.split('\n')) {
   } catch {
     continue;
   }
+  // The label masks the password (`user:***@host:port`); the log rows carry the
+  // usable line in `raw`, and this file is read back as a pool.
+  const exit = row.raw || row.proxy;
   if (row.status !== 200 || !row.proxy) continue;
-  if (seen.has(row.proxy)) continue;
-  seen.add(row.proxy);
-  live.push(`${row.proxy}  # ms=${row.ms} ${row.ts || ''}`);
+  if (seen.has(exit)) continue;
+  seen.add(exit);
+  live.push(`${exit}  # ms=${row.ms} ${row.ts || ''}`);
 }
 fs.writeFileSync(outFile, live.join('\n') + (live.length ? '\n' : ''));
 console.log(`[live-from-log] ${live.length} live exits → ${outFile}`);

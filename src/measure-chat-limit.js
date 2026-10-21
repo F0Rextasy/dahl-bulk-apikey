@@ -10,7 +10,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { OUT, proxyLib, sleep, arg } = require('./lib');
+const { OUT, proxyLib, sleep, arg, numArg } = require('./lib');
 const { Dahl } = require('./client');
 
 require('./guard').guard('measure-chat');
@@ -33,12 +33,15 @@ function exits() {
 
 (async () => {
   const token = arg('token');
-  const n = parseInt(arg('n', '6'), 10);
-  const gap = parseInt(arg('gap', '3500'), 10);
+  const n = numArg('n', 6);
+  const gap = numArg('gap', 3500);
   const models = (arg('models', 'MiniMaxAI/MiniMax-M2.7')).split(',');
   if (!token) throw new Error('--token required');
 
   const list = exits();
+  // No exit at all means no measurement: say so instead of writing an empty
+  // result file and exiting 0 as if the run had happened.
+  if (!list.length) throw new Error('no exits — put your pool in proxies.txt or $DAHL_PROXIES');
   const out = { token: token.slice(0, 9) + '…', gapMs: gap, n, models: {} };
 
   for (const model of models) {
@@ -60,6 +63,7 @@ function exits() {
         }
         if (i < n - 1) await sleep(gap);
       }
+      d.destroy();
       if (!transport || attempt === maxAttempts - 1) {
         out.models[model] = { exit: d.label(), attempts: attempt + 1, rows };
         break;

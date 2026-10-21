@@ -13,14 +13,17 @@
 const fs = require('fs');
 const path = require('path');
 require('./guard').guard('verify');
-const { OUT, ROOT, proxyLib, pool, loadPool, arg } = require('./lib');
+const { OUT, ROOT, POOL_FILES, proxyLib, pool, loadPool, poolOrDirect, arg, numArg } = require('./lib');
 const { Dahl } = require('./client');
 const { verifyChat } = require('./flow');
 
-const CONC = parseInt(arg('conc', '6'), 10);
+const CONC = numArg('conc', 6);
 const MODEL = arg('model', 'MiniMaxAI/MiniMax-M2.7');
 const KEYS_FILE = path.resolve(ROOT, arg('keys', 'keys.txt'));
-const LIMIT = parseInt(arg('limit', '0'), 10);
+const LIMIT = numArg('limit', 0);
+
+/** Statuses that are a verdict on the key itself, not on the exit. */
+const DEAD_KEY_STATUS = new Set([401, 402, 403]);
 
 function exits() {
   const files = [
@@ -50,12 +53,10 @@ function exits() {
     seen.add(k);
     out.push(p);
   }
-  if (!out.length) {
-    // No pool = DIRECT mode: a proxy is recommended at scale (per-IP limits,
-    // bans) but the tool works without one. `null` is the direct sentinel.
-    console.log('[verify] no proxy list — running WITHOUT a proxy (direct). Put exits in proxies.txt (or $DAHL_PROXIES) to route through them.');
-    return [null];
-  }
+  // No pool at all = DIRECT mode (documented). A pool file that exists and yields
+  // nothing is not the same thing: `poolOrDirect` throws instead of quietly
+  // checking keys from this machine's own address.
+  if (!out.length) return poolOrDirect(files.concat(POOL_FILES), 'verify');
 
   return out;
 }
@@ -86,8 +87,9 @@ function exits() {
   // Public model list first (one exit that works).
   let models = null;
   for (let i = 0; i < Math.min(ex.length, 10); i++) {
+    let d = null;
     try {
-      const d = new Dahl(ex[i]);
+      d = new Dahl(ex[i]);
       const m = await d.models();
       if (m.status === 200) {
         models = m.data;
@@ -95,18 +97,19 @@ function exits() {
         console.log(`[verify] models.json written (${(m.data.data || []).length} ids) via ${d.label()}`);
         break;
       }
-    } catch {}
+    } catch {} finally {
+      if (d) d.destroy();
+    }
   }
 
-  let cursor = 0;
   let ok = 0;
   const rows = [];
-  const allRows = [];
   await pool(keys, CONC, async (key, idx) => {
     const short = `${key.slice(0, 8)}…${key.slice(-4)}`;
     const row = { idx, key: short };
+    let d = null;
     for (let attempt = 0; attempt < 24; attempt++) {
-      const d = new Dahl(ex[Math.floor(Math.random() * ex.length)]);
+      d = new Dahl(ex[Math.floor(Math.random() * ex.length)]);
       row.exit = d.label();
       row.attempts = attempt + 1;
       try {
@@ -119,10 +122,15 @@ function exits() {
         row.content = chat.content;
         row.usage = chat.usage;
         row.ok = bal.status === 200 && chat.chatStatus === 200 && !!row.content;
+        // An answer from the key itself (revoked → 401/403, out of tokens → 402)
+        // is a verdict; a transport failure or a 429 is not.
+        row.invalid = DEAD_KEY_STATUS.has(bal.status) || DEAD_KEY_STATUS.has(chat.chatStatus);
         if (row.ok) ok++;
         break;
       } catch (e) {
         row.error = e.message;
+      } finally {
+        d.destroy();
       }
     }
     rows.push(row);
@@ -131,14 +139,15 @@ function exits() {
   });
 
   console.log('');
-  // Merge with earlier passes: a key that answered 200 in any pass is live; a
-  // re-check only ever upgrades the report (a dead exit never downgrades it).
+  // Merge with earlier passes: a key that answered 200 in any pass stays live
+  // unless a later pass got a verdict from the key itself — a revoked or drained
+  // key must not keep its "200 live" stamp, it is the number the push list uses.
   const reportFile = path.join(OUT, 'verify-report.json');
   const prev = fs.existsSync(reportFile) ? JSON.parse(fs.readFileSync(reportFile, 'utf8')) : [];
   const merged = new Map(prev.map((r) => [r.key, r]));
   for (const r of rows) {
     const old = merged.get(r.key);
-    if (!old || !old.ok || r.ok) merged.set(r.key, r);
+    if (!old || !old.ok || r.ok || r.invalid) merged.set(r.key, r);
   }
   const all = [...merged.values()];
   fs.writeFileSync(reportFile, JSON.stringify(all, null, 2));
