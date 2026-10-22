@@ -21,7 +21,7 @@
 [![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 빠른 시작](#-quick-start) · [🎁 무료 티어](#-free-tier--how-much-you-get) · [🤖 모델](#-models--all-3-of-them) · [🧪 API 사용](#-how-to-use-the-api) · [✅ 검증됨](#-verified-working--every-key-is-tested) · [🧭 작동 방식](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ 옵션](#️-cli-options) · [🛰️ 프록시](#️-behind-a-proxy) · [🐞 이슈](#-issues)
+[🛠 빠른 시작](#-quick-start) · [🎁 무료 티어](#-free-tier--how-much-you-get) · [🤖 모델](#-models--all-3-of-them) · [🧪 API 사용하기](#-how-to-use-the-api) · [✅ 검증됨](#-verified-working--every-key-is-tested) · [🧭 작동 방식](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ 옵션](#️-cli-options) · [🛰️ 프록시](#️-behind-a-proxy) · [🐞 이슈](#-issues)
 
 </div>
 
@@ -35,34 +35,34 @@
 
 ## ✨ 왜 만들었나
 
-Dahl Inference는 **계정당 100,000,000 토큰의 웰컴 그랜트**를 제공하며, 계정의 첫 번째 API 키는 가입 호출 자체에서 반환됩니다. 그랜트는 *계정 풀*에 존재하고 단 한 번의 `allocate` 호출로 키로 옮겨집니다 — 이것이 바로 여기서 키당 하나의 계정이 올바른 단위인 이유입니다. 전체 흐름은 **평범한 REST JSON**입니다: 이메일, 전화번호, 카드, 캡차, 브라우저가 필요 없습니다.
+Dahl Inference는 **계정당 100,000,000 토큰의 웰컴 그랜트**를 제공하며, 계정의 첫 API 키는 가입 호출 자체에서 반환됩니다. 그랜트는 *계정 풀*에 존재하고 단 한 번의 `allocate` 호출로 키로 옮겨집니다 — 바로 이것이 여기서 계정 하나당 키 하나가 올바른 단위인 이유입니다. 전체 흐름은 **순수 REST JSON**입니다: 이메일도, 전화번호도, 카드도, 캡차도, 브라우저도 필요 없습니다.
 
 ## 🎁 무료 티어 — 얼마나 받을 수 있나
 
-**모든 새 Dahl 계정에는 100,000,000 토큰의 웰컴 그랜트가 있습니다 — 이메일, 전화번호, 카드, 캡차가 필요 없습니다.**
+**모든 새 Dahl 계정에는 100,000,000 토큰의 웰컴 그랜트가 있습니다 — 이메일, 전화번호, 카드, 캡차 모두 필요 없습니다.**
 
 | 항목 | 값 |
 | --- | --- |
 | 웰컴 그랜트 | 계정당 **100,000,000 토큰** — 가입 직후 `GET /v1/account`가 `token_balance = 100000000`을 보고합니다 |
-| 카드 필요 | **아니요** |
+| 카드 필요 | **아니오** |
 | 만료 | 없음 — 그랜트는 만료되지 않습니다 |
-| 속도 제한 | 분당 제한 없음; 채팅은 **모델 용량**에 의해 제한됩니다 (무료 계정은 유료 계정 이후에 허용됩니다 → `429 model_concurrency`, 몇 초 후 재시도하거나 다른 제공 모델을 사용하세요) |
+| 속도 제한 | 분당 제한 없음; 채팅은 **모델 용량**에 의해 제한됩니다 (무료 계정은 유료 계정 다음에 허용됨 → `429 model_concurrency`, 몇 초 후 재시도하거나 다른 제공 모델을 사용하세요) |
 | 가입 | REST: `POST /v1/auth/signup {"username":"adj_noun_123"}` — 메일함 불필요 |
-| 확장 단위 | **계정 하나 = 키 하나** (그랜트는 계정당이므로 같은 계정의 두 번째 키는 0에서 시작합니다) → `--count N`은 사실상 "N × 100M 토큰"입니다 |
+| 확장되는 단위 | **계정 하나 = 키 하나** (그랜트는 계정당이므로 같은 계정의 두 번째 키는 0에서 시작) → `--count N`은 사실상 "N × 100M 토큰"입니다 |
 
-엔드 투 엔드로 측정: 가입 → `POST /v1/account/allocate`가 그랜트를 키로 이동 → `GET /tokens/current`가 `{"available_tokens": 100000000}`을 응답합니다. 잔액이 0인 키는 채팅에서 `402 available tokens exhausted`를 응답합니다.
+처음부터 끝까지 측정: 가입 → `POST /v1/account/allocate`가 그랜트를 키로 이동 → `GET /tokens/current`가 `{"available_tokens": 100000000}`을 응답. 잔액이 0인 키는 채팅에서 `402 available tokens exhausted`를 응답합니다.
 
-> 💡 무료 티어는 Dahl Inference가 설정하며 변경될 수 있습니다. [inference.dahl.global](https://inference.dahl.global)에서 실시간 수치를 확인하세요 — 그리고 도구 자체의 게이트가 판단하게 하세요:
+> 💡 무료 티어는 Dahl Inference가 정하며 변경될 수 있습니다. 실시간 수치는 [inference.dahl.global](https://inference.dahl.global)에서 확인하세요 — 그리고 도구 자체의 게이트가 판단하게 하세요:
 
 ```bash
 node src/cli.js --verify-only     # every key in keys.txt is re-tested with a real chat call
 ```
 
-## 🤖 모델 — 총 3개
+## 🤖 모델 — 전부 3개
 
-`GET /v1/models`(공개, 인증 불필요)는 현재 **3개의 모델**을 제공합니다:
+`GET /v1/models` (공개, 인증 불필요)는 현재 **3개의 모델**을 제공합니다:
 
-|모델|✓|
+|Model|✓|
 |---|---|
 |`MiniMaxAI/MiniMax-M2.7`|✓|
 |`deepseek-ai/DeepSeek-V4-Flash-0731`|✓|
@@ -76,11 +76,11 @@ curl https://inference.dahl.global/v1/chat/completions \
   -d '{"model":"MiniMaxAI/MiniMax-M2.7","messages":[{"role":"user","content":"hi"}]}'
 ```
 
-> Dahl은 또한 **인증이 전혀 없이** `POST /tokens`에 응답하며 동일한 `{"token":"dahl_…","available_tokens":100000000}` 그랜트를 제공합니다. 이는 나중에 `POST /v1/account/keys/claim`으로 계정에 연결할 수 있습니다. 이 도구는 실제 계정을 사용합니다; 익명 경로는 동일한 그랜트를 제공하기 때문에 문서화되어 있습니다.
+> Dahl은 또한 **인증이 전혀 없는** `POST /tokens`에 응답하며 동일한 `{"token":"dahl_…","available_tokens":100000000}` 그랜트를 발급합니다. 이는 나중에 `POST /v1/account/keys/claim`으로 계정에 연결할 수 있습니다. 이 도구는 실제 계정을 사용합니다; 익명 경로는 동일한 그랜트를 제공하기 때문에 문서화되어 있습니다.
 
 ## 🧪 API 사용 방법
 
-기본 URL은 **`https://inference.dahl.global/v1`**입니다 — OpenAI 호환이므로 OpenAI를 지원하는 모든 것이 작동합니다.
+베이스 URL은 **`https://inference.dahl.global/v1`** 입니다 — OpenAI 호환이므로 OpenAI를 지원하는 모든 것이 작동합니다.
 
 **모든 SDK / curl**
 
@@ -91,25 +91,23 @@ print(client.chat.completions.create(model="MiniMaxAI/MiniMax-M2.7",
       messages=[{"role": "user", "content": "hi"}]).choices[0].message.content)
 ```
 
-**잔액 확인** (도구가 키를 신뢰하기 전에 수행하는 동일한 호출):
+**잔액 확인** (도구가 키를 신뢰하기 전에 수행하는 것과 동일한 호출):
 
 ```bash
 curl https://inference.dahl.global/tokens/current -H "Authorization: Bearer dahl_…"
-
 # {"available_tokens": 100000000}
 ```
 
-**사용자 지정 기본 URL을 지원하는 모든 에이전트 / 도구** (Cursor, OpenCode, Kilo Code, …): 기본 URL `https://inference.dahl.global/v1`, 키를 붙여넣고, 3개 모델 ID 중 하나를 선택하세요.
+**커스텀 베이스 URL을 지원하는 모든 에이전트 / 도구** (Cursor, OpenCode, Kilo Code, …): 베이스 URL `https://inference.dahl.global/v1`, 키를 붙여넣고, 3개의 모델 id 중 하나를 선택하세요.
 
 ## 🛠 빠른 시작
 
 ```bash
-
 # clone or fork this repository, then:
 cd dahl-bulk-apikey
 
-# 1) your proxy list, one per line (http://, socks5://, socks4:// or bare host:port)
-printf 'socks5://127.0.0.1:1080\n' > proxies.txt
+# 1) your proxy list, one per line (http://, socks5://, socks4:// or bare host:port) — optional
+printf 'socks5://127.0.0.1:1080\n' > proxies.txt   # optional — without it the tool runs direct
 
 # 2) go
 node src/launcher.js        # interactive: mint / verify / screen / settings
@@ -117,20 +115,25 @@ node src/launcher.js        # interactive: mint / verify / screen / settings
 node src/cli.js --count 30  # any N — 30 is just the default sample
 ```
 
-`keys.txt`(한 줄에 키 하나, `%USERPROFILE%\dahl-keys.txt`에 미러링됨)는 실제 채팅 완료가 키를 증명한 **후에만** 작성됩니다; `accounts.json`은 사용자 이름 / 지문 / 키 ID를 보관하여 나중에 어떤 계정이든 복구할 수 있습니다(`src/recover.js`).
+`keys.txt` (한 줄에 키 하나, `%USERPROFILE%\dahl-keys.txt`에 미러링됨)는 실시간 채팅 완료가 키를 증명한 **후에만** 작성됩니다; `accounts.json`은 사용자 이름 / 지문 / 키 id를 보관하여 나중에 어떤 계정이든 복구할 수 있습니다 (`src/recover.js`).
 
 ### 🖱️ 런처
 
-런처는 프록시 목록과 개수를 묻고, 이를 `launcher.config.json`에 기억한 뒤 CLI를 실행합니다 — 발급, 검증, 프록시 스크리닝, 설정, 도움말, 그리고 *9Router에 연결*.
+런처는 프록시 목록(선택 사항 — 없으면 CLI는 직접 실행)과 개수를 묻고, 이를 `launcher.config.json`에 기억한 뒤 CLI를 실행합니다 — mint, verify, screen proxies, settings, help, 그리고 *Connect to 9Router*.
 
-## ✅ 작동 검증됨 — 모든 키가 테스트됩니다
+## ✅ 검증됨 — 모든 키가 테스트됩니다
 
-| 확인 | 결과 |
+> **품질 게이트.** 여기의 모든 키는 `keys.txt`에 작성되기 전에 실시간 `chat-200`을 통과했습니다
+> (죽은 키는 절대 제공되지 않습니다). 라우터 조합도 모델 수준에서 동일한 규칙을 따릅니다: 항목은
+> **모델이 `chat-200`을 응답하고 도구를 호출할 수 있는 경우에만** 추가됩니다 — 도구 지원이 없는 모델,
+> 죽은 키 또는 죽은 제공자는 추가되지 않고 제거됩니다. **9Router 및 OmniRoute**와 함께 작동합니다.
+
+| 검사 | 결과 |
 | --- | --- |
-| `POST /v1/auth/signup` | **201** + `api_key.token` + `fingerprint` — 어느 단계에서도 이메일, 전화, 카드, 캡차 없음 |
+| `POST /v1/auth/signup` | **201** + `api_key.token` + `fingerprint` — 어느 단계에서도 이메일, 전화번호, 카드 또는 캡차 없음 |
 | `POST /v1/account/allocate {amount:100000000}` | **200**, 이후 `GET /tokens/current`가 **100000000**을 보고 |
-| `POST /v1/chat/completions` (`MiniMaxAI/MiniMax-M2.7`) — 기록되기 전에 **모든** 키에 대해 실행 | 실제 `choices[0].message.content`와 `usage` 블록이 포함된 **200** |
-| 채팅 검사를 통과하지 못한 키 | `keys.txt`에 절대 기록되지 않음 — 계정은 `accounts.json`에서 복구 가능한 상태로 유지됨 |
+| `POST /v1/chat/completions` (`MiniMaxAI/MiniMax-M2.7`) — 작성되기 전 **모든** 키에 대해 실행 | **200**과 실제 `choices[0].message.content` 및 `usage` 블록 |
+| 채팅 검사에 실패한 키 | `keys.txt`에 절대 작성되지 않음 — 계정은 `accounts.json`에서 복구 가능하게 유지됨 |
 
 ```bash
 node src/cli.js --verify-only      # GET /tokens/current + a chat call per key
@@ -150,12 +153,12 @@ inbox (one address per account)                                  a fresh address
 
 | 단계 | 호출 | 비고 |
 | --- | --- | --- |
-| 상태 확인 | `GET /health` | 출구의 도달 가능성 (인증 없음) |
+| health | `GET /health` | 출구의 도달 가능성 (인증 불필요) |
 | 사용자 이름 확인 | `GET /v1/auth/check-username?username=…` | `200 {"available":true,"valid":true}`; 사용 중 → `{"available":false,"suggestions":[…]}` |
-| **가입** | `POST /v1/auth/signup {"username":"…"}` | `201` + 세션 쿠키 + `{user, fingerprint, api_key}`; 사용자 이름은 `^[a-z0-9_]{3,20}$` (이 도구는 `adjective_noun_123`을 생성합니다) |
-| 로그인 (복구) | `POST /v1/auth/signin {"fingerprint":"…"}` | `200` + 세션 쿠키 — 지문은 계정의 유일한 자격 증명이므로 죽은 프록시가 계정을 잃게 하지 않습니다 |
+| **가입** | `POST /v1/auth/signup {"username":"…"}` | `201` + 세션 쿠키 + `{user, fingerprint, api_key}`; 사용자 이름은 `^[a-z0-9_]{3,20}$` (이 도구는 `adjective_noun_123`을 생성) |
+| 로그인 (복구) | `POST /v1/auth/signin {"fingerprint":"…"}` | `200` + 세션 쿠키 — 지문이 계정의 유일한 자격 증명이므로 죽은 프록시가 계정을 잃게 하지 않음 |
 | 계정 상태 | `GET /v1/account` | `{user, paid, token_balance, tokens_on_keys}` |
-| 그랜트 할당 | `POST /v1/account/allocate {"key_id":…, "amount":100000000}` | 전체 그랜트는 계정 풀입니다 (비어 있으면 `400 not enough tokens in pool`) |
+| 그랜트 할당 | `POST /v1/account/allocate {"key_id":…, "amount":100000000}` | 전체 그랜트가 계정 풀 (비어 있으면 `400 not enough tokens in pool`) |
 | 키 잔액 | `GET /tokens/current` | `Bearer dahl_…` → `{"available_tokens":100000000}` |
 | 추론 | `POST /v1/chat/completions` | OpenAI 형태; `GET /v1/models`는 공개 |
 
@@ -171,27 +174,31 @@ node src/cli.js --help
 
 | 환경 변수 | 기본값 | 의미 |
 | --- | --- | --- |
-| `DAHL_PROXIES` | `proxies.txt` | 풀 파일, 한 줄에 프록시 하나 |
-| `DAHL_MODEL` | `MiniMaxAI/MiniMax-M2.7` | 실제 검증에 사용되는 모델 |
+| `DAHL_PROXIES` | `proxies.txt` | 풀 파일, 한 줄에 프록시 하나 — 선택 사항: 풀이 없으면 CLI는 직접 연결 |
+| `DAHL_MODEL` | `MiniMaxAI/MiniMax-M2.7` | 실시간 검증에 사용되는 모델 |
 | `DAHL_AMOUNT` | `100000000` | 각 키에 할당되는 웰컴 그랜트 |
 
 ## 🛰️ 프록시 뒤에서
 
-**필수 — 이 도구에는 직접 연결 폴백이 전혀 없습니다.** 모든 요청은 풀의 프록시 라인을 통해 나갑니다; 죽은 라인은 해당 계정 시도를 실패시키고 도구는 계속 진행합니다 (`accounts.json`의 지문을 사용하면 나중에 다른 출구에서 마무리할 수 있습니다). 풀은 사용 시점에 다시 프로브되며, `--screen`을 사용하면 실행 전에 새 목록을 호스트에 대해 테스트할 수 있습니다.
+**선택 사항 — 대규모에서는 권장 (IP별 제한, 차단).** 이 도구는 프록시 없이도 작동합니다.
+
+- **풀이 있는 경우:** 출구를 `proxies.txt`에 넣거나 `DAHL_PROXIES`를 설정하면 모든 요청이 프록시 라인을 통과합니다 — 풀은 사용 시점에 다시 프로브되고, 죽은 라인은 해당 계정 시도를 실패시키며 도구는 계속 진행합니다 (`accounts.json`의 지문으로 나중에 다른 출구에서 마무리할 수 있습니다).
+- **풀이 없는 경우:** CLI는 `running WITHOUT a proxy (direct)`를 출력하고 직접 연결합니다; 가입, 할당 및 검증은 변경되지 않습니다 — 패킷이 나가는 위치만 다릅니다.
+- `--screen`은 어느 모드에서든 작동합니다: 실행 전에 보유한 출구(또는 직접 경로)를 호스트에 대해 테스트합니다.
 
 ## 📄 파일
 
 | 경로 | 내용 |
 | --- | --- |
-| `keys.txt` | 한 줄에 실제 검증된 키 하나 — git 무시됨, 절대 커밋되지 않음 |
-| `accounts.json` | 사용자 이름 / user_id / 지문 / 키 ID — 모든 계정을 복구하기에 충분 |
-| `/v1/models` | 실시간 카탈로그 (공개, 인증 없음) — 3개 ID |
+| `keys.txt` | 한 줄에 실시간 검증된 키 하나 — git 무시됨, 절대 커밋되지 않음 |
+| `accounts.json` | 사용자 이름 / user_id / 지문 / 키 id — 어떤 계정이든 복구하기에 충분 |
+| `/v1/models` | 실시간 카탈로그 (공개, 인증 불필요) — 3개 id |
 | `proxies.txt` | 출구, 한 줄에 하나 — git 무시됨 |
 | `outputs/` | 실행 로그 및 상태 — git 무시됨 |
 
 ## 🔌 9Router에 연결
 
-[9Router](https://9router.com)는 셀프 호스팅, OpenAI 호환 라우터입니다. Dahl은 OpenAI 호환 엔드포인트를 제공하므로 한 번 등록하면 모든 키가 하나의 제공자 노드 아래 연결이 됩니다:
+[9Router](https://9router.com)는 자체 호스팅, OpenAI 호환 라우터입니다. Dahl은 OpenAI 호환 엔드포인트를 제공하므로 한 번 등록하면 모든 키가 하나의 provider-node 아래 연결이 됩니다:
 
 ```bash
 node src/connect-9router.js \
@@ -203,7 +210,7 @@ node src/connect-9router.js \
 
 ## 🔌 OmniRoute에 연결
 
-[OmniRoute](https://omniroute.online)는 셀프 호스팅, OpenAI 호환 라우터입니다. Dahl은 OpenAI 호환 엔드포인트를 제공하므로 한 번 등록하면 모든 키가 하나의 제공자 노드 아래 연결이 됩니다:
+[OmniRoute](https://omniroute.online)는 자체 호스팅, OpenAI 호환 라우터입니다. Dahl은 OpenAI 호환 엔드포인트를 제공하므로 한 번 등록하면 모든 키가 하나의 provider-node 아래 연결이 됩니다:
 
 ```bash
 node src/connect-omniroute.js \
@@ -217,29 +224,29 @@ node src/connect-omniroute.js \
 | | |
 | --- | --- |
 | 🏢 제공자 | **Dahl Inference** — [inference.dahl.global](https://inference.dahl.global) |
-| 🎁 제공자가 주는 것 | 계정당 1억 무료 토큰 — 평범한 REST 가입, 이메일 없음, 카드 없음 |
-| 🔑 키 하나로 얻는 것 | 자체 계정에 범위가 지정된 API 키 하나: 아래 엔드포인트의 모델 ID를, 요금제 한도 내에서. 할당량은 **계정**에 존재하므로, 이 도구가 키당 하나의 계정을 생성하는 것입니다 |
+| 🎁 제공자가 주는 것 | 계정당 1억 무료 토큰 — 순수 REST 가입, 이메일 없음, 카드 없음 |
+| 🔑 키 하나로 얻는 것 | 자체 계정에 범위가 지정된 API 키 하나: 아래 엔드포인트의 모델 id를 플랜 한도 내에서. 할당량은 **계정**에 있으므로, 이 도구가 키당 계정 하나를 생성하는 것입니다 |
 | 🌐 API 형태 | OpenAI 호환: `POST https://inference.dahl.global/v1/chat/completions` |
-| 🔒 데이터 | `inference.dahl.global`만 접촉됩니다 — 메일함 단계가 전혀 없습니다; 키는 사용자의 컴퓨터에 남습니다 |
+| 🔒 데이터 | `inference.dahl.global`만 접촉됩니다 — 메일함 단계가 전혀 없습니다; 키는 사용자 컴퓨터에 남습니다 |
 
 ## 🐞 이슈
 
-Dahl이 가입 형태, 할당 의미론 또는 속도 제한을 변경하면 도구는 해당 단계에서 멈추고 그렇게 알립니다. 실행한 명령과 정확한 출력을 포함하여 **[이슈를 열어주세요](../../issues)**; PR을 환영합니다.
+Dahl이 가입 형태, 할당 의미 또는 속도 제한을 변경하면 도구는 해당 단계에서 멈추고 그렇게 알립니다. 실행한 명령과 정확한 출력을 포함하여 **[이슈를 열어주세요](../../issues)**; PR을 환영합니다.
 
 ## 📄 라이선스
 
-MIT © 2026 — [LICENSE](LICENSE)를 참조하세요.
+MIT © 2026 — [LICENSE](LICENSE) 참조.
 
 <div align="center">
 
-**[MIT](LICENSE)** © 2026 dahl-bulk-apikey 기여자들
+**[MIT](LICENSE)** © 2026 dahl-bulk-apikey contributors
 
 </div>
 
 ## ⚡ 실행 형태 (프리셋)
 
-`--preset=turbo|balanced|safe`는 워커 수 + 계정 간 일시 정지를 설정합니다 (turbo = 5,
-balanced = 4, safe = 2); 명시적인 `--conc`/`--gap`(또는 저장소 자체 플래그)이 항상 우선하며,
-`--preset`이 없으면 도구는 기존 형태를 그대로 유지합니다.
+`--preset=turbo|balanced|safe`는 워커 수 + 계정 간 일시정지를 설정합니다 (turbo = 5,
+balanced = 4, safe = 2); 명시적 `--conc`/`--gap` (또는 저장소 자체 플래그)이 항상 우선하며,
+`--preset` 없이는 도구가 기존 형태를 그대로 유지합니다.
 
-Turbo 권장 (워커 5개); 더 많으면 저사양 컴퓨터에서 부하/차단 위험이 있습니다.
+Turbo önerilir (5 worker); daha fazlası zayıf bilgisayarda yük/ban riski.
