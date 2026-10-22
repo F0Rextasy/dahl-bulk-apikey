@@ -35,7 +35,7 @@
 
 ## ✨ Por qué existe esto
 
-Dahl Inference otorga una **concesión de bienvenida de 100.000.000 de tokens por cuenta**, y la primera clave API de la cuenta la devuelve la propia llamada de registro. La concesión vive en el *grupo de la cuenta* y se transfiere a la clave con una sola llamada `allocate` — que es exactamente por lo que una cuenta por clave es la unidad correcta aquí. Todo el flujo es **REST JSON puro**: sin correo electrónico, sin teléfono, sin tarjeta, sin captcha, sin navegador.
+Dahl Inference otorga una **concesión de bienvenida de 100.000.000 de tokens por cuenta**, y la primera clave API de la cuenta la devuelve la propia llamada de registro. La concesión vive en el *pool de la cuenta* y se transfiere a la clave con una sola llamada `allocate` — que es exactamente por lo que una cuenta por clave es la unidad correcta aquí. Todo el flujo es **REST JSON puro**: sin correo electrónico, sin teléfono, sin tarjeta, sin captcha, sin navegador.
 
 ## 🎁 Nivel gratuito — cuánto obtienes
 
@@ -48,9 +48,9 @@ Dahl Inference otorga una **concesión de bienvenida de 100.000.000 de tokens po
 | Caducidad | ninguna — la concesión no caduca |
 | Límite de velocidad | sin límite por minuto; el chat está condicionado por la **capacidad del modelo** (las cuentas gratuitas se admiten después de las de pago → `429 model_concurrency`, reintenta unos segundos después o usa otro modelo servido) |
 | Registro | REST: `POST /v1/auth/signup {"username":"adj_noun_123"}` — sin buzón |
-| La unidad que escala | **una cuenta = una clave** (la concesión es por cuenta: una segunda clave en la misma cuenta empieza en 0) → `--count N` en realidad es "N × 100M tokens" |
+| La unidad que escala | **una cuenta = una clave** (la concesión es por cuenta: una segunda clave en la misma cuenta empieza en 0) → `--count N` es realmente "N × 100M tokens" |
 
-Medido de principio a fin: registro → `POST /v1/account/allocate` transfiere la concesión a la clave → `GET /tokens/current` responde `{"available_tokens": 100000000}`. Una clave con saldo cero responde `402 available tokens exhausted` en el chat.
+Medido de principio a fin: registro → `POST /v1/account/allocate` mueve la concesión a la clave → `GET /tokens/current` responde `{"available_tokens": 100000000}`. Una clave con saldo cero responde `402 available tokens exhausted` en el chat.
 
 > 💡 El nivel gratuito lo establece Dahl Inference y puede cambiar. Consulta los números en vivo en [inference.dahl.global](https://inference.dahl.global) — y deja que la propia puerta de la herramienta decida:
 
@@ -119,7 +119,7 @@ node src/cli.js --count 30  # any N — 30 is just the default sample
 
 ### 🖱️ El lanzador
 
-El lanzador pide la lista de proxies (opcional — sin una, el CLI se ejecuta directo) y la cantidad, los recuerda en `launcher.config.json`, y ejecuta el CLI — crear, verificar, examinar proxies, ajustes, ayuda y *Conectar a 9Router*.
+El lanzador pide la lista de proxies (opcional — sin una, el CLI se ejecuta directamente) y la cantidad, los recuerda en `launcher.config.json`, y ejecuta el CLI — crear, verificar, examinar proxies, ajustes, ayuda y *Conectar a 9Router*.
 
 ## ✅ Verificado y funcionando — cada clave se prueba
 
@@ -158,9 +158,9 @@ inbox (one address per account)                                  a fresh address
 | **registro** | `POST /v1/auth/signup {"username":"…"}` | `201` + cookie de sesión + `{user, fingerprint, api_key}`; el nombre de usuario es `^[a-z0-9_]{3,20}$` (esta herramienta genera `adjective_noun_123`) |
 | inicio de sesión (recuperación) | `POST /v1/auth/signin {"fingerprint":"…"}` | `200` + cookie de sesión — la huella es la única credencial de la cuenta, así que un proxy muerto nunca pierde una cuenta |
 | estado de la cuenta | `GET /v1/account` | `{user, paid, token_balance, tokens_on_keys}` |
-| asignar la concesión | `POST /v1/account/allocate {"key_id":…, "amount":100000000}` | toda la concesión es el grupo de la cuenta (`400 not enough tokens in pool` cuando está vacío) |
+| asignar la concesión | `POST /v1/account/allocate {"key_id":…, "amount":100000000}` | toda la concesión es el pool de la cuenta (`400 not enough tokens in pool` cuando está vacío) |
 | saldo de la clave | `GET /tokens/current` | `Bearer dahl_…` → `{"available_tokens":100000000}` |
-| inferencia | `POST /v1/chat/completions` | formato OpenAI; `GET /v1/models` es público |
+| inferencia | `POST /v1/chat/completions` | forma OpenAI; `GET /v1/models` es público |
 
 ## ⚙️ Opciones del CLI
 
@@ -174,7 +174,7 @@ node src/cli.js --help
 
 | Variable de entorno | Predeterminado | Significado |
 | --- | --- | --- |
-| `DAHL_PROXIES` | `proxies.txt` | archivo de grupo, un proxy por línea — opcional: sin un grupo el CLI se conecta directamente |
+| `DAHL_PROXIES` | `proxies.txt` | archivo de pool, un proxy por línea — opcional: sin un pool el CLI se conecta directamente |
 | `DAHL_MODEL` | `MiniMaxAI/MiniMax-M2.7` | modelo usado para la verificación en vivo |
 | `DAHL_AMOUNT` | `100000000` | concesión de bienvenida asignada a cada clave |
 
@@ -182,15 +182,15 @@ node src/cli.js --help
 
 **Opcional — recomendado a escala (límites por IP, bloqueos).** La herramienta también funciona sin proxy.
 
-- **Con un grupo:** pon las salidas en `proxies.txt` (o define `DAHL_PROXIES`) y cada solicitud pasa por una línea de proxy — el grupo se vuelve a sondear en el momento de uso, una línea muerta hace fallar ese intento de cuenta y la herramienta continúa (la huella en `accounts.json` te permite terminarla más tarde desde cualquier otra salida).
-- **Sin un grupo:** el CLI imprime `running WITHOUT a proxy (direct)` y se conecta directamente; el registro, la asignación y la verificación no cambian — solo desde dónde salen los paquetes.
-- `--screen` funciona en cualquier modo: prueba las salidas que tengas (o la ruta directa) contra el host antes de una ejecución.
+- **Con un pool:** pon las salidas en `proxies.txt` (o establece `DAHL_PROXIES`) y cada solicitud pasa por una línea de proxy — el pool se vuelve a sondear en el momento de uso, una línea muerta hace fallar ese intento de cuenta y la herramienta continúa (la huella en `accounts.json` te permite terminarla más tarde desde cualquier otra salida).
+- **Sin un pool:** el CLI imprime `running WITHOUT a proxy (direct)` y se conecta directamente; el registro, la asignación y la verificación no cambian — solo cambia desde dónde salen los paquetes.
+- `--screen` funciona en cualquiera de los dos modos: prueba las salidas que tengas (o la ruta directa) contra el host antes de una ejecución.
 
 ## 📄 Archivos
 
 | Ruta | Contenido |
 | --- | --- |
-| `keys.txt` | una clave verificada en vivo por línea — ignorada por git, nunca confirmada |
+| `keys.txt` | una clave verificada en vivo por línea — ignorada por git, nunca comprometida |
 | `accounts.json` | nombre de usuario / user_id / huella / id de clave — suficiente para recuperar cualquier cuenta |
 | `/v1/models` | el catálogo en vivo (público, sin autenticación) — 3 ids |
 | `proxies.txt` | tus salidas, una por línea — ignorado por git |
@@ -198,7 +198,7 @@ node src/cli.js --help
 
 ## 🔌 Conectar a 9Router
 
-[9Router](https://9router.com) es un router autoalojado y compatible con OpenAI. Dahl sirve un endpoint compatible con OpenAI, así que regístralo una vez y cada clave se convierte en una conexión bajo un nodo de proveedor:
+[9Router](https://9router.com) es un router autoalojado y compatible con OpenAI. Dahl sirve un endpoint compatible con OpenAI, así que regístralo una vez y cada clave se convierte en una conexión bajo un nodo proveedor:
 
 ```bash
 node src/connect-9router.js \
@@ -206,11 +206,11 @@ node src/connect-9router.js \
   --api-key dahl_xxxxxxxx
 ```
 
-Ejecútalo sin `--api-key` para registrar **cada** clave en `keys.txt`. Volver a ejecutarlo es idempotente: el nodo se empareja por `--prefix dahl`, cada conexión por nombre (`dahl-001`, `dahl-002`, …). Predeterminados: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Los modelos se sirven entonces como `dahl/<model id>`.
+Ejecútalo sin `--api-key` para registrar **cada** clave en `keys.txt`. Volver a ejecutarlo es idempotente: el nodo se empareja por `--prefix dahl`, cada conexión por nombre (`dahl-001`, `dahl-002`, …). Valores predeterminados: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Los modelos se sirven entonces como `dahl/<model id>`.
 
 ## 🔌 Conectar a OmniRoute
 
-[OmniRoute](https://omniroute.online) es un router autoalojado y compatible con OpenAI. Dahl sirve un endpoint compatible con OpenAI, así que regístralo una vez y cada clave se convierte en una conexión bajo un nodo de proveedor:
+[OmniRoute](https://omniroute.online) es un router autoalojado y compatible con OpenAI. Dahl sirve un endpoint compatible con OpenAI, así que regístralo una vez y cada clave se convierte en una conexión bajo un nodo proveedor:
 
 ```bash
 node src/connect-omniroute.js \
@@ -218,7 +218,7 @@ node src/connect-omniroute.js \
   --api-key dahl_xxxxxxxx
 ```
 
-Ejecútalo sin `--api-key` para registrar **cada** clave en `keys.txt`. Volver a ejecutarlo es idempotente: el nodo se empareja por `--prefix dahl`, cada conexión por nombre (`dahl-001`, `dahl-002`, …). Predeterminados: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Los modelos se sirven entonces como `dahl/<model id>`.
+Ejecútalo sin `--api-key` para registrar **cada** clave en `keys.txt`. Volver a ejecutarlo es idempotente: el nodo se empareja por `--prefix dahl`, cada conexión por nombre (`dahl-001`, `dahl-002`, …). Valores predeterminados: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Los modelos se sirven entonces como `dahl/<model id>`.
 ## 🔑 Qué te da una clave
 
 | | |
@@ -227,7 +227,7 @@ Ejecútalo sin `--api-key` para registrar **cada** clave en `keys.txt`. Volver a
 | 🎁 Qué da el proveedor | 100M de tokens gratis por cuenta — registro REST simple, sin correo electrónico, sin tarjeta |
 | 🔑 Qué te da una clave | una clave API limitada a su propia cuenta: los ids de modelo en el endpoint de abajo, con los límites de tu plan. La cuota vive en la **cuenta**, que es exactamente por lo que esta herramienta crea una cuenta por clave |
 | 🌐 Forma de la API | Compatible con OpenAI: `POST https://inference.dahl.global/v1/chat/completions` |
-| 🔒 Tus datos | solo se contacta con `inference.dahl.global` — no hay ningún paso de buzón; las claves se quedan en tu máquina |
+| 🔒 Tus datos | solo se contacta `inference.dahl.global` — no hay ningún paso de buzón; las claves permanecen en tu máquina |
 
 ## 🐞 Problemas
 
@@ -246,7 +246,7 @@ MIT © 2026 — consulta [LICENSE](LICENSE).
 ## ⚡ Forma de ejecución (presets)
 
 `--preset=turbo|balanced|safe` establece los workers + la pausa entre cuentas (turbo = 5,
-balanced = 4, safe = 2); `--conc`/`--gap` explícitos (o los propios flags del repositorio) siempre ganan,
+balanced = 4, safe = 2); `--conc`/`--gap` explícitos (o los propios flags del repositorio) siempre tienen prioridad,
 y sin `--preset` la herramienta mantiene exactamente su forma histórica.
 
-Turbo önerilir (5 worker); daha fazlası zayıf bilgisayarda yük/ban riski.
+Se recomienda turbo (5 workers); más supone riesgo de carga/bloqueo en equipos débiles.

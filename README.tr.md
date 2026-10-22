@@ -35,7 +35,7 @@
 
 ## ✨ Bu neden var
 
-Dahl Inference her hesaba **100.000.000 token'lık hoş geldin hibesi** verir ve hesabın ilk API anahtarı kayıt çağrısının kendisi tarafından döndürülür. Hibe *hesap havuzunda* yaşar ve tek bir `allocate` çağrısıyla anahtara taşınır — bu yüzden burada doğru birim anahtar başına bir hesaptır. Tüm akış **düz REST JSON**'dur: e-posta yok, telefon yok, kart yok, captcha yok, tarayıcı yok.
+Dahl Inference her hesaba **100.000.000 token'lık hoş geldin hibesi** verir ve hesabın ilk API anahtarı kayıt çağrısının kendisi tarafından döndürülür. Hibe *hesap havuzunda* yaşar ve tek bir `allocate` çağrısıyla anahtara taşınır — bu yüzden burada doğru birim hesap başına bir anahtardır. Tüm akış **düz REST JSON**'dur: e-posta yok, telefon yok, kart yok, captcha yok, tarayıcı yok.
 
 ## 🎁 Ücretsiz katman — ne kadar alırsınız
 
@@ -44,13 +44,13 @@ Dahl Inference her hesaba **100.000.000 token'lık hoş geldin hibesi** verir ve
 | Ne | Değer |
 | --- | --- |
 | Hoş geldin hibesi | Hesap başına **100.000.000 token** — `GET /v1/account` kayıttan hemen sonra `token_balance = 100000000` bildirir |
-| Kart gerekli | **Hayır** |
-| Bitiş | yok — hibe sona ermez |
-| Hız sınırı | dakika başına sınır yok; sohbet **model kapasitesi** ile kapılıdır (ücretsiz hesaplar ücretlilerden sonra kabul edilir → `429 model_concurrency`, birkaç saniye sonra tekrar deneyin veya başka bir sunulan model kullanın) |
+| Kart gerekli mi | **Hayır** |
+| Son kullanma | yok — hibe süresi dolmaz |
+| Hız sınırı | dakika başına sınır yok; sohbet **model kapasitesi** ile kapılıdır (ücretsiz hesaplar ücretlilerden sonra kabul edilir → `429 model_concurrency`, birkaç saniye sonra yeniden deneyin veya başka bir sunulan model kullanın) |
 | Kayıt | REST: `POST /v1/auth/signup {"username":"adj_noun_123"}` — posta kutusu yok |
-| Ölçeklenen birim | **bir hesap = bir anahtar** (hibe hesap başınadır: aynı hesaptaki ikinci anahtar 0'dan başlar) → `--count N` gerçekte "N × 100M token" demektir |
+| Ölçeklenen birim | **bir hesap = bir anahtar** (hibe hesap başınadır: aynı hesaptaki ikinci anahtar 0'dan başlar) → `--count N` aslında "N × 100M token" demektir |
 
-Uçtan uca ölçüldü: kayıt → `POST /v1/account/allocate` hibeyi anahtara taşır → `GET /tokens/current` `{"available_tokens": 100000000}` yanıtını verir. Sıfır bakiyeli bir anahtar sohbette `402 available tokens exhausted` yanıtını verir.
+Uçtan uca ölçüldü: kayıt → `POST /v1/account/allocate` hibeyi anahtara taşır → `GET /tokens/current` `{"available_tokens": 100000000}` yanıtını verir. Bakiyesi sıfır olan bir anahtar sohbette `402 available tokens exhausted` yanıtını verir.
 
 > 💡 Ücretsiz katman Dahl Inference tarafından belirlenir ve değişebilir. Güncel sayıları [inference.dahl.global](https://inference.dahl.global) adresinden kontrol edin — ve aracın kendi kapısının karar vermesine izin verin:
 
@@ -76,11 +76,11 @@ curl https://inference.dahl.global/v1/chat/completions \
   -d '{"model":"MiniMaxAI/MiniMax-M2.7","messages":[{"role":"user","content":"hi"}]}'
 ```
 
-> Dahl ayrıca `POST /tokens` isteğine **hiç kimlik doğrulama olmadan** yanıt verir ve aynı `{"token":"dahl_…","available_tokens":100000000}` hibesini dağıtır; bu daha sonra `POST /v1/account/keys/claim` ile bir hesaba bağlanabilir. Bu araç gerçek hesaplar kullanır; anonim yol aynı hibeyi taşıdığı için belgelenmiştir.
+> Dahl ayrıca `POST /tokens` isteğine **hiç kimlik doğrulama olmadan** yanıt verir ve aynı `{"token":"dahl_…","available_tokens":100000000}` hibesini verir; bu daha sonra `POST /v1/account/keys/claim` ile bir hesaba bağlanabilir. Bu araç gerçek hesaplar kullanır; anonim yol aynı hibeyi taşıdığı için belgelenmiştir.
 
 ## 🧪 API nasıl kullanılır
 
-Temel URL **`https://inference.dahl.global/v1`**'dir — OpenAI uyumlu, yani OpenAI konuşan her şey çalışır.
+Temel URL **`https://inference.dahl.global/v1`** — OpenAI uyumlu, yani OpenAI konuşan her şey çalışır.
 
 **Herhangi bir SDK / curl**
 
@@ -98,7 +98,7 @@ curl https://inference.dahl.global/tokens/current -H "Authorization: Bearer dahl
 # {"available_tokens": 100000000}
 ```
 
-**Özel temel URL'li herhangi bir ajan / araç** (Cursor, OpenCode, Kilo Code, …): temel URL `https://inference.dahl.global/v1`, bir anahtar yapıştırın, 3 model kimliğinden birini seçin.
+**Özel temel URL kullanan herhangi bir ajan / araç** (Cursor, OpenCode, Kilo Code, …): temel URL `https://inference.dahl.global/v1`, bir anahtar yapıştırın, 3 model kimliğinden birini seçin.
 
 ## 🛠 Hızlı başlangıç
 
@@ -119,9 +119,9 @@ node src/cli.js --count 30  # any N — 30 is just the default sample
 
 ### 🖱️ Başlatıcı
 
-Başlatıcı proxy listesini (isteğe bağlı — olmadan CLI doğrudan çalışır) ve sayıyı sorar, bunları `launcher.config.json` içinde hatırlar ve CLI'yi çalıştırır — oluştur, doğrula, proxy'leri tara, ayarlar, yardım ve *9Router'a bağlan*.
+Başlatıcı proxy listesini (isteğe bağlı — olmadan CLI doğrudan çalışır) ve sayıyı sorar, bunları `launcher.config.json` içinde hatırlar ve CLI'yi çalıştırır — oluştur, doğrula, proxy'leri tara, ayarlar, yardım ve *9Router'a Bağlan*.
 
-## ✅ Doğrulandı — her anahtar test edilir
+## ✅ Çalıştığı doğrulandı — her anahtar test edilir
 
 > **Kalite kapıları.** Buradaki her anahtar `keys.txt` dosyasına yazılmadan önce canlı bir `chat-200` geçti
 > (ölü anahtarlar asla gönderilmez). Yönlendirici kombinasyonları model düzeyinde aynı kuralı izler: bir giriş
@@ -158,7 +158,7 @@ inbox (one address per account)                                  a fresh address
 | **kayıt** | `POST /v1/auth/signup {"username":"…"}` | `201` + oturum çerezi + `{user, fingerprint, api_key}`; kullanıcı adı `^[a-z0-9_]{3,20}$` (bu araç `adjective_noun_123` üretir) |
 | oturum açma (kurtarma) | `POST /v1/auth/signin {"fingerprint":"…"}` | `200` + oturum çerezi — parmak izi hesabın tek kimlik bilgisidir, bu yüzden ölü bir proxy bir hesabı asla kaybetmez |
 | hesap durumu | `GET /v1/account` | `{user, paid, token_balance, tokens_on_keys}` |
-| hibeyi tahsis et | `POST /v1/account/allocate {"key_id":…, "amount":100000000}` | tüm hibe hesap havuzudur (boş olduğunda `400 not enough tokens in pool`) |
+| hibeyi tahsis et | `POST /v1/account/allocate {"key_id":…, "amount":100000000}` | tüm hibe hesap havuzudur (boşken `400 not enough tokens in pool`) |
 | anahtar bakiyesi | `GET /tokens/current` | `Bearer dahl_…` → `{"available_tokens":100000000}` |
 | çıkarım | `POST /v1/chat/completions` | OpenAI şekli; `GET /v1/models` herkese açıktır |
 
@@ -183,8 +183,8 @@ node src/cli.js --help
 **İsteğe bağlı — ölçekte önerilir (IP başına sınırlar, yasaklar).** Araç proxy olmadan da çalışır.
 
 - **Havuzla:** çıkışları `proxies.txt` dosyasına koyun (veya `DAHL_PROXIES` ayarlayın) ve her istek bir proxy satırından geçer — havuz kullanım anında yeniden yoklanır, ölü bir satır o hesap denemesini başarısız kılar ve araç devam eder (`accounts.json` içindeki parmak izi, daha sonra başka bir çıkıştan tamamlamanıza olanak tanır).
-- **Havuz olmadan:** CLI `running WITHOUT a proxy (direct)` yazdırır ve doğrudan bağlanır; kayıt, tahsis ve doğrulama değişmez — yalnızca paketlerin nereden çıktığı değişir.
-- `--screen` her iki modda da çalışır: bir çalıştırmadan önce sahip olduğunuz çıkışları (veya doğrudan rotayı) ana makineye karşı test eder.
+- **Havuz olmadan:** CLI `running WITHOUT a proxy (direct)` yazdırır ve doğrudan bağlanır; kayıt, tahsis ve doğrulama değişmez — yalnızca paketlerin çıktığı yer değişir.
+- `--screen` her iki modda da çalışır: bir çalıştırmadan önce sahip olduğunuz çıkışları (veya doğrudan rotayı) ana bilgisayara karşı test eder.
 
 ## 📄 Dosyalar
 
@@ -227,7 +227,7 @@ node src/connect-omniroute.js \
 | 🎁 Sağlayıcının verdikleri | Hesap başına 100M ücretsiz token — düz REST kaydı, e-posta yok, kart yok |
 | 🔑 Bir anahtar size ne kazandırır | kendi hesabına kapsamlı bir API anahtarı: aşağıdaki uç noktadaki model kimlikleri, planınızın sınırlarında. Kota **hesapta** yaşar, bu yüzden bu araç anahtar başına bir hesap oluşturur |
 | 🌐 API şekli | OpenAI uyumlu: `POST https://inference.dahl.global/v1/chat/completions` |
-| 🔒 Verileriniz | yalnızca `inference.dahl.global` ile iletişime geçilir — hiç posta kutusu adımı yoktur; anahtarlar makinenizde kalır |
+| 🔒 Verileriniz | yalnızca `inference.dahl.global` ile iletişim kurulur — hiçbir posta kutusu adımı yoktur; anahtarlar makinenizde kalır |
 
 ## 🐞 Sorunlar
 

@@ -52,7 +52,7 @@ O Dahl Inference concede uma **bolsa de boas-vindas de 100.000.000 de tokens por
 
 Medido de ponta a ponta: cadastro → `POST /v1/account/allocate` move a bolsa para a chave → `GET /tokens/current` responde `{"available_tokens": 100000000}`. Uma chave com saldo zero responde `402 available tokens exhausted` no chat.
 
-> 💡 O nível gratuito é definido pelo Dahl Inference e pode mudar. Confira os números ao vivo em [inference.dahl.global](https://inference.dahl.global) — e deixe o próprio portão da ferramenta decidir:
+> 💡 O nível gratuito é definido pelo Dahl Inference e pode mudar. Confira os números ao vivo em [inference.dahl.global](https://inference.dahl.global) — e deixe o próprio gate da ferramenta decidir:
 
 ```bash
 node src/cli.js --verify-only     # every key in keys.txt is re-tested with a real chat call
@@ -76,7 +76,7 @@ curl https://inference.dahl.global/v1/chat/completions \
   -d '{"model":"MiniMaxAI/MiniMax-M2.7","messages":[{"role":"user","content":"hi"}]}'
 ```
 
-> O Dahl também responde a `POST /tokens` **sem nenhuma autenticação** e entrega a mesma bolsa `{"token":"dahl_…","available_tokens":100000000}`, vinculável a uma conta depois com `POST /v1/account/keys/claim`. Esta ferramenta usa contas reais; a rota anônima está documentada porque carrega a mesma bolsa.
+> O Dahl também responde a `POST /tokens` **sem autenticação alguma** e entrega a mesma bolsa `{"token":"dahl_…","available_tokens":100000000}`, vinculável a uma conta depois com `POST /v1/account/keys/claim`. Esta ferramenta usa contas reais; a rota anônima está documentada porque carrega a mesma bolsa.
 
 ## 🧪 Como usar a API
 
@@ -119,7 +119,7 @@ node src/cli.js --count 30  # any N — 30 is just the default sample
 
 ### 🖱️ O launcher
 
-O launcher pede a lista de proxies (opcional — sem uma, o CLI roda direto) e a contagem, lembra delas em `launcher.config.json` e executa o CLI — mint, verify, screen proxies, settings, help e *Connect to 9Router*.
+O launcher pede a lista de proxies (opcional — sem uma, a CLI roda direto) e a contagem, lembra-os em `launcher.config.json` e executa a CLI — mint, verify, screen proxies, settings, help e *Connect to 9Router*.
 
 ## ✅ Verificado e funcionando — toda chave é testada
 
@@ -162,7 +162,7 @@ inbox (one address per account)                                  a fresh address
 | saldo da chave | `GET /tokens/current` | `Bearer dahl_…` → `{"available_tokens":100000000}` |
 | inferência | `POST /v1/chat/completions` | formato OpenAI; `GET /v1/models` é público |
 
-## ⚙️ Opções do CLI
+## ⚙️ Opções da CLI
 
 ```bash
 node src/cli.js --count N        # screen exits, mint, allocate, verify (any N, default 30)
@@ -174,7 +174,7 @@ node src/cli.js --help
 
 | Variável de ambiente | Padrão | Significado |
 | --- | --- | --- |
-| `DAHL_PROXIES` | `proxies.txt` | arquivo de pool, um proxy por linha — opcional: sem um pool o CLI se conecta diretamente |
+| `DAHL_PROXIES` | `proxies.txt` | arquivo de pool, um proxy por linha — opcional: sem um pool a CLI se conecta diretamente |
 | `DAHL_MODEL` | `MiniMaxAI/MiniMax-M2.7` | modelo usado para a verificação ao vivo |
 | `DAHL_AMOUNT` | `100000000` | bolsa de boas-vindas alocada a cada chave |
 
@@ -183,22 +183,22 @@ node src/cli.js --help
 **Opcional — recomendado em escala (limites por IP, banimentos).** A ferramenta também funciona sem proxy.
 
 - **Com um pool:** coloque saídas em `proxies.txt` (ou defina `DAHL_PROXIES`) e toda requisição passa por uma linha de proxy — o pool é re-testado no momento do uso, uma linha morta faz aquela tentativa de conta falhar e a ferramenta segue em frente (o fingerprint em `accounts.json` permite concluí-la depois a partir de qualquer outra saída).
-- **Sem um pool:** o CLI imprime `running WITHOUT a proxy (direct)` e se conecta diretamente; cadastro, alocação e verificação permanecem inalterados — só muda de onde os pacotes saem.
-- `--screen` funciona em qualquer modo: ele testa as saídas que você tem (ou a rota direta) contra o host antes de uma execução.
+- **Sem um pool:** a CLI imprime `running WITHOUT a proxy (direct)` e se conecta diretamente; cadastro, alocação e verificação permanecem inalterados — só muda de onde os pacotes saem.
+- `--screen` funciona em qualquer modo: testa as saídas que você tem (ou a rota direta) contra o host antes de uma execução.
 
 ## 📄 Arquivos
 
 | Caminho | Conteúdo |
 | --- | --- |
 | `keys.txt` | uma chave verificada ao vivo por linha — ignorada pelo git, nunca commitada |
-| `accounts.json` | nome de usuário / user_id / fingerprint / id da chave — o suficiente para recuperar qualquer conta |
+| `accounts.json` | nome de usuário / user_id / fingerprint / id da chave — suficiente para recuperar qualquer conta |
 | `/v1/models` | o catálogo ao vivo (público, sem autenticação) — 3 ids |
 | `proxies.txt` | suas saídas, uma por linha — ignorado pelo git |
 | `outputs/` | logs de execução e estado — ignorado pelo git |
 
 ## 🔌 Conectar ao 9Router
 
-[9Router](https://9router.com) é um roteador auto-hospedado e compatível com OpenAI. O Dahl serve um endpoint compatível com OpenAI, então registre-o uma vez e toda chave se torna uma conexão sob um único nó de provedor:
+[9Router](https://9router.com) é um roteador auto-hospedado e compatível com OpenAI. O Dahl serve um endpoint compatível com OpenAI, então registre-o uma vez e toda chave se torna uma conexão sob um nó de provedor:
 
 ```bash
 node src/connect-9router.js \
@@ -210,7 +210,7 @@ Execute sem `--api-key` para registrar **todas** as chaves em `keys.txt`. Reexec
 
 ## 🔌 Conectar ao OmniRoute
 
-[OmniRoute](https://omniroute.online) é um roteador auto-hospedado e compatível com OpenAI. O Dahl serve um endpoint compatível com OpenAI, então registre-o uma vez e toda chave se torna uma conexão sob um único nó de provedor:
+[OmniRoute](https://omniroute.online) é um roteador auto-hospedado e compatível com OpenAI. O Dahl serve um endpoint compatível com OpenAI, então registre-o uma vez e toda chave se torna uma conexão sob um nó de provedor:
 
 ```bash
 node src/connect-omniroute.js \
@@ -224,10 +224,10 @@ Execute sem `--api-key` para registrar **todas** as chaves em `keys.txt`. Reexec
 | | |
 | --- | --- |
 | 🏢 Provedor | **Dahl Inference** — [inference.dahl.global](https://inference.dahl.global) |
-| 🎁 O que o provedor dá | 100M de tokens gratuitos por conta — cadastro REST simples, sem e-mail, sem cartão |
+| 🎁 O que o provedor dá | 100M de tokens grátis por conta — cadastro REST simples, sem e-mail, sem cartão |
 | 🔑 O que uma chave lhe dá | uma chave de API vinculada à sua própria conta: os ids de modelo no endpoint abaixo, nos limites do seu plano. A cota fica na **conta**, e é exatamente por isso que esta ferramenta cria uma conta por chave |
 | 🌐 Formato da API | Compatível com OpenAI: `POST https://inference.dahl.global/v1/chat/completions` |
-| 🔒 Seus dados | apenas `inference.dahl.global` é contatado — não há nenhuma etapa de caixa de correio; as chaves ficam na sua máquina |
+| 🔒 Seus dados | apenas `inference.dahl.global` é contatado — não há etapa de caixa de correio alguma; as chaves ficam na sua máquina |
 
 ## 🐞 Problemas
 
