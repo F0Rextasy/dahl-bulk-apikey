@@ -18,6 +18,7 @@
 [![License](https://img.shields.io/badge/license-MIT-6ea8fe?style=for-the-badge)](LICENSE)
 [![Models](https://img.shields.io/badge/models-3%20served-412991?style=for-the-badge)](https://inference.dahl.global/docs)
 [![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6?style=for-the-badge)](#-connect-to-9router)
+[![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
 [🛠 Quick start](#-quick-start) · [🎁 Free tier](#-free-tier--how-much-you-get) · [🤖 Models](#-models--all-3-of-them) · [🧪 Use the API](#-how-to-use-the-api) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Issues](#-issues)
@@ -200,6 +201,17 @@ node src/connect-9router.js \
 
 Execute sem `--api-key` para registrar **todas** as chaves de `keys.txt`. Reexecutar é idempotente: o nó é identificado por `--prefix dahl`, cada conexão pelo nome (`dahl-001`, `dahl-002`, …). Padrões: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Os modelos passam então a ser servidos como `dahl/<model id>`.
 
+## 🔌 Conectar ao OmniRoute
+
+O [OmniRoute](https://omniroute.online) é um roteador auto-hospedado e compatível com OpenAI. O Dahl oferece um endpoint compatível com OpenAI, então registre-o uma vez e cada chave se torna uma conexão sob um único nó de provedor:
+
+```bash
+node src/connect-omniroute.js \
+  --base http://localhost:20128 --password 123456 \
+  --api-key dahl_xxxxxxxx
+```
+
+Execute sem `--api-key` para registrar **todas** as chaves de `keys.txt`. Reexecutar é idempotente: o nó é identificado por `--prefix dahl`, cada conexão pelo nome (`dahl-001`, `dahl-002`, …). Padrões: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Os modelos passam então a ser servidos como `dahl/<model id>`.
 ## 🔑 O que uma chave oferece
 
 | | |

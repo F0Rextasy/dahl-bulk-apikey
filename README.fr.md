@@ -18,6 +18,7 @@
 [![License](https://img.shields.io/badge/license-MIT-6ea8fe?style=for-the-badge)](LICENSE)
 [![Models](https://img.shields.io/badge/models-3%20served-412991?style=for-the-badge)](https://inference.dahl.global/docs)
 [![9Router](https://img.shields.io/badge/9Router-connector-8B5CF6?style=for-the-badge)](#-connect-to-9router)
+[![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
 [🛠 Démarrage rapide](#-quick-start) · [🎁 Offre gratuite](#-free-tier--how-much-you-get) · [🤖 Modèles](#-models--all-3-of-them) · [🧪 Utiliser l'API](#-how-to-use-the-api) · [✅ Vérifié](#-verified-working--every-key-is-tested) · [🧭 Comment ça marche](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problèmes](#-issues)
@@ -200,6 +201,17 @@ node src/connect-9router.js \
 
 Lancez-le sans `--api-key` pour enregistrer **toutes** les clés de `keys.txt`. Une nouvelle exécution est idempotente : le nœud est identifié par `--prefix dahl`, chaque connexion par son nom (`dahl-001`, `dahl-002`, …). Valeurs par défaut : `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Les modèles sont alors servis sous `dahl/<model id>`.
 
+## 🔌 Se connecter à OmniRoute
+
+[OmniRoute](https://omniroute.online) est un routeur auto-hébergé compatible OpenAI. Dahl expose un point de terminaison compatible OpenAI : enregistrez-le une fois et chaque clé devient une connexion sous un même nœud fournisseur :
+
+```bash
+node src/connect-omniroute.js \
+  --base http://localhost:20128 --password 123456 \
+  --api-key dahl_xxxxxxxx
+```
+
+Lancez-le sans `--api-key` pour enregistrer **toutes** les clés de `keys.txt`. Une nouvelle exécution est idempotente : le nœud est identifié par `--prefix dahl`, chaque connexion par son nom (`dahl-001`, `dahl-002`, …). Valeurs par défaut : `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Les modèles sont alors servis sous `dahl/<model id>`.
 ## 🔑 Ce qu'une clé vous apporte
 
 | | |
