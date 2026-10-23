@@ -140,8 +140,36 @@ async function connectFlow(cfg) {
   }
 }
 
+async function connectFlowOmni(cfg) {
+  const { connectKeysFile, connectOmniRoute } = require('./connect-omniroute.js');
+  cfg.routerBase = await ask('OmniRoute base URL', cfg.routerBase);
+  cfg.routerPassword = await ask('OmniRoute password', cfg.routerPassword);
+  saveConfig(cfg);
+  console.log('');
+  try {
+    await connectKeysFile({ base: cfg.routerBase, password: cfg.routerPassword });
+  } catch (e) {
+    if (!/no API keys/.test(e.message)) throw e;
+    console.log(`  ! ${e.message}`);
+    const apiKey = await ask('Single Dahl Inference key to register');
+    if (apiKey) await connectOmniRoute({ base: cfg.routerBase, password: cfg.routerPassword, apiKey });
+  }
+}
+
 async function main() {
   const cfg = loadConfig();
+  // CLI shortcuts — the repo-format gate requires --connect-omniroute (and --connect-9router
+  // for parity with the other bulk repos); the menu items below call the same flows.
+  if (process.argv.includes('--connect-9router')) {
+    await connectFlow(cfg);
+    rl.close();
+    return;
+  }
+  if (process.argv.includes('--connect-omniroute')) {
+    await connectFlowOmni(cfg);
+    rl.close();
+    return;
+  }
   banner();
   console.log('  1) Mint keys      — sign up one account per key, allocate the grant, verify');
   console.log('  2) Verify keys    — re-check every key with a live chat completion');
@@ -149,6 +177,7 @@ async function main() {
   console.log('  4) Settings       — show what this launcher remembers');
   console.log('  5) Help           — CLI options and notes');
   console.log('  6) Connect to 9Router — register the keys in keys.txt with a local 9Router');
+  console.log('  7) Connect to OmniRoute — register the keys in keys.txt with a local OmniRoute');
   console.log('  q) Quit\n');
   const choice = (await ask('Choose', '1')).toLowerCase();
 
@@ -158,6 +187,7 @@ async function main() {
   else if (choice === '4') console.log('\n' + JSON.stringify(cfg, null, 2));
   else if (choice === '5') run(['--help']);
   else if (choice === '6') await connectFlow(cfg);
+  else if (choice === '7') await connectFlowOmni(cfg);
   rl.close();
 }
 

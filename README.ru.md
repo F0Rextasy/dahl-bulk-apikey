@@ -21,7 +21,11 @@
 [![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
+<<<<<<< Updated upstream
 [🛠 Быстрый старт](#-quick-start) · [🎁 Бесплатный тариф](#-free-tier--how-much-you-get) · [🤖 Модели](#-models--all-3-of-them) · [🧪 Использование API](#-how-to-use-the-api) · [✅ Проверено](#-verified-working--every-key-is-tested) · [🧭 Как это работает](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Опции](#️-cli-options) · [🛰️ Прокси](#️-behind-a-proxy) · [🐞 Проблемы](#-issues)
+=======
+[🛠 Быстрый старт](#-quick-start) · [🎁 Бесплатный тариф](#-free-tier--how-much-you-get) · [🤖 Модели](#-models--all-3-of-them) · [🧪 Использование API](#-how-to-use-the-api) · [✅ Проверено](#-verified-working--every-key-is-tested) · [🧭 Как это работает](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ Параметры](#️-cli-options) · [🛰️ За прокси](#️-behind-a-proxy) · [🐞 Проблемы](#-issues)
+>>>>>>> Stashed changes
 
 </div>
 
@@ -95,6 +99,7 @@ print(client.chat.completions.create(model="MiniMaxAI/MiniMax-M2.7",
 
 ```bash
 curl https://inference.dahl.global/tokens/current -H "Authorization: Bearer dahl_…"
+
 # {"available_tokens": 100000000}
 ```
 
@@ -210,7 +215,11 @@ node src/connect-9router.js \
 
 ## 🔌 Подключение к OmniRoute
 
+<<<<<<< Updated upstream
 [OmniRoute](https://omniroute.online) — это самостоятельно размещаемый роутер, совместимый с OpenAI. Dahl предоставляет совместимую с OpenAI конечную точку, поэтому зарегистрируйте её один раз, и каждый ключ станет соединением под одним узлом-провайдером:
+=======
+[OmniRoute](https://omniroute.online) — это самостоятельно размещаемый OpenAI-совместимый роутер. Dahl обслуживает OpenAI-совместимый эндпоинт, поэтому зарегистрируйте его один раз, и каждый ключ станет соединением под одним узлом провайдера:
+>>>>>>> Stashed changes
 
 ```bash
 node src/connect-omniroute.js \
@@ -218,7 +227,12 @@ node src/connect-omniroute.js \
   --api-key dahl_xxxxxxxx
 ```
 
+<<<<<<< Updated upstream
 Запустите без `--api-key`, чтобы зарегистрировать **каждый** ключ из `keys.txt`. Повторный запуск идемпотентен: узел сопоставляется по `--prefix dahl`, каждое соединение по имени (`dahl-001`, `dahl-002`, …). По умолчанию: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Затем модели обслуживаются как `dahl/<model id>`.
+=======
+Запустите без `--api-key`, чтобы зарегистрировать **каждый** ключ из `keys.txt`. Повторный запуск идемпотентен: узел сопоставляется по `--prefix dahl`, каждое соединение — по имени (`dahl-001`, `dahl-002`, …). Значения по умолчанию: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. После этого модели доступны как `dahl/<model id>`.
+
+>>>>>>> Stashed changes
 ## 🔑 Что даёт один ключ
 
 | | |

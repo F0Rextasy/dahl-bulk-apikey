@@ -21,7 +21,7 @@
 [![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-[🛠 Inicio rápido](#-quick-start) · [🎁 Nivel gratuito](#-free-tier--how-much-you-get) · [🤖 Modelos](#-models--all-3-of-them) · [🧪 Usar la API](#-how-to-use-the-api) · [✅ Verificado](#-verified-working--every-key-is-tested) · [🧭 Cómo funciona](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Opciones](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problemas](#-issues)
+[🛠 Inicio rápido](#-quick-start) · [🎁 Nivel gratuito](#-free-tier--how-much-you-get) · [🤖 Modelos](#-models--all-3-of-them) · [🧪 Usar la API](#-how-to-use-the-api) · [✅ Verificado](#-verified-working--every-key-is-tested) · [🧭 Cómo funciona](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ Opciones](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Problemas](#-issues)
 
 </div>
 
@@ -208,9 +208,15 @@ node src/connect-9router.js \
 
 Ejecútalo sin `--api-key` para registrar **cada** clave en `keys.txt`. Volver a ejecutarlo es idempotente: el nodo se empareja por `--prefix dahl`, cada conexión por nombre (`dahl-001`, `dahl-002`, …). Valores predeterminados: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Los modelos se sirven entonces como `dahl/<model id>`.
 
+<<<<<<< Updated upstream
 ## 🔌 Conectar a OmniRoute
 
 [OmniRoute](https://omniroute.online) es un router autoalojado y compatible con OpenAI. Dahl sirve un endpoint compatible con OpenAI, así que regístralo una vez y cada clave se convierte en una conexión bajo un nodo proveedor:
+=======
+## 🔌 Conectar con OmniRoute
+
+[OmniRoute](https://omniroute.online) es un router autoalojado y compatible con OpenAI. Dahl sirve un endpoint compatible con OpenAI, así que regístralo una vez y cada clave se convierte en una conexión bajo un mismo nodo de proveedor:
+>>>>>>> Stashed changes
 
 ```bash
 node src/connect-omniroute.js \
@@ -218,7 +224,12 @@ node src/connect-omniroute.js \
   --api-key dahl_xxxxxxxx
 ```
 
+<<<<<<< Updated upstream
 Ejecútalo sin `--api-key` para registrar **cada** clave en `keys.txt`. Volver a ejecutarlo es idempotente: el nodo se empareja por `--prefix dahl`, cada conexión por nombre (`dahl-001`, `dahl-002`, …). Valores predeterminados: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Los modelos se sirven entonces como `dahl/<model id>`.
+=======
+Ejecútalo sin `--api-key` para registrar **todas** las claves de `keys.txt`. Volver a ejecutarlo es idempotente: el nodo se empareja por `--prefix dahl`, cada conexión por nombre (`dahl-001`, `dahl-002`, …). Valores predeterminados: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Los modelos se sirven entonces como `dahl/<model id>`.
+
+>>>>>>> Stashed changes
 ## 🔑 Qué te da una clave
 
 | | |

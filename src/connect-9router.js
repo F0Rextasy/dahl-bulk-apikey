@@ -25,7 +25,7 @@
  *   --name <name>      provider-node name       (default Dahl Inference)
  *   --prefix <slug>    provider prefix in 9Router (default dahl)
  *   --base-url <url>   provider base URL        (default https://inference.dahl.global/v1)
- *   --model <id>       connection default model (default MiniMaxAI/MiniMax-M2.7)
+ *   --model <id>       connection default model (default: provider's default model)
  *
  * Zero dependencies. Node.js >= 18.
  */

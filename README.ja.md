@@ -21,7 +21,11 @@
 [![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
+<<<<<<< Updated upstream
 [🛠 クイックスタート](#-quick-start) · [🎁 無料枠](#-free-tier--how-much-you-get) · [🤖 モデル](#-models--all-3-of-them) · [🧪 API の使い方](#-how-to-use-the-api) · [✅ 検証済み](#-verified-working--every-key-is-tested) · [🧭 仕組み](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ オプション](#️-cli-options) · [🛰️ プロキシ](#️-behind-a-proxy) · [🐞 問題](#-issues)
+=======
+[🛠 クイックスタート](#-quick-start) · [🎁 無料枠](#-free-tier--how-much-you-get) · [🤖 モデル](#-models--all-3-of-them) · [🧪 API の使い方](#-how-to-use-the-api) · [✅ 動作確認済み](#-verified-working--every-key-is-tested) · [🧭 仕組み](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ オプション](#️-cli-options) · [🛰️ プロキシ](#️-behind-a-proxy) · [🐞 イシュー](#-issues)
+>>>>>>> Stashed changes
 
 </div>
 
@@ -208,9 +212,15 @@ node src/connect-9router.js \
 
 `--api-key` なしで実行すると、`keys.txt` の**すべての**キーを登録します。再実行は冪等です: ノードは `--prefix dahl` で照合され、各接続は名前 (`dahl-001`、`dahl-002`、…) で照合されます。デフォルト: `--base http://localhost:20128`、`--password 123456`、`--name "Dahl Inference"`、`--prefix dahl`、`--base-url https://inference.dahl.global/v1`、`--model MiniMaxAI/MiniMax-M2.7`。モデルはその後 `dahl/<model id>` として提供されます。
 
+<<<<<<< Updated upstream
 ## 🔌 OmniRoute に接続
 
 [OmniRoute](https://omniroute.online) はセルフホストの OpenAI 互換ルーターです。Dahl は OpenAI 互換エンドポイントを提供するので、一度登録すればすべてのキーが 1 つのプロバイダーノードの下の接続になります:
+=======
+## 🔌 OmniRoute への接続
+
+[OmniRoute](https://omniroute.online) はセルフホスト型の OpenAI 互換ルーターです。Dahl は OpenAI 互換エンドポイントを提供しているので、一度登録すればすべてのキーが 1 つのプロバイダーノード配下の接続になります:
+>>>>>>> Stashed changes
 
 ```bash
 node src/connect-omniroute.js \
@@ -218,8 +228,14 @@ node src/connect-omniroute.js \
   --api-key dahl_xxxxxxxx
 ```
 
+<<<<<<< Updated upstream
 `--api-key` なしで実行すると、`keys.txt` の**すべての**キーを登録します。再実行は冪等です: ノードは `--prefix dahl` で照合され、各接続は名前 (`dahl-001`、`dahl-002`、…) で照合されます。デフォルト: `--base http://localhost:20128`、`--password 123456`、`--name "Dahl Inference"`、`--prefix dahl`、`--base-url https://inference.dahl.global/v1`、`--model MiniMaxAI/MiniMax-M2.7`。モデルはその後 `dahl/<model id>` として提供されます。
 ## 🔑 1 つのキーで得られるもの
+=======
+`--api-key` なしで実行すると、`keys.txt` 内の**すべての**キーを登録します。再実行は冪等です: ノードは `--prefix dahl` で照合され、各接続は名前（`dahl-001`、`dahl-002`、…）で照合されます。デフォルト: `--base http://localhost:20128`、`--password 123456`、`--name "Dahl Inference"`、`--prefix dahl`、`--base-url https://inference.dahl.global/v1`、`--model MiniMaxAI/MiniMax-M2.7`。モデルはその後 `dahl/<model id>` として提供されます。
+
+## 🔑 1 本のキーで得られるもの
+>>>>>>> Stashed changes
 
 | | |
 | --- | --- |

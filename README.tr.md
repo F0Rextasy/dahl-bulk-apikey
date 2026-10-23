@@ -21,7 +21,11 @@
 [![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
+<<<<<<< Updated upstream
 [🛠 Hızlı başlangıç](#-quick-start) · [🎁 Ücretsiz katman](#-free-tier--how-much-you-get) · [🤖 Modeller](#-models--all-3-of-them) · [🧪 API'yi kullanma](#-how-to-use-the-api) · [✅ Doğrulandı](#-verified-working--every-key-is-tested) · [🧭 Nasıl çalışır](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Seçenekler](#️-cli-options) · [🛰️ Proxy'ler](#️-behind-a-proxy) · [🐞 Sorunlar](#-issues)
+=======
+[🛠 Hızlı başlangıç](#-quick-start) · [🎁 Ücretsiz katman](#-free-tier--how-much-you-get) · [🤖 Modeller](#-models--all-3-of-them) · [🧪 API'yi kullanın](#-how-to-use-the-api) · [✅ Doğrulandı](#-verified-working--every-key-is-tested) · [🧭 Nasıl çalışır](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ Seçenekler](#️-cli-options) · [🛰️ Proxyler](#️-behind-a-proxy) · [🐞 Sorunlar](#-issues)
+>>>>>>> Stashed changes
 
 </div>
 
@@ -95,6 +99,7 @@ print(client.chat.completions.create(model="MiniMaxAI/MiniMax-M2.7",
 
 ```bash
 curl https://inference.dahl.global/tokens/current -H "Authorization: Bearer dahl_…"
+
 # {"available_tokens": 100000000}
 ```
 
@@ -210,7 +215,11 @@ node src/connect-9router.js \
 
 ## 🔌 OmniRoute'a bağlan
 
+<<<<<<< Updated upstream
 [OmniRoute](https://omniroute.online) kendi kendine barındırılan, OpenAI uyumlu bir yönlendiricidir. Dahl, OpenAI uyumlu bir uç nokta sunar, bu yüzden bir kez kaydedin ve her anahtar tek bir sağlayıcı düğümü altında bir bağlantı haline gelir:
+=======
+[OmniRoute](https://omniroute.online) kendi sunucunuzda barındırılan, OpenAI uyumlu bir yönlendiricidir. Dahl, OpenAI uyumlu bir uç nokta sunduğu için bir kez kaydedin ve her anahtar tek bir sağlayıcı düğümü altında bir bağlantıya dönüşsün:
+>>>>>>> Stashed changes
 
 ```bash
 node src/connect-omniroute.js \
@@ -218,7 +227,12 @@ node src/connect-omniroute.js \
   --api-key dahl_xxxxxxxx
 ```
 
+<<<<<<< Updated upstream
 `--api-key` olmadan çalıştırın, `keys.txt` içindeki **her** anahtarı kaydetmek için. Yeniden çalıştırma etkisizdir: düğüm `--prefix dahl` ile eşleştirilir, her bağlantı adıyla (`dahl-001`, `dahl-002`, …). Varsayılanlar: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Modeller daha sonra `dahl/<model id>` olarak sunulur.
+=======
+`--api-key` olmadan çalıştırırsanız `keys.txt` içindeki **tüm** anahtarlar kaydedilir. Tekrar çalıştırma idempotenttir: düğüm `--prefix dahl` ile, her bağlantı ise adıyla (`dahl-001`, `dahl-002`, …) eşleştirilir. Varsayılanlar: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Modeller ardından `dahl/<model id>` olarak sunulur.
+
+>>>>>>> Stashed changes
 ## 🔑 Bir anahtar size ne kazandırır
 
 | | |
