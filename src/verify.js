@@ -163,9 +163,14 @@ function exits() {
   fs.writeFileSync(path.join(OUT, 'verify-live-keys.txt'), liveKeys.join('\n') + (liveKeys.length ? '\n' : ''));
   console.log(`[verify] this pass ${ok}/${keys.length}; cumulative live ${liveKeys.length}/${allKeys.length}; live keys → outputs/verify-live-keys.txt`);
   // Keys the API itself rejected (401 revoked, 402 drained, 403 forbidden): the
-  // push list must never see them again, so they are written where they can be
-  // audited (a report row may be a transport failure — that is not a verdict).
-  const deadSet = new Set(all.filter((r) => r.invalid).map((r) => r.key));
+  // push list must never see them again, so they are parked in keys-dead.txt
+  // NEXT TO the keys file as `key<TAB>sebep<TAB>ISO` (a report row may be a
+  // transport failure — that is not a verdict).
+  const deadRows = all.filter((r) => r.invalid);
+  const deadSet = new Set(deadRows.map((r) => r.key));
+  const deadReason = new Map(deadRows.map((r) => [r.key, DEAD_KEY_STATUS.has(r.chatStatus) ? r.chatStatus : r.balanceStatus]));
   const deadKeys = allKeys.filter((k) => deadSet.has(short(k)));
-  fs.writeFileSync(path.join(OUT, 'keys-dead.txt'), deadKeys.join('\n') + (deadKeys.length ? '\n' : ''));
+  const deadFile = path.join(path.dirname(KEYS_FILE), 'keys-dead.txt');
+  fs.writeFileSync(deadFile, deadKeys.map((k) => `${k}\t${deadReason.get(short(k)) || 'dead'}\t${new Date().toISOString()}`).join('\n') + (deadKeys.length ? '\n' : ''));
+  console.log(`[verify] dead ${deadKeys.length} → ${path.relative(process.cwd(), deadFile)}`);
 })();
