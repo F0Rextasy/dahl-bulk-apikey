@@ -219,10 +219,7 @@ node src/connect-omniroute.js \
 ```
 
 Run it without `--api-key` to register **every** key in `keys.txt`. Re-running is idempotent: the node is matched by `--prefix dahl`, each connection by name (`dahl-001`, `dahl-002`, …). Defaults: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Models are then served as `dahl/<model id>`.
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 ## 🔑 What one key gets you
 
 | | |

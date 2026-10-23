@@ -21,11 +21,7 @@
 [![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-<<<<<<< Updated upstream
-[🛠 Schnellstart](#-quick-start) · [🎁 Kostenlose Stufe](#-free-tier--how-much-you-get) · [🤖 Modelle](#-models--all-3-of-them) · [🧪 API verwenden](#-how-to-use-the-api) · [✅ Verifiziert](#-verified-working--every-key-is-tested) · [🧭 Funktionsweise](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ Optionen](#️-cli-options) · [🛰️ Proxys](#️-behind-a-proxy) · [🐞 Probleme](#-issues)
-=======
 [🛠 Schnellstart](#-quick-start) · [🎁 Free-Tier](#-free-tier--how-much-you-get) · [🤖 Modelle](#-models--all-3-of-them) · [🧪 API verwenden](#-how-to-use-the-api) · [✅ Verifiziert](#-verified-working--every-key-is-tested) · [🧭 So funktioniert es](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ Optionen](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Probleme](#-issues)
->>>>>>> Stashed changes
 
 </div>
 
@@ -216,11 +212,7 @@ Führe es ohne `--api-key` aus, um **jeden** Schlüssel in `keys.txt` zu registr
 
 ## 🔌 Mit OmniRoute verbinden
 
-<<<<<<< Updated upstream
-[OmniRoute](https://omniroute.online) ist ein selbst gehosteter, OpenAI-kompatibler Router. Dahl bietet einen OpenAI-kompatiblen Endpunkt, also registriere ihn einmal und jeder Schlüssel wird zu einer Verbindung unter einem Anbieter-Node:
-=======
 [OmniRoute](https://omniroute.online) ist ein selbst gehosteter, OpenAI-kompatibler Router. Dahl bietet einen OpenAI-kompatiblen Endpoint, also registriere ihn einmal und jeder Key wird zu einer Verbindung unter einem Provider-Node:
->>>>>>> Stashed changes
 
 ```bash
 node src/connect-omniroute.js \
@@ -228,14 +220,9 @@ node src/connect-omniroute.js \
   --api-key dahl_xxxxxxxx
 ```
 
-<<<<<<< Updated upstream
-Führe es ohne `--api-key` aus, um **jeden** Schlüssel in `keys.txt` zu registrieren. Ein erneuter Lauf ist idempotent: Der Node wird über `--prefix dahl` abgeglichen, jede Verbindung über den Namen (`dahl-001`, `dahl-002`, …). Standardwerte: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Modelle werden dann als `dahl/<model id>` bereitgestellt.
-## 🔑 Was ein Schlüssel dir bringt
-=======
 Führe es ohne `--api-key` aus, um **jeden** Key in `keys.txt` zu registrieren. Ein erneuter Lauf ist idempotent: der Node wird über `--prefix dahl` abgeglichen, jede Verbindung über ihren Namen (`dahl-001`, `dahl-002`, …). Standardwerte: `--base http://localhost:20128`, `--password 123456`, `--name "Dahl Inference"`, `--prefix dahl`, `--base-url https://inference.dahl.global/v1`, `--model MiniMaxAI/MiniMax-M2.7`. Die Modelle werden dann als `dahl/<model id>` ausgeliefert.
 
 ## 🔑 Was ein Key dir bringt
->>>>>>> Stashed changes
 
 | | |
 | --- | --- |

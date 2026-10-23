@@ -162,4 +162,10 @@ function exits() {
   const liveKeys = allKeys.filter((k) => liveSet.has(short(k)));
   fs.writeFileSync(path.join(OUT, 'verify-live-keys.txt'), liveKeys.join('\n') + (liveKeys.length ? '\n' : ''));
   console.log(`[verify] this pass ${ok}/${keys.length}; cumulative live ${liveKeys.length}/${allKeys.length}; live keys → outputs/verify-live-keys.txt`);
+  // Keys the API itself rejected (401 revoked, 402 drained, 403 forbidden): the
+  // push list must never see them again, so they are written where they can be
+  // audited (a report row may be a transport failure — that is not a verdict).
+  const deadSet = new Set(all.filter((r) => r.invalid).map((r) => r.key));
+  const deadKeys = allKeys.filter((k) => deadSet.has(short(k)));
+  fs.writeFileSync(path.join(OUT, 'keys-dead.txt'), deadKeys.join('\n') + (deadKeys.length ? '\n' : ''));
 })();

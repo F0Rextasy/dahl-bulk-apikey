@@ -41,9 +41,33 @@ const arg = (name, fallback) => {
   return next === undefined || next.startsWith('--') ? fallback : next;
 };
 
+/**
+ * `--dry`: the resolved plan, then exit 0. Nothing is written and no request is
+ * sent, so it is safe to run anywhere (it never spawns mint/verify).
+ */
+if (args.includes('--dry')) {
+  const poolFile = process.env.DAHL_PROXIES || 'proxies.txt';
+  const exits = (() => {
+    try {
+      return require('fs').readFileSync(path.resolve(__dirname, '..', poolFile), 'utf8').split(/\r?\n/).filter((l) => l.trim() && !l.startsWith('#')).length;
+    } catch (e) {
+      return 0;
+    }
+  })();
+  console.log('dahl dry run — nothing is written and no request is sent.');
+  console.log(`  count    ${arg('--count', '30')} account(s) → one key each`);
+  console.log(`  model    ${process.env.DAHL_MODEL || '(mint default)'}   amount ${process.env.DAHL_AMOUNT || '(mint default)'}`);
+  console.log(`  pool     ${exits ? `${exits} exit(s) from ${poolFile}` : `direct (no usable exit in ${poolFile})`}`);
+  console.log('  solver   none — this provider signs up over plain REST that carries no captcha');
+  console.log('  keys     keys.txt · verify writes dead keys to outputs/keys-dead.txt');
+  process.exit(0);
+}
+
 if (args.includes('--help') || args.includes('-h')) {
   console.log(require('fs').readFileSync(path.join(__dirname, '..', 'README.md'), 'utf8').split('## ⚙️')[1] || 'see README.md');
   console.log('  --connect-9router  register every key in keys.txt with 9Router after the run');
+  console.log('  --auto             no captcha on this provider — accepted for the one-command menu (default)');
+  console.log('  --dry              print the resolved plan, write nothing, send nothing');
   process.exit(0);
 }
 

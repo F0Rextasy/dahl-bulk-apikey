@@ -21,11 +21,7 @@
 [![OmniRoute](https://img.shields.io/badge/OmniRoute-connector-8B5CF6?style=for-the-badge)](#-connect-to-omniroute)
 [![X](https://img.shields.io/badge/X-%40bigbullapp-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/bigbullapp)
 
-<<<<<<< Updated upstream
-[🛠 快速开始](#-quick-start) · [🎁 免费额度](#-free-tier--how-much-you-get) · [🤖 模型](#-models--all-3-of-them) · [🧪 使用 API](#-how-to-use-the-api) · [✅ 已验证](#-verified-working--every-key-is-tested) · [🧭 工作原理](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [⚙️ 选项](#️-cli-options) · [🛰️ 代理](#️-behind-a-proxy) · [🐞 问题](#-issues)
-=======
 [🛠 Quick start](#-quick-start) · [🎁 Free tier](#-free-tier--how-much-you-get) · [🤖 Models](#-models--all-3-of-them) · [🧪 Use the API](#-how-to-use-the-api) · [✅ Verified](#-verified-working--every-key-is-tested) · [🧭 How it works](#-how-it-works) · [🔌 9Router](#-connect-to-9router) · [🔌 OmniRoute](#-connect-to-omniroute) · [⚙️ Options](#️-cli-options) · [🛰️ Proxies](#️-behind-a-proxy) · [🐞 Issues](#-issues)
->>>>>>> Stashed changes
 
 </div>
 
@@ -215,11 +211,7 @@ node src/connect-9router.js \
 
 ## 🔌 连接到 OmniRoute
 
-<<<<<<< Updated upstream
-[OmniRoute](https://omniroute.online) 是一个自托管、兼容 OpenAI 的路由器。Dahl 提供兼容 OpenAI 的端点，因此注册一次，每个密钥都会成为一个提供商节点下的连接：
-=======
 [OmniRoute](https://omniroute.online) 是一个自托管、兼容 OpenAI 的路由器。Dahl 提供兼容 OpenAI 的端点，因此只需注册一次，每个密钥都会成为同一个 provider-node 下的连接：
->>>>>>> Stashed changes
 
 ```bash
 node src/connect-omniroute.js \
@@ -227,14 +219,9 @@ node src/connect-omniroute.js \
   --api-key dahl_xxxxxxxx
 ```
 
-<<<<<<< Updated upstream
-不带 `--api-key` 运行它会注册 `keys.txt` 中的**每一个**密钥。重复运行是幂等的：节点通过 `--prefix dahl` 匹配，每个连接通过名称匹配（`dahl-001`、`dahl-002` 等）。默认值：`--base http://localhost:20128`、`--password 123456`、`--name "Dahl Inference"`、`--prefix dahl`、`--base-url https://inference.dahl.global/v1`、`--model MiniMaxAI/MiniMax-M2.7`。模型随后以 `dahl/<model id>` 的形式提供。
-## 🔑 一个密钥能给你带来什么
-=======
 不带 `--api-key` 运行它，可注册 `keys.txt` 中的**每一个**密钥。重复运行是幂等的：节点通过 `--prefix dahl` 匹配，每个连接通过名称（`dahl-001`、`dahl-002` 等）匹配。默认值：`--base http://localhost:20128`、`--password 123456`、`--name "Dahl Inference"`、`--prefix dahl`、`--base-url https://inference.dahl.global/v1`、`--model MiniMaxAI/MiniMax-M2.7`。随后模型会以 `dahl/<model id>` 的形式提供。
 
 ## 🔑 一个密钥能带来什么
->>>>>>> Stashed changes
 
 | | |
 | --- | --- |
